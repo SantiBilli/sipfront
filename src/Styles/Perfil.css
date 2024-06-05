@@ -1,0 +1,99 @@
+
+.box-perfil {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.barra-perfil{
+    height: 80%;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.perfil-pic {
+    height: 300px;
+    width: 300px;
+}
+
+.left-perfil p {
+    font-family: 'Poppins';
+}
+
+.left-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+
+.datos-usuario{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.datos-usuario h3{
+    font-family: 'Poppins';
+    font-size: 27px;
+}
+
+.Seguridad {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.Seguridad h3 {
+    font-family: 'Poppins';
+    font-size: 27px;
+    margin: 0;
+}
+
+.datos-usuario p{
+    font-family: 'Poppins';
+    border-bottom: 2px solid black;
+    width: 60%;
+}
+
+.Seguridad a{
+    font-size: 18px;
+    color: black;
+}
+
+
+@media (max-width: 1000px) {
+
+    .box-perfil{
+        flex-direction: column;
+    }
+    
+    .barra-perfil {
+        height: 0px;
+        width: 80%;
+    }
+
+    .perfil-pic {
+        height: 200px;
+        width: 200px;
+    }
+
+    .datos-usuario p{
+        font-family: 'Poppins';
+        border-bottom: 2px solid black;
+        width: 100%;
+    }
+  }

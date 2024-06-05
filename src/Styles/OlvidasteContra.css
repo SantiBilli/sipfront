@@ -1,0 +1,13 @@
+/* Estilos del login */
+
+.form p {
+    font-size: 20px;
+    margin: 0;
+    width: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.form h2 {
+    margin: 0;
+}

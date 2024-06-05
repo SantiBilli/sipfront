@@ -1,0 +1,10 @@
+
+.img-deco-register {
+
+    height: 250px;
+    margin: 50px;
+    background-color: #f2b946bd;
+    border-radius: 50%;
+    /* left: 28%; */
+    transition: 0.4s;
+}

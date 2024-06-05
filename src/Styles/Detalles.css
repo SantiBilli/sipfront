@@ -1,0 +1,101 @@
+.detalles-box {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 90vh;
+    align-items: center;
+}
+
+.detalles-left-box {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 30px;
+    align-items: center;
+
+}
+
+.detalles-barra {
+    margin: 0;
+    height: 70vh;
+    border: 1px solid black;
+}
+
+.detalle-botones {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.wpp-detalles {
+    width: 30%;
+    font-family: 'Poppins';
+    background-color: #5BC665;
+    font-weight: 700;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+
+}
+
+.mail-detalles {
+    width: 30%;
+    font-family: 'Poppins';
+    background-color: #59C1FC;
+    font-weight: 700;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+
+
+
+.detalles-right-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+.detalles-right-box img {
+    width: 70%;
+}
+
+.detalles-right-box p {
+    width: fit-content;
+}
+
+@media (max-width: 1050px) {
+    .detalles-box{
+        
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 40px;
+    }
+    .detalles-barra{
+        height: 0px;
+        width: 85%;
+
+    }
+
+    .detalles-left-box{
+        width: 85%;
+    }
+
+    .detalles-right-box{
+        width: 25%;
+        min-width: 200px;
+    }
+  }

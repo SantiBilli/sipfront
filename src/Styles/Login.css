@@ -1,0 +1,184 @@
+.form-box {
+    overflow: hidden;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: auto;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 100vh;
+justify-content: center;
+}
+
+.form h2{
+    font-size: 40px;
+    font-family: 'Poppins';
+    width: 85%;;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Top form */
+
+.top-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 85%;
+    align-items: center;
+}
+
+.input-box{
+    width: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    outline: none;
+    border-bottom: #1C384A solid 2px;
+
+}
+
+.input-box label{
+    font-family: 'Poppins';
+    left: 5px;
+    font-size: 18px;
+    margin-left: 16px;
+    width: 100%;
+}
+.input-box input{
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    padding: 7.5px;
+}
+
+.input-box input:focus{
+    font-family: 'Poppins';
+    border: none;
+    font-family: 18px;
+    padding: 5px;
+    outline: none;
+    
+
+}
+
+textarea:focus {
+    background-color: red;
+}
+
+.recordame {
+    width: 500px;
+}
+
+
+
+/* Bottom form */
+
+.bottom-form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 85%;
+    align-items: center;
+}
+
+.bottom-form a{
+    text-decoration: none;
+    font-family: 'Poppins';
+    color: #CDCCCB;
+    cursor: pointer;
+}
+
+.bottom-form button{
+    width: 500px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #F2B846;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 18px;
+    border: none;
+}
+
+
+
+/* deco */
+
+.deco {
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+    display: flex;
+    width: 40%;
+    height: 100vh;
+    border-left: #CCCBCB 1px solid;
+}
+
+.c1 {
+    position: absolute;
+    left: -250px;
+    top: -190px;
+    width: 1000px;
+    height: 500px;
+    background-color: #E6BF72;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+    transform: rotate(90deg)
+}
+
+.c2 {
+    position: absolute;
+    right: -265px;
+    top: -265px;
+    width: 750px;
+    height: 500px;
+    background-color: #F2B846;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+    transform: rotate(270deg)
+}
+
+.img-deco-login {
+
+    height: 250px;
+    margin: 50px;
+    background-color: #f2b946bd;
+    border-radius: 50%;
+    /* left: 28%; */
+    transition: 0.4s;
+}
+
+
+
+
+
+@media (max-width: 1280px) {
+    .deco {
+        display: none;
+    }
+
+    .input-box {
+        width: 90%;
+    }
+
+    .recordame {
+        width: 90%;
+    }
+    .bottom-form button{
+        width: 90%;
+    }
+
+  }
