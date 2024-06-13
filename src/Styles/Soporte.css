@@ -12,6 +12,10 @@
     margin: 0;
 }
 
+.input-box-description-soporte label {
+    text-align: center;
+}
+
 .input-box-description-soporte {
     width: 700px;
     display: flex;
@@ -23,6 +27,16 @@
     border: solid 2px black;
     border-radius: 15px;
     height: 200px;
+    background-color: transparent;
+    padding: 20px;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+
+.input-box-description-soporte textarea:focus {
+    background-color: transparent;
+    outline: none;
+    
 }
 
 .input-box-soporte {
