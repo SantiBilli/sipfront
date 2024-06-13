@@ -8,6 +8,8 @@ import Detalles from './Pages/Detalles';
 import Perfil from './Pages/Perfil';
 import Soporte from './Pages/Soporte';
 import OlvidasteContra from './Pages/OlvidasteContra';
+import MisVentas from './Pages/MisVentas';
+import MisCompras from './Pages/MisCompras';
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path='/dashboard' element={<Inicio/>}></Route>
         <Route path='/publicar' element={<Upload/>}></Route>
         <Route path='/perfil' element={<Perfil/>}></Route>
+        <Route path='/misventas' element={<MisVentas/>}></Route>
+        <Route path='/miscompras' element={<MisCompras/>}></Route>
         <Route path='/soporte' element={<Soporte/>}></Route>
         <Route path='/olvidastecontra' element={<OlvidasteContra/>}></Route>
         <Route path='/detalles/:id' element={<Detalles/>}></Route>

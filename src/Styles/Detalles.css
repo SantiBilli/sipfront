@@ -56,7 +56,10 @@
 }
 
 
-
+.input-box-description {
+    border-bottom: 2px solid black;
+    width: 100%;
+}
 
 
 .detalles-right-box{

@@ -71,7 +71,7 @@ const Upload = () => {
                 <label>Nombre:</label>
                 <input type="text" required onChange={event => setNombre(event.target.value)}/>
               </div> 
-              <div className="input-box-description">
+              <div className="input-box-description-publicar">
                 <label>Descripcion:</label>
                 <textarea name="" id="" onChange={event => setDesc(event.target.value)}></textarea>
               </div> 
