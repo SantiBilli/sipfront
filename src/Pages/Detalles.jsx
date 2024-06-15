@@ -55,7 +55,7 @@ const Detalles = () => {
             </div>
             <hr className='detalles-barra'/>
             <div className="detalles-right-box">
-                <img src={`http://localhost:3500/api/images/${imagen}`} alt={`Image ${nombre}`}/>
+                <img src={`https://sipback-production.up.railway.app/api/images/${imagen}`} alt={`Image ${nombre}`}/>
                 <p>Nombre del Vendedor: {nombreVendedor}</p>
             </div>
         </div>

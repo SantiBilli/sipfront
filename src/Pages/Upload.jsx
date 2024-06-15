@@ -49,10 +49,7 @@ const Upload = () => {
 
     const response = await fileUpload(formdata)
 
-
-
     if (response == 204) return setError(true)
-
 
     navigate("/dashboard")
     return setError(false)
