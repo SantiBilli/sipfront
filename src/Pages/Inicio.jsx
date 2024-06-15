@@ -26,8 +26,6 @@ const Inicio = () => {
 
     const handlePosts = async () => {
       const response = await getPosts();
-      
-      // console.log(response);
 
       if (!response) return
   
@@ -48,7 +46,7 @@ const Inicio = () => {
         </div>
         <div className='conteiner'>
           <div className='grid-productos'>
-            {arr.map((url, index) => (
+            {arr.map((url) => (
               <div className="displayImages" key={url.postId}>
                 <Card url={url}/>
               </div>

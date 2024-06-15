@@ -2,23 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import '../Styles/Detalles.css';
-import imagen from '../assets/ImagenLogin.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { sendToken } from "../utils/api/checkToken";
-import { obtainProductDetail } from '../utils/api/obtainProducto';
-import { useParams } from 'react-router-dom';
 
 const Detalles = () => {
 
     const navigate = useNavigate();
-    const { id } = useParams()
+    
+    const location = useLocation();
 
-    const [nombre, setNombre] = useState('')
-    const [descripcion, setDescripcion] = useState('')
-    const [precio, setPrecio] = useState('')
-    const [imagen, setImagen] = useState()
-
-    const [nombreVendedor, setNombreVendedor] = useState('')
+    const infoProducto = location.state.url
+    const nombre = infoProducto.nombreProd
+    const descripcion = infoProducto.descripcionProd
+    const precio = infoProducto.precio
+    const imagen = infoProducto.imagen
+    const nombreVendedor = infoProducto.nombre
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -29,22 +27,7 @@ const Detalles = () => {
           if (response == false) return navigate('/login')
         }
 
-        const productDetail = async () => {
-            
-            const response2 = await obtainProductDetail({token, id})
-            
-            if (response2 == 204) return
-            
-            setNombre(response2.producto.nombreProd)
-            setDescripcion(response2.producto.descripcionProd)
-            setPrecio(response2.producto.precio)
-            setImagen(response2.producto.imagen)
-
-            setNombreVendedor(response2.vendedor.nombre)
-        }
-
         sendTokenToServer()
-        productDetail()
         },[])
 
 
@@ -72,7 +55,7 @@ const Detalles = () => {
             </div>
             <hr className='detalles-barra'/>
             <div className="detalles-right-box">
-                <img src={`data:image/png;base64,${imagen}`} alt={`Image ${nombre}`}/>
+                <img src={`http://localhost:3500/api/images/${imagen}`} alt={`Image ${nombre}`}/>
                 <p>Nombre del Vendedor: {nombreVendedor}</p>
             </div>
         </div>
