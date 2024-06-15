@@ -26,7 +26,7 @@ function App() {
         <Route path='/miscompras' element={<MisCompras/>}></Route>
         <Route path='/soporte' element={<Soporte/>}></Route>
         <Route path='/olvidastecontra' element={<OlvidasteContra/>}></Route>
-        <Route path='/detalles/:id' element={<Detalles/>}></Route>
+        <Route path='/dashboard/detalles/:id' element={<Detalles/>}></Route>
       </Routes>
     </>
 

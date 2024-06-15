@@ -23,7 +23,7 @@ const Upload = () => {
     if (precio == "") return setMostrarBoton(false)
     if (archivo == null) return setMostrarBoton(false)
     return setMostrarBoton(true)
-  },[nombre, desc, precio, archivo])
+  }, [nombre, desc, precio, archivo])
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -47,16 +47,14 @@ const Upload = () => {
     formdata.append('price', precio)
     formdata.append('userId', userData)
 
-    console.log();
-
     const response = await fileUpload(formdata)
 
-    // for (const pair of formdata.entries()) {
-    //   console.log(pair[0], pair[1]);
-    // } //Muestro el formdata
+
 
     if (response == 204) return setError(true)
-    
+
+
+    navigate("/dashboard")
     return setError(false)
     }
 
@@ -110,7 +108,7 @@ const Upload = () => {
               </div>
             </div>
           </div>
-          <button class="button-publicar" disabled={!mostrarBoton} onClick={handleUpload}>Publicar</button>
+          <button className="button-publicar" disabled={!mostrarBoton} onClick={handleUpload}>Publicar</button>
 
           {error ? <h1>Ocurrio un error.</h1> : null}
       </div>
