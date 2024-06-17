@@ -17,13 +17,24 @@ const Upload = () => {
   const [error, setError] = useState(false)
   const [mostrarBoton, setMostrarBoton] = useState(false)
 
+  const [institucion, setInstitucion] = useState("DEFAULT")
+  const [zona, setZona] = useState("DEFAULT")
+  const [materia, setMateria] = useState("DEFAULT")
+  const [ano, setAno] = useState("DEFAULT")
+
   useEffect(() => {
+
     if (nombre == "") return setMostrarBoton(false)
     if (desc == "") return setMostrarBoton(false)
     if (precio == "") return setMostrarBoton(false)
     if (archivo == null) return setMostrarBoton(false)
+    if (institucion == "DEFAULT") return setMostrarBoton(false)
+    if (zona == "DEFAULT") return setMostrarBoton(false)
+    if (materia == "DEFAULT") return setMostrarBoton(false)
+    if (ano == "DEFAULT") return setMostrarBoton(false)
+
     return setMostrarBoton(true)
-  }, [nombre, desc, precio, archivo])
+  }, [nombre, desc, precio, archivo, institucion, zona, materia, ano])
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -46,6 +57,10 @@ const Upload = () => {
     formdata.append('description', desc)
     formdata.append('price', precio)
     formdata.append('userId', userData)
+    formdata.append('institucion', institucion)
+    formdata.append('zona', zona)
+    formdata.append('materia', materia)
+    formdata.append('ano', ano)
 
     const response = await fileUpload(formdata)
 
@@ -83,7 +98,8 @@ const Upload = () => {
             <div className="publicar-caracteristicas">
               <div className='desplegable'>
                 <label>Institucion: </label>
-                <select name="Institucion" id="">
+                <select name="Institucion" defaultValue={institucion} id="" onChange={(event) => setInstitucion(event.target.value)}>
+                  <option value="DEFAULT" disabled hidden>Seleccionar</option>
                   <option>Colegio San Agustin</option>
                   <option>Colegio Santa Teresa</option>
                   <option>Colegio Bayard</option>
@@ -92,20 +108,38 @@ const Upload = () => {
               </div>
               <div className='desplegable'>
                 <label>Zona: </label>
-                <select name="Institucion" id="">
+                <select name="Zona" defaultValue={zona} id="" onChange={(event) => setZona(event.target.value)}>
+                  <option value="DEFAULT" disabled hidden>Seleccionar</option>
+                  <option>Palermo</option>
+                  <option>Recoleta</option>
                 </select>
               </div>
               <div className='desplegable'>
                 <label>Materia: </label>
-                <select name="Institucion" id=""></select>
+                <select name="Materia" defaultValue={materia} id="" onChange={(event) => setMateria(event.target.value)}>
+                  <option value="DEFAULT" disabled hidden>Seleccionar</option>
+                  <option>Matematica</option>
+                  <option>Lengua y Literatura</option>
+                  <option>Musica</option>
+                  <option>Fisica / Quimica</option>
+                  <option>Otra</option>
+                </select>
               </div>
               <div className='desplegable'>
                 <label>Año Academico: </label>
-                <select name="Institucion" id=""></select>
+                <select name="Año" defaultValue={ano} id="" onChange={(event) => setAno(event.target.value)}>
+                  <option value="DEFAULT" disabled hidden>Seleccionar</option>
+                  <option>Primaria</option>
+                  <option>Primer Año</option>
+                  <option>Segundo Año</option>
+                  <option>Tercer Año</option>
+                  <option>Cuarto Año</option>
+                  <option>Quinto Año</option>
+                </select>
               </div>
             </div>
           </div>
-          <button className="button-publicar" disabled={!mostrarBoton} onClick={handleUpload}>Publicar</button>
+          <button className="button-publicar" disabled={!mostrarBoton} style = { mostrarBoton ? {display: 'block'} : {display: 'none'}} onClick={handleUpload}>Publicar</button>
 
           {error ? <h1>Ocurrio un error.</h1> : null}
       </div>
