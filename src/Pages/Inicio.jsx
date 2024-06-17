@@ -33,7 +33,7 @@ const Inicio = () => {
 
       if (!response) return
   
-      setArr(response)
+      setArr(response.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
     }
 
     sendTokenToServer()
@@ -60,7 +60,7 @@ const Inicio = () => {
 
   return (
       <div className='inicio-box'>
-        <Header busqueda={setBusqueda} busquedaInput={busqueda}/>
+        <Header busqueda={setBusqueda}/>
         <Sidebar ordenarPor={setOrdenar}/>
         <div className='filtros-inicio'>
           <button>Filtros<FaFilter className='logo-filtro'/></button>

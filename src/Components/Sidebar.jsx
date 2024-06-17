@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Styles/Sidebar.css'
 
 const Sidebar = ({ordenarPor}) => {
-  return (
+  
+    const [instituciones, setInstituciones] = useState(false)
+  
+    return (
     <div className='sidebar'>
         <div className="filtros">
             <h2>Filtros</h2>
@@ -62,6 +65,8 @@ const Sidebar = ({ordenarPor}) => {
                 </select> */}
             </div>
         </div>
+
+
         <div className="ordenar">
             <h2>Ordenar por</h2>
             <div className='input-box3'>
@@ -74,11 +79,11 @@ const Sidebar = ({ordenarPor}) => {
             </div>
             <div className='input-box3'>
                 <input type="radio" name='orden' value="ASC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-                <label>Precio Ascendente</label>
+                <label>Precio ascendente</label>
             </div>          
             <div className='input-box3'>
                 <input type="radio" name='orden' value="DSC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-                <label>Precio Descendente</label>
+                <label>Precio descendente</label>
             </div>
             <div className='input-box3'>
                 <input type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>

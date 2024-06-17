@@ -87,7 +87,7 @@ const Upload = () => {
               </div> 
               <div className="input-box2">
                 <label>Precio:</label>
-                <input type="text" required onChange={event => setPrecio(event.target.value)}/>
+                <input type="number" required onChange={event => setPrecio(event.target.value)}/>
               </div> 
               <div className="input-box2">
                 <label>Adjuntar Imagen:</label>
