@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/Header.css'
 import { FaPlus } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
 import { IoMenuOutline } from "react-icons/io5";
 import { GrUploadOption } from "react-icons/gr";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Logo7 from '../assets/Logo7.png';
 import DesplegablePerfil from './DesplegablePerfil';
 
-const Header = () => {
+const Header = ({busqueda, busquedaInput}) => {
+    
     const navigate = useNavigate()
+    const location = useLocation()
 
     const [openProfile, setOpenProfile] = useState(false);
 
@@ -23,7 +25,7 @@ const Header = () => {
                 {/* <h2 className='logo-texto-header'>Smart Swap</h2> */}
             </div>
             <div className="middle">
-                <input className = 'search-bar' type="text" placeholder='Buscar'/>
+                <input className = 'search-bar' type="text" placeholder='Buscar' onChange={(evento) => busqueda(evento.target.value)}/>
                 <button className='search'>
                     <IoMdSearch/>
                 </button>

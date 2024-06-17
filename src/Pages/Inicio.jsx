@@ -9,13 +9,14 @@ import { sendToken } from "../utils/api/checkToken"
 import { getPosts } from "../utils/api/fileUpload"
 import { FaFilter } from "react-icons/fa";
 import { GoArrowSwitch } from "react-icons/go";
-import { OrdenarMaterial } from '../Components/OrdenarMaterial'
 
 const Inicio = () => {
   
+  const [filteredArr, setFilteredArr] = useState([]);
   const [arr, setArr] = useState([])
   const navigate = useNavigate()
 
+  const [busqueda, setBusqueda] = useState("");
   const [ordenar, setOrdenar] = useState("A-Z");
 
   useEffect(() => {
@@ -38,12 +39,28 @@ const Inicio = () => {
     sendTokenToServer()
     handlePosts()
 
-    // setArr(arr.filter((url) => url.institucion === "Colegio Lange Ley"))
   },[])
+
+  useEffect(() => {
+    
+    if (ordenar === "A-Z") return setArr([...arr].sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
+    if (ordenar === "Z-A") return setArr([...arr].sort((a, b) => b.nombreProd.localeCompare(a.nombreProd)))
+    if (ordenar === "ASC") return setArr([...arr].sort((a, b) => a.precio - b.precio))
+    if (ordenar === "DSC") return setArr([...arr].sort((a, b) => b.precio - a.precio))
+    if (ordenar === "DATE") return setArr([...arr].sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
+      
+  },[ordenar])
+
+  useEffect(() => {
+    const filtered = arr.filter(producto =>
+      producto.nombreProd.toLowerCase().includes(busqueda.toLowerCase())
+    );
+    setFilteredArr(filtered);
+  }, [busqueda, arr]);
 
   return (
       <div className='inicio-box'>
-        <Header/>
+        <Header busqueda={setBusqueda} busquedaInput={busqueda}/>
         <Sidebar ordenarPor={setOrdenar}/>
         <div className='filtros-inicio'>
           <button>Filtros<FaFilter className='logo-filtro'/></button>
@@ -51,33 +68,10 @@ const Inicio = () => {
         </div>
         <div className='conteiner'>
           <div className='grid-productos'>
-            
-            {/* {arr.length > 0 && <OrdenarMaterial arr={arr} ordenarPor={ordenar}/>}  */}
 
-
-            {ordenar === "A-Z" && arr.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)).map((url) => (
+            {filteredArr.map((url) => (
               <div className="displayImages" key={url.postId}>
                   <Card url={url}/>
-              </div>
-            ))}
-            {ordenar === "Z-A" && arr.sort((a, b) => b.nombreProd.localeCompare(a.nombreProd)).map((url) => (
-              <div className="displayImages" key={url.postId}>
-                  <Card url={url}/>
-              </div>
-            ))}
-            {ordenar == "ASC" && arr.sort((a, b) => a.precio - b.precio).map((url) => (
-              <div className="displayImages" key={url.postId}>
-                <Card url={url}/>
-              </div>
-            ))}
-            {ordenar == "DSC" && arr.sort((a, b) => b.precio - a.precio).map((url) => (
-              <div className="displayImages" key={url.postId}>
-                <Card url={url}/>
-              </div>
-            ))}
-            {ordenar == "DATE" && arr.sort((a, b) => new Date(a.fecha) - new Date(b.fecha)).map((url) => (
-              <div className="displayImages" key={url.postId}>
-                <Card url={url}/>
               </div>
             ))}
 

@@ -27,8 +27,6 @@ const MisVentas = () => {
       const ventas = await obtainVentas()
 
       setArrVentas(ventas)
-
-      console.log(ventas);
     } 
 
     obtenerVentas()
