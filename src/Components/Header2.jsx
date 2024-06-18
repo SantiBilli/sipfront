@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../Styles/Header.css'
+import '../Styles/Header2.css'
 import { FaPlus } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Logo7 from '../assets/Logo7.png';
 import DesplegablePerfil from './DesplegablePerfil';
 
-const Header = ({busqueda}) => {
+const Header2 = ({busqueda}) => {
     
     const navigate = useNavigate()
     const location = useLocation()
@@ -19,8 +19,8 @@ const Header = ({busqueda}) => {
 
     return (
         <>
-        <header className='header'>
-            <div className="left1">
+        <header className='header2'>
+            <div className="left">
                 <img className='img-logo-header'  onClick={() => {navigate('/dashboard')}} src={Logo7} alt="" />
                 {/* <h2 className='logo-texto-header'>Smart Swap</h2> */}
             </div>
@@ -42,7 +42,7 @@ const Header = ({busqueda}) => {
                 </button>
             </div> */}
 
-            <div className="right1">
+            <div className="right">
                 <button className = "upload">
                     <GrUploadOption className='upload-icon' onClick={() => {navigate('/publicar')}}/>
                 </button>
@@ -66,4 +66,4 @@ const Header = ({busqueda}) => {
   )
 }
 
-export default Header
+export default Header2

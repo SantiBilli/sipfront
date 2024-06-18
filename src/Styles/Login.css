@@ -18,7 +18,7 @@
     gap: 30px;
     width: 100%;
     height: 100vh;
-justify-content: center;
+    justify-content: center;
 }
 
 .form h2{
@@ -130,10 +130,10 @@ textarea:focus {
 .c1 {
     position: absolute;
     left: -250px;
-    top: -190px;
+    top: -300px;
     width: 1000px;
     height: 500px;
-    background-color: #E6BF72;
+    background-color: #F2B846;
     border-top-left-radius: 500px;
     border-top-right-radius: 500px;
     transform: rotate(90deg)
@@ -145,15 +145,15 @@ textarea:focus {
     top: -265px;
     width: 750px;
     height: 500px;
-    background-color: #F2B846;
+    background-color: #E6BF72;
     border-top-left-radius: 500px;
     border-top-right-radius: 500px;
-    transform: rotate(270deg)
+    transform: rotate(270deg);
 }
 
 .img-deco-login {
 
-    height: 250px;
+    height: 200px;
     margin: 50px;
     background-color: #f2b946bd;
     border-radius: 50%;
