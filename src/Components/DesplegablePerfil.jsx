@@ -12,7 +12,7 @@ const DesplegablePerfil = () => {
             <li onClick={() => {navigate('/perfil')}}>Mi Perfil</li>
             <li onClick={() => {navigate('/misventas')}}>Mis Publicaciones</li>
             <li onClick={() => {navigate('/miscompras')}}>Mis Compras</li>
-            <li>Recomendaciones</li>
+            {/* <li>Recomendaciones</li> */}
             <li onClick={() => {navigate('/soporte')}}>Soporte</li>
             <li onClick={() => {navigate('/login')}}>Cerrar Sesion</li>
             <li className='publicar-desplegable' onClick={() => {navigate('/publicar')}}>Publicar</li>
