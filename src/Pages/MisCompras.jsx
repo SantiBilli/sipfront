@@ -36,11 +36,14 @@ const MisCompras = () => {
       } 
 
       obtenerVentas()
+    }, [])
+
+    useEffect(() => {
 
       setComprasTotales(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "vendido").length : 0)
       setGastado(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "vendido").map(venta => venta.precio).reduce((a, b) => Number(a) + Number(b), 0) : 0)
 
-    }, [])
+    }, [arrVentas])
 
   return (
     <>

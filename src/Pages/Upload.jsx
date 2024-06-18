@@ -104,6 +104,7 @@ const Upload = () => {
                   <option>Colegio Santa Teresa</option>
                   <option>Colegio Bayard</option>
                   <option>Colegio Lange Ley</option>
+                  <option>Otra</option>
                 </select>
               </div>
               <div className='desplegable'>
@@ -112,6 +113,7 @@ const Upload = () => {
                   <option value="DEFAULT" disabled hidden>Seleccionar</option>
                   <option>Palermo</option>
                   <option>Recoleta</option>
+                  <option>Otra</option>
                 </select>
               </div>
               <div className='desplegable'>

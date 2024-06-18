@@ -32,7 +32,6 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
   const handleClickEstado = async (value) => {
 
-    setRefreshAux((prev) => !prev);
     setEstado(value);
 
     if (value == "publicado") {
@@ -41,6 +40,8 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
     }
 
     const actualizar = await actualizarEstado({postId: infoVenta.postId, estado: value});
+
+    setRefreshAux((prev) => !prev);
 
     if (actualizar == 204) return console.log("Error");
     
