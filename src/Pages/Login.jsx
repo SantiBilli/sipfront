@@ -50,7 +50,7 @@ const Login = () => {
                     </div>
                     <div className='bottom-form'>
                         <button type='button' onClick={submitForm}>Iniciar sesion</button>
-                        {passwordStatus ? <h1 className="invalidCredentials" >Invalid Credentials</h1> : null}
+                        {passwordStatus ? <h1 className="invalidCredentials" >Email o contraseña incorrectos</h1> : null}
                         <a onClick={() => {navigate('/olvidastecontra')}}>¿Olvidaste tu contraseña?</a>
                         <a style={{color: 'black'}} onClick={() => {navigate('/register')}}>Crear cuenta</a>
                     </div>

@@ -162,7 +162,12 @@ textarea:focus {
 }
 
 
-
+.invalidCredentials {
+    color: red;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 100;
+}
 
 
 @media (max-width: 1280px) {
