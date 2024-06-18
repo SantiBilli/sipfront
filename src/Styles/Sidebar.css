@@ -29,4 +29,24 @@
     .sidebar {
         display: none;
     }
+
+    .ordenar h2 {
+        display: none;
+    }
+
+    .input-box3 {
+        background-color: #E4E4E4;
+        width: 150px;
+        min-height: 50px;
+        /* padding: 20px; */
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ordenar {
+        padding: 0px;
+        
+    }
   }
