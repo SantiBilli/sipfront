@@ -9,14 +9,15 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 20px;
+    z-index: 100;
 }
 
 .filtros, .ordenar{
     display: flex;
     flex-direction: column;
     padding-left: 24px;
-    gap: 7px;
+    gap: 6px;
 }
 
 .input-box3 label{

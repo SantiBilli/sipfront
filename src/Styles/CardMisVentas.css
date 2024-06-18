@@ -28,6 +28,22 @@
 
 }
 
+.estado-comprador-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.estado-comprador-box2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-comprador-mail {
+    width: 100px;
+}
+
 .barra-mis-ventas {
     min-height: 100%;
     border: 1px solid black;

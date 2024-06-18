@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/Inicio.css'
-import Header from '../Components/Header'
+import Header2 from '../Components/Header2'
 import Sidebar from '../Components/Sidebar'
 import Footer from '../Components/Footer'
 import Card from '../Components/Card'
@@ -60,7 +60,7 @@ const Inicio = () => {
 
   return (
       <div className='inicio-box'>
-        <Header busqueda={setBusqueda}/>
+        <Header2 busqueda={setBusqueda}/>
         <Sidebar ordenarPor={setOrdenar}/>
         <div className='filtros-inicio'>
           <button>Filtros<FaFilter className='logo-filtro'/></button>

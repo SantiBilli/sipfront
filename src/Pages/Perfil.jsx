@@ -60,7 +60,7 @@ const Perfil = () => {
                     </div>
                     <div className='Seguridad'>
                         <h3>Seguridad:</h3>
-                        <a href="#">Cambiar Contraseña</a>
+                        <a href="#" onClick={() => navigate('/olvidastecontra')}>Cambiar Contraseña</a>
                     </div>
                 </div>
             </div>

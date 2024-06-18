@@ -14,7 +14,7 @@
     letter-spacing: 4px;
 }
 
-.header{
+.header2{
     display: flex;
     background: linear-gradient(90deg, rgba(255,161,29,1) 0%, rgba(255,203,138,1) 50%, rgba(255,161,29,1) 100%);
     box-shadow: 0 0 20px rgba(0, 0, 0, .33);
@@ -26,24 +26,23 @@
     position: sticky;
     z-index: 100;
     align-items: center;
-    justify-content: space-around;
-    /* gap: 40%; */
+    justify-content: space-evenly;
 }
 
-.left1 {
+.left {
     margin-left: 35px;
+
 }
 
 .relativa-dropdown {
     position: relative;
 }
 
-.right1{
+.right {
     margin-right: 35px;
     display: flex;
     align-items: center;
     gap: 20px;
-
 }
 
 .search-bar{

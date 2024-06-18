@@ -1,13 +1,15 @@
 
 .box-perfil {
-    height: 90vh;
+    height: fit-content;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    padding: 20px 0px;
 }
 
 .barra-perfil{
-    height: 80%;
+    height: 500px;
     border: 1px solid black;
     margin: 0;
 }
