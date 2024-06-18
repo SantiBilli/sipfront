@@ -6,8 +6,6 @@ const CardMisCompras = ({infoCompra}) => {
   
   const fechaFormatted = new Date(infoCompra.fecha).toLocaleDateString()
 
-  console.log(infoCompra);
-
   return (
     <div className='CardVentas'>
         <div className='left-mis-vetas'>

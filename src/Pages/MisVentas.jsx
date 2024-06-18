@@ -33,24 +33,26 @@ const MisVentas = () => {
     },[])
 
     useEffect(() => {
-      
+
       const obtenerVentas = async () => {
         const ventas = await obtainVentas()
 
         setArrVentas(ventas)
-
-        setRefresh(!refresh)
       } 
 
       obtenerVentas()
 
+    }, [refresh])
+
+    useEffect(() => {
+
       setPublicados(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "publicado").length : 0)
       setReservados(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "reservado").length : 0)
       setVentas(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "vendido").length : 0)
-
       setRecaudado(arrVentas.length > 0 ? [...arrVentas].filter(venta => venta.estado == "vendido").map(venta => venta.precio).reduce((a, b) => Number(a) + Number(b), 0) : 0)
 
-    }, [refresh])
+    }, [arrVentas])
+
 
   return (
     <>
