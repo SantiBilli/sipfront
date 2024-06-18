@@ -1,5 +1,7 @@
-export const sendLoginForm = async (credentials) => {
+//http://localhost:3500/api/login
+//https://sipback-production.up.railway.app/api/login
 
+export const sendLoginForm = async (credentials) => {
 
     const response = await fetch("http://localhost:3500/api/login", {
         method: "POST",

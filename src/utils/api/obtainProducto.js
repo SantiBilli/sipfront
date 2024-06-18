@@ -1,3 +1,6 @@
+//http://localhost:3500/api/obtain-product
+//https://sipback-production.up.railway.app/api/obtain-product
+
 export const obtainProductDetail = async (credentials) => {
 
     const id = credentials.id

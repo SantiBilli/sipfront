@@ -49,8 +49,8 @@ const Detalles = () => {
                     <p>{precio}</p>
                 </div> 
                 <div className="detalle-botones">
-                    <button className='wpp-detalles'>WhatsApp</button>
-                    <button className='mail-detalles'>Mail</button>
+                    <button className='wpp-detalles' onClick={() => window.open(`https://wa.me/+54${infoProducto.telefono}`)}>WhatsApp</button>
+                    <button className='mail-detalles' onClick={() =>  window.location.href = `mailto:${infoProducto.email}`}>Mail</button>
                 </div>
             </div>
             <hr className='detalles-barra'/>

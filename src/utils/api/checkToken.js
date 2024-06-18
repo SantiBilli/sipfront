@@ -1,3 +1,5 @@
+//http://localhost:3500/api/login/verify-token
+//https://sipback-production.up.railway.app/api/login/verify-token
 export const sendToken = async (token) => {
 
     const response = await fetch("http://localhost:3500/api/login/verify-token", {

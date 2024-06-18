@@ -15,6 +15,7 @@ export const fileUpload = async (formdata) => {
 
     return true
 }
+
 //http://localhost:3500/api/get-posts
 //https://sipback-production.up.railway.app/api/get-posts
 export const getPosts = async () => {

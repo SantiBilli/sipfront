@@ -22,7 +22,7 @@ const Register = () => {
                     </div> 
                     <div className="input-box">
                         <label>Telefono</label>
-                        <input type="text" required/>
+                        <input type="tel" required pattern='[0-9]{11}'/>
                     </div>
                     <div className="input-box">
                         <label>Contraseña</label>

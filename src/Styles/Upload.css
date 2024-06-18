@@ -75,9 +75,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center;
+    align-items: left;
 }
-.desplegable {
+
+/* .desplegable {
     width: 200px;
     height: 30px;
     background: #D9D9D9;
@@ -92,6 +93,47 @@
 .desplegable select{
     background-color: transparent;
     border: none;
+}
+
+.desplegable select option {
+    background-color: transparent;
+    border: none;
+} */
+
+.desplegable {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.desplegable label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.desplegable select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.desplegable select:focus {
+    border-color: #007BFF;
+}
+
+.desplegable select option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.desplegable select option:hover {
+    background-color: #f0f0f0;
 }
 
 .button-publicar {

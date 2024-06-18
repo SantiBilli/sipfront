@@ -1,3 +1,5 @@
+//http://localhost:3500/api/check-email
+//https://sipback-production.up.railway.app/api/check-email
 export const sendCheckEmail = async (credentials) => {
 
     const response = await fetch("http://localhost:3500/api/check-email", {
