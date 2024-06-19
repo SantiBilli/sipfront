@@ -62,3 +62,54 @@
         width: 80%;
     }
   }
+
+.soporte-headphones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-publicar {
+    margin-top: 30px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: #FEAA06;
+    border: 2px solid #FEAA06;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+    width: 250px;
+  }
+  
+  .button-publicar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 90px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #FEAA06;
+    transition: all 0.55s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .button-publicar:hover::before {
+    scale: 3;
+  }
+  
+  .button-publicar:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+  }
+  
+  .button-publicar:active {
+    scale: 1;
+  }
