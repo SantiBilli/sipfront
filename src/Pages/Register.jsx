@@ -4,6 +4,7 @@ import Logo7 from '../assets/Logo7.png'
 import { sendCheckEmail } from '../utils/api/checkEmail'
 import { sendRegisterForm } from '../utils/api/register'
 import { useNavigate } from 'react-router-dom'
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
 const Register = () => {
@@ -23,6 +24,7 @@ const Register = () => {
     const handleClick = async (event) => {
         event.preventDefault();
         setSubmitted(true);
+
         const nameValid = nombre.trim();
         const lastNameValid = apellido.trim();
         const emailValid = mail.trim() && (mail.includes('@'));
@@ -52,7 +54,7 @@ const Register = () => {
         const checker = async () => {
             await checkEmailAPI()
         }
-        checker() 
+        checker()
     }, [mail])
 
     const checkEmailAPI = async () => {
@@ -68,7 +70,10 @@ const Register = () => {
   return (
     <div className='form-box'>
         <form className='form'>
+            <div className='box-register'>
+                <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')}/>
                 <h2>Registrate</h2>
+            </div>
                 <div className='top-form'>
                     <div className="input-box">
                         <label>Email*</label>
@@ -109,7 +114,7 @@ const Register = () => {
                 <div className='bottom-form'>
                     <button type='button' onClick={handleClick}>Crear Cuenta</button>
                 </div>
-                    {hasError ? <span className="invalidCredentials" style={{color: 'gray'}}>Uno o más campos tienen un error. Por favor revisa e intenta de nuevo</span> : null}
+                {hasError ? <span className="invalidCredentials" style={{color: 'gray'}}>Uno o más campos tienen un error. Por favor revisa e intenta de nuevo</span> : null}
         </form>
         <div className="deco">
             <div className='c1'></div>
