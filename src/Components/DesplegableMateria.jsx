@@ -14,10 +14,10 @@ const DesplegableMateria = () => {
   });
 
   const filterNames = {
-    Matematica: 'Matematica',
+    Matematica: 'Matemática',
     LenguayLiteratura: 'Lengua y Literatura',
-    Musica: 'Musica',
-    FisicaQuimica: 'Fisica / Quimica',
+    Musica: 'Música',
+    FisicaQuimica: 'Física / Química',
     Otra: 'Otra',
   };
 

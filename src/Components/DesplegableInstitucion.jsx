@@ -7,17 +7,17 @@ const DesplegableInstitucion = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [filters, setFilters] = useState({
     SanAgustin: false,
-    SantaTeresa: false,
+    Guadalupe: false,
     Bayard: false,
     LangeLey: false,
     Otro: false,
   });
 
   const filterNames = {
-    SanAgustin: 'San Agustin',
-    SantaTeresa: 'Santa Teresa',
-    Bayard: 'Bayard',
-    LangeLey: 'Lange Ley',
+    SanAgustin: 'Colegio San Agustín',
+    Guadalupe: 'Colegio Guadalupe',
+    Bayard: 'Colegio Bayard',
+    LangeLey: 'Colegio Lange Ley',
     Otro: 'Otro',
   };
 
@@ -66,7 +66,7 @@ const DesplegableInstitucion = () => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropbtn">
-        <IoMdArrowDropright />Institucion
+        <IoMdArrowDropright />Institución
       </button>
       <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
         <label>

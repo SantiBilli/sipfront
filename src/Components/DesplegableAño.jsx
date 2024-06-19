@@ -66,7 +66,7 @@ const DesplegableAño = () => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropbtn">
-        <IoMdArrowDropright />Año Academico
+        <IoMdArrowDropright />Año Académico
       </button>
       <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
         <label>
