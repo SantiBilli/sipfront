@@ -26,9 +26,9 @@
 }
 
 @media (max-width: 650px){
-    /* .sidebar {
+    .sidebar {
         display: none;
-    } */
+    }
 
     .ordenar h2 {
         display: none;

@@ -1,0 +1,82 @@
+.box-responsive-filters {
+    display: none;
+    
+}
+
+.filter-element-responsive {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.filtrar-responsive-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 50px;
+    width: 170px;
+    border-radius: 50px;
+    font-family: 'Poppins';
+    font-size: 17px;
+}
+
+.ordenar-element-responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ordenar-responsive-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 50px;
+    width: 170px;
+    border-radius: 50px;
+    font-family: 'Poppins';
+    font-size: 17px;
+}
+
+@media (max-width: 650px){
+    .box-responsive-filters {
+        display: flex;
+        align-items: start;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 20px
+    }
+
+    .input-box3 {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        border-radius: 50px;
+        height: 50px;
+        border: 1px solid #F2B846;
+        padding: 5px;
+    }
+
+    .filtros {
+        border: 1px solid #F2B846;
+        border-radius: 10px;
+        padding: 2px;
+        height: 150px;
+    }
+
+    .ordenar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }

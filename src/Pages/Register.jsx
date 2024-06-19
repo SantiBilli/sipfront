@@ -5,6 +5,8 @@ import { sendCheckEmail } from '../utils/api/checkEmail'
 import { sendRegisterForm } from '../utils/api/register'
 import { useNavigate } from 'react-router-dom'
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
@@ -67,6 +69,9 @@ const Register = () => {
     }
 
 
+    const [showPwd, setShowPws] = useState(false)
+    const [showPwd2, setShowPws2] = useState(false)
+
   return (
     <div className='form-box'>
         <form className='form'>
@@ -101,12 +106,22 @@ const Register = () => {
 
                     <div className="input-box">
                         <label>Contraseña*</label>
-                        <input type="Password" required onChange={event => setPassword(event.target.value)}/>
-                    </div>      
+                        <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                        
+                        <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
+                            {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
+                            }
+                        </div>                            
+                    </div>     
                         {(submitted && !password.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
-                    <label>Confirmar Contraseña*</label>
-                        <input type="Password" required onChange={event => setPassword2(event.target.value)}/>
+                            <label>Confirmar contraseña*</label>
+                            <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                            
+                            <div className='eye-login' onClick={() => setShowPws2(!showPwd2)}>
+                                {showPwd2 ? <FaRegEyeSlash/> : <FaRegEye/>
+                                }
+                            </div>                            
                     </div>
                         {(submitted && !password2.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && password2.trim() && (password2 !== password) ? <span className="invalidCredentials">Las contraseñas no coinciden</span> : null)}
