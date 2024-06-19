@@ -25,17 +25,24 @@
     /* background-color: red; */
 }
 
+
 .filtros-inicio {
     display: none;
     align-items: center;
     width: 100%;
     justify-content: center;
     margin-top: 20px;
-    gap: 30px;
+    gap: 300px;
+    height: fit-content;
+}
+
+.boton-filtros-responsive {
+    width: 40%;
+    margin-bottom: 5px;
 }
 
 .filtros-inicio button {
-    width: 40%;
+    width: 150px;
     height: 50px;
     background-color: #E4E4E4;
     border: none;
@@ -45,6 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .grid-productos {
@@ -78,7 +86,7 @@
     }
     .filtros-inicio {
         display: flex;
-        align-items: center;
+        align-items:start;
         width: 100%;
         justify-content: center;
         margin-top: 20px;

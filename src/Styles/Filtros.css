@@ -1,0 +1,19 @@
+.filtros {
+    width: 100%;
+
+}
+
+@media (max-width: 650px){
+    .sidebar {
+        display: none;
+    }
+
+    .filtros h2 {
+        display: none;
+    }
+
+    .filtros {
+        width: 100%;
+        padding: 0px;
+    }
+  }
