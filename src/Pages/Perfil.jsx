@@ -6,6 +6,7 @@ import perfil from '../assets/perfil.jpg'
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtenerDatosPerfil } from '../utils/api/obtenerDatos'
+import { fotoPerfil } from '../utils/api/fotoPerfil'
 
 const Perfil = () => {
 
@@ -14,6 +15,9 @@ const Perfil = () => {
     const [nombre, setNombre] = useState();
     const [apellido, setApellido] = useState();
     const [telefono, setTelefono] = useState();
+    const [imagen, setImagen] = useState(null)
+    const [imagenCargar, setImagenCargar] = useState(null)
+
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -33,6 +37,9 @@ const Perfil = () => {
             setNombre(response.nombre)
             setApellido(response.apellido)
             setTelefono(response.telefono)
+            setImagen(response.pfp)
+
+            console.log(response.pfp);
 
             return
         }
@@ -41,13 +48,29 @@ const Perfil = () => {
         obtenerDatos()
         },[])
 
+    const handleClick = async (value) => {
+
+        setImagen(value.name)
+
+        const formdata = new FormData();
+        formdata.append('imagen', value)
+
+        const response = await fotoPerfil(formdata)
+
+        setImagen(response.imagen)
+
+        if (response == 204) return console.log("Error al Cargar PFP");
+    }
+
     return (
         <div>
             <Header/>
             <div className='box-perfil'>
                 <div className="left-perfil">
-                    <img className = 'perfil-pic' src={perfil} alt="" />
-                    <p>Subir Foto de Perfil</p>
+                    <img className = 'perfil-pic' src={ (imagen != null) ? `http://localhost:3500/api/pfp/${imagen}` : perfil} alt="" />
+                    <div className='input-perfil'>
+                        <input type="file" required accept="image/png" onChange={(event) => handleClick(event.target.files[0])}/>
+                    </div>
                 </div>
                 <hr className='barra-perfil'/>
                 <div className="right-perfil">
