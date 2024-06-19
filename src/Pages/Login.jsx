@@ -3,6 +3,8 @@ import '../Styles/Login.css'
 import { useNavigate } from 'react-router-dom'
 import { sendLoginForm } from '../utils/api/login'
 import Logo7 from '../assets/Logo7.png';
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
@@ -31,6 +33,8 @@ const Login = () => {
         return
     }
 
+    const [showPwd, setShowPws] = useState(false)
+
     return ( 
         <div className='form-box'>
             <form className='form'>
@@ -42,7 +46,12 @@ const Login = () => {
                         </div>   
                         <div className="input-box">
                             <label>Password</label>
-                            <input type="Password" required onChange={event => setPassword(event.target.value)}/>
+                            <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                            
+                            <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
+                                {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
+                                }
+                            </div>                            
                         </div>
                         <div className='recordame'>
                             <label style={{fontFamily: 'Poppins'}}><input type="checkbox"/>Recordarme</label>
