@@ -68,7 +68,7 @@ const MisVentas = () => {
         </div>
         <hr className='barra-mis-ventas-box'/>
         <div className='mis-ventas-box-right'>
-          <p>Estadisticas:</p>
+          <p>Estadísticas:</p>
           <hr className='barra-mis-ventas-box-right'/>
           <p>Publicados: {publicados}</p>
           <p>Reservados: {reservados}</p>

@@ -72,7 +72,7 @@ const Register = () => {
         <form className='form'>
             <div className='box-register'>
                 <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')}/>
-                <h2>Registrate</h2>
+                <h2>Regístrate</h2>
             </div>
                 <div className='top-form'>
                     <div className="input-box">

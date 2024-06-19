@@ -74,7 +74,7 @@ const Upload = () => {
     <>
       <Header/>
       <div className='publicar'>
-          <h2>Hola nombre! Que vas a publicar?</h2>
+          <h2>¿Qué vas a publicar?</h2>
           <div className='publicar-row'>
             <div className='publicar-datos'>
               <div className="input-box2">
@@ -82,7 +82,7 @@ const Upload = () => {
                 <input type="text" required onChange={event => setNombre(event.target.value)}/>
               </div> 
               <div className="input-box-description-publicar">
-                <label>Descripcion:</label>
+                <label>Descripción:</label>
                 <textarea name="" id="" onChange={event => setDesc(event.target.value)}></textarea>
               </div> 
               <div className="input-box2">
@@ -97,10 +97,10 @@ const Upload = () => {
             <hr className='barra'/>
             <div className="publicar-caracteristicas">
               <div className='desplegable'>
-                <label>Institucion: </label>
+                <label>Institución: </label>
                 <select name="Institucion" defaultValue={institucion} id="" onChange={(event) => setInstitucion(event.target.value)}>
                   <option value="DEFAULT" disabled hidden>Seleccionar</option>
-                  <option>Colegio San Agustin</option>
+                  <option>Colegio San Agustín</option>
                   <option>Colegio Santa Teresa</option>
                   <option>Colegio Bayard</option>
                   <option>Colegio Lange Ley</option>
@@ -120,15 +120,15 @@ const Upload = () => {
                 <label>Materia: </label>
                 <select name="Materia" defaultValue={materia} id="" onChange={(event) => setMateria(event.target.value)}>
                   <option value="DEFAULT" disabled hidden>Seleccionar</option>
-                  <option>Matematica</option>
+                  <option>Matemática</option>
                   <option>Lengua y Literatura</option>
-                  <option>Musica</option>
-                  <option>Fisica / Quimica</option>
+                  <option>Música</option>
+                  <option>Física / Química</option>
                   <option>Otra</option>
                 </select>
               </div>
               <div className='desplegable'>
-                <label>Año Academico: </label>
+                <label>Año Académico: </label>
                 <select name="Año" defaultValue={ano} id="" onChange={(event) => setAno(event.target.value)}>
                   <option value="DEFAULT" disabled hidden>Seleccionar</option>
                   <option>Primaria</option>

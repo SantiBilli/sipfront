@@ -66,7 +66,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
           <hr className='barra-mis-ventas'/>
           <div className='medio-mis-ventas'>
             <p>Nombre: {infoVenta.nombreProd}</p>
-            <p>Descripcion: {infoVenta.descripcionProd}</p>
+            <p>Descripción: {infoVenta.descripcionProd}</p>
             <p>Precio: ${infoVenta.precio}</p>
           </div>
         </div>
