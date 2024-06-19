@@ -10,6 +10,8 @@ import { getPosts } from "../utils/api/fileUpload"
 import { FaFilter } from "react-icons/fa";
 import { GoArrowSwitch } from "react-icons/go";
 import Filtros from '../Components/Filtros'
+import Ordenar from '../Components/Ordenar'
+import ResponsiveItemsFilters from '../Components/ResponsiveItemsFilters'
 
 const Inicio = () => {
   
@@ -72,6 +74,8 @@ const Inicio = () => {
       <div className='inicio-box'>
         <Header2 busqueda={setBusqueda}/>
         <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
+        
+        {/* <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
         <div className='filtros-inicio'>
 
 
@@ -86,33 +90,14 @@ const Inicio = () => {
           <div className='relative-dropdown-filtros'>
             <button className = 'boton-filtros-responsive'onClick={() => setOpenOrdenar((prev) => !prev)} >Ordenar Por<GoArrowSwitch className='logo-filtro'/></button>
             {
-                     openOrdenar && <>            
-                     <div className="ordenar">
-                        <h2>Ordenar por</h2>
-                        <div className='input-box3'>
-                            <input type="radio" name='orden' value="A-Z" onChange={(event) => {setOrdenar(event.target.value)}}/>
-                            <label>A-Z</label>
-                        </div>
-                        <div className='input-box3'>
-                            <input type="radio" name='orden' value="Z-A" onChange={(event) => {setOrdenar(event.target.value)}}/>
-                            <label>Z-A</label>
-                        </div>
-                        <div className='input-box3'>
-                            <input type="radio" name='orden' value="ASC" onChange={(event) => {setOrdenar(event.target.value)}}/>
-                            <label>Precio ascendente</label>
-                        </div>          
-                        <div className='input-box3'>
-                            <input type="radio" name='orden' value="DSC" onChange={(event) => {setOrdenar(event.target.value)}}/>
-                            <label>Precio descendente</label>
-                        </div>
-                        <div className='input-box3'>
-                            <input type="radio" name='orden' value="DATE" onChange={(event) => {setOrdenar(event.target.value)}}/>
-                            <label>Fecha de publicacion</label>
-                        </div>
-                      </div></>
+                     openOrdenar && <Ordenar ordenarPor={setOrdenar}/>
             }
+
           </div>
-        </div>
+        </div> */}
+
+        <ResponsiveItemsFilters setOrdenar={setOrdenar}/>
+
         <div className='conteiner'>
           <div className='grid-productos'>
 
