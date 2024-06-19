@@ -4,9 +4,9 @@
 }
 
 @media (max-width: 650px){
-    .sidebar {
+    /* .sidebar {
         display: none;
-    }
+    } */
 
     .filtros h2 {
         display: none;
