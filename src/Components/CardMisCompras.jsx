@@ -13,7 +13,7 @@ const CardMisCompras = ({infoCompra}) => {
           <hr className='barra-mis-ventas'/>
           <div className='medio-mis-ventas'>
             <p>Nombre: {infoCompra.nombreProd}</p>
-            <p>Descripcion: {infoCompra.descripcionProd}</p>
+            <p>Descripción: {infoCompra.descripcionProd}</p>
             <p>Precio: ${infoCompra.precio}</p>
           </div>
         </div>
