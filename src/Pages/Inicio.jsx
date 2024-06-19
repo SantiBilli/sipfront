@@ -20,6 +20,10 @@ const Inicio = () => {
   const [busqueda, setBusqueda] = useState("");
   const [ordenar, setOrdenar] = useState("A-Z");
 
+  const handleFiltroChange = (value) => {
+    console.log("Valor", value);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('userToken')
     if (!token) return navigate("/login")
@@ -67,7 +71,7 @@ const Inicio = () => {
   return (
       <div className='inicio-box'>
         <Header2 busqueda={setBusqueda}/>
-        <Sidebar ordenarPor={setOrdenar}/>
+        <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
         <div className='filtros-inicio'>
 
 
