@@ -3,7 +3,7 @@ import Filtros from './Filtros'
 import Ordenar from './Ordenar'
 import '../Styles/ResponsiveSidebar.css'
 
-const ResponsiveSidebar = ({setOrdenar}) => {
+const ResponsiveSidebar = ({setOrdenar, handleFiltroChange}) => {
 
     const [openFiltros, setOpenFiltros] = useState(false);
 
@@ -15,7 +15,7 @@ const ResponsiveSidebar = ({setOrdenar}) => {
         <div className='filter-element-responsive'>
             <button className="filtrar-responsive-dropdown" onClick={() => setOpenFiltros((prev) => !prev)}>Filtro</button>
             {
-                     openFiltros && <Filtros/>
+                     openFiltros && <Filtros handleFiltroChange={handleFiltroChange}/>
             }
 
         </div>
