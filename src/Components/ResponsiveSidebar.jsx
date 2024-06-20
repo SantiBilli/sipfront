@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Filtros from './Filtros'
 import Ordenar from './Ordenar'
-import '../Styles/ResponsiveItemsFilters.css'
+import '../Styles/ResponsiveSidebar.css'
 
-const ResponsiveItemsFilters = ({setOrdenar}) => {
+const ResponsiveSidebar = ({setOrdenar, handleFiltroChange}) => {
 
     const [openFiltros, setOpenFiltros] = useState(false);
 
@@ -15,7 +15,7 @@ const ResponsiveItemsFilters = ({setOrdenar}) => {
         <div className='filter-element-responsive'>
             <button className="filtrar-responsive-dropdown" onClick={() => setOpenFiltros((prev) => !prev)}>Filtro</button>
             {
-                     openFiltros && <Filtros/>
+                     openFiltros && <Filtros handleFiltroChange={handleFiltroChange}/>
             }
 
         </div>
@@ -30,4 +30,4 @@ const ResponsiveItemsFilters = ({setOrdenar}) => {
 )
 }
 
-export default ResponsiveItemsFilters
+export default ResponsiveSidebar

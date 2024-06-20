@@ -23,7 +23,7 @@ const Ordenar = ({ordenarPor}) => {
     </div>
     <div className='input-box3'>
         <input type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Fecha de publicacion</label>
+        <label>Fecha de publicación</label>
     </div>
     </div>
   )

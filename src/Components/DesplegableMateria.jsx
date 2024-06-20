@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Styles/DesplegableInstitucion.css';
 import { IoMdArrowDropright } from "react-icons/io";
 
-const DesplegableMateria = () => {
+const DesplegableMateria = ({handleFiltroChange}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectAll, setSelectAll] = useState(false);
   const [filters, setFilters] = useState({
     Matematica: false,
     LenguayLiteratura: false,
@@ -14,10 +13,10 @@ const DesplegableMateria = () => {
   });
 
   const filterNames = {
-    Matematica: 'Matematica',
+    Matematica: 'Matemática',
     LenguayLiteratura: 'Lengua y Literatura',
-    Musica: 'Musica',
-    FisicaQuimica: 'Fisica / Quimica',
+    Musica: 'Música',
+    FisicaQuimica: 'Física / Química',
     Otra: 'Otra',
   };
 
@@ -27,27 +26,12 @@ const DesplegableMateria = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleSelectAll = () => {
-    const newSelectAll = !selectAll;
-    setSelectAll(newSelectAll);
-    setFilters(Object.keys(filters).reduce((acc, filter) => {
-      acc[filter] = newSelectAll;
-      return acc;
-    }, {}));
-  };
-
   const handleFilterChange = (e) => {
     const { name, checked } = e.target;
     setFilters({
       ...filters,
       [name]: checked
     });
-
-    if (!checked) {
-      setSelectAll(false);
-    } else {
-      setSelectAll(Object.values({ ...filters, [name]: checked }).every(Boolean));
-    }
   };
 
   const handleClickOutside = (event) => {
@@ -63,27 +47,24 @@ const DesplegableMateria = () => {
     };
   }, []);
 
+  const handleClick = (event) => {
+    handleFilterChange(event)
+    handleFiltroChange("materia", event.target.name)
+  }
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropbtn">
         <IoMdArrowDropright />Materia
       </button>
       <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
-        <label>
-          <input
-            type="checkbox"
-            checked={selectAll}
-            onChange={handleSelectAll}
-          /> Seleccionar todo
-        </label>
         {Object.keys(filters).map((filter) => (
           <label key={filter}>
             <input
               type="checkbox"
               name={filter}
               checked={filters[filter]}
-              onChange={handleFilterChange}
-              onClick={(event) => console.log(event.target.name)}
+              onChange={(event) => handleClick(event)}
               className="filter-checkbox"
             /> {filterNames[filter]}
           </label>

@@ -7,24 +7,16 @@ import Card from '../Components/Card'
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from "../utils/api/checkToken"
 import { getPosts } from "../utils/api/fileUpload"
-import { FaFilter } from "react-icons/fa";
-import { GoArrowSwitch } from "react-icons/go";
-import Filtros from '../Components/Filtros'
-import Ordenar from '../Components/Ordenar'
-import ResponsiveItemsFilters from '../Components/ResponsiveItemsFilters'
+import ResponsiveSidebar from '../Components/ResponsiveSidebar'
 
 const Inicio = () => {
   
-  const [filteredArr, setFilteredArr] = useState([]);
+  const [arrOrdenada, setArrOrdenada] = useState([]);
   const [arr, setArr] = useState([])
   const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("");
   const [ordenar, setOrdenar] = useState("A-Z");
-
-  const handleFiltroChange = (value) => {
-    console.log("Valor", value);
-  };
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -62,46 +54,67 @@ const Inicio = () => {
     const filtered = arr.filter(producto =>
       producto.nombreProd.toLowerCase().includes(busqueda.toLowerCase())
     );
-    setFilteredArr(filtered);
+    setArrOrdenada(filtered);
   }, [busqueda, arr]);
 
+  //Filtros
+  const [filtros, setFiltros] = useState({
+    institucion: [],
+    zona: [],
+    materia: [],
+    año: []
+  });
 
-  const [openFiltros, setOpenFiltros] = useState(false);
+  const handleFiltroChange = (tipo, valor) => {
 
-  const [openOrdenar, setOpenOrdenar] = useState(false);
+    const filtroActual = filtros[tipo]
+
+    if (valor == "SanAgustin") valor = "San Agustín"
+    if (valor == "LangeLey") valor = "Lange Ley"
+
+    if (valor == "LenguayLiteratura") valor = "Lengua y Literatura"
+    if (valor == "FisicaQuimica") valor = "Física / Química"
+
+    if (valor == "PrimerAño") valor = "Primer Año"
+    if (valor == "SegundoAño") valor = "Segundo Año"
+    if (valor == "TercerAño") valor = "Tercer Año"
+    if (valor == "CuartoAño") valor = "Cuarto Año"
+    if (valor == "QuintoAño") valor = "Quinto Año"
+
+    const nuevoFiltro = filtroActual.includes(valor)
+         ? filtroActual.filter(item => item !== valor)
+         : [...filtroActual, valor];
+
+    setFiltros(
+      {...filtros, [tipo]: nuevoFiltro}
+    )
+
+  };
+
+  // useEffect(() => {
+  //   console.log("Filtros Actuales: ", filtros);
+  // }, [filtros]);
+
+  const publicacionesFiltradas = arrOrdenada.filter(publicacion => {
+    const filtroInstitucion = filtros.institucion.length === 0 || filtros.institucion.includes(publicacion.institucion);
+    const filtroZona = filtros.zona.length === 0 || filtros.zona.includes(publicacion.zona);
+    const filtroMateria = filtros.materia.length === 0 || filtros.materia.includes(publicacion.materia);
+    const filtroAño = filtros.año.length === 0 || filtros.año.includes(publicacion.ano);
+    return filtroInstitucion && filtroZona && filtroMateria && filtroAño;
+  });
 
   return (
       <div className='inicio-box'>
+
         <Header2 busqueda={setBusqueda}/>
+
         <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
-        
-        {/* <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
-        <div className='filtros-inicio'>
-
-
-          <div className='relative-dropdown-filtros'>
-            <button className = 'boton-filtros-responsive'onClick={() => setOpenFiltros((prev) => !prev)} >Filtros<FaFilter className='logo-filtro'/>
-            </button>
-            {
-                     openFiltros && <Filtros/>
-            }
-          </div>
-          
-          <div className='relative-dropdown-filtros'>
-            <button className = 'boton-filtros-responsive'onClick={() => setOpenOrdenar((prev) => !prev)} >Ordenar Por<GoArrowSwitch className='logo-filtro'/></button>
-            {
-                     openOrdenar && <Ordenar ordenarPor={setOrdenar}/>
-            }
-
-          </div>
-        </div> */}
-
-        <ResponsiveItemsFilters setOrdenar={setOrdenar}/>
+        <ResponsiveSidebar setOrdenar={setOrdenar} handleFiltroChange={handleFiltroChange}/>
 
         <div className='conteiner'>
           <div className='grid-productos'>
 
-            {filteredArr.map((url) => (
+            {publicacionesFiltradas.map((url) => (
               <div className="displayImages" key={url.postId}>
                   <Card url={url}/>
               </div>
@@ -109,6 +122,7 @@ const Inicio = () => {
 
           </div>
         </div>
+
         <Footer/>
       </div>
   )

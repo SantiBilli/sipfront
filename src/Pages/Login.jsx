@@ -38,7 +38,7 @@ const Login = () => {
     return ( 
         <div className='form-box'>
             <form className='form'>
-                    <h2>Inicia sesion</h2>
+                    <h2>Inicia sesión</h2>
                     <div className='top-form'>
                         <div className="input-box">
                             <label>Email</label>
@@ -54,11 +54,11 @@ const Login = () => {
                             </div>                            
                         </div>
                         <div className='recordame'>
-                            <label style={{fontFamily: 'Poppins'}}><input type="checkbox"/>Recordame</label>
+                            <label style={{fontFamily: 'Poppins'}}><input type="checkbox"/>Recordarme</label>
                         </div>
                     </div>
                     <div className='bottom-form'>
-                        <button type='button' onClick={submitForm}>Iniciar sesion</button>
+                        <button type='button' onClick={submitForm}>Iniciar sesión</button>
                         {passwordStatus ? <h1 className="invalidCredentials" >Email o contraseña incorrectos</h1> : null}
                         <a onClick={() => {navigate('/olvidastecontra')}}>¿Olvidaste tu contraseña?</a>
                         <a style={{color: 'black'}} onClick={() => {navigate('/register')}}>Crear cuenta</a>

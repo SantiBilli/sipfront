@@ -34,10 +34,9 @@ const Register = () => {
         const passwordValid = password.trim();
         const password2Valid = password2.trim();
 
-        console.log(nameValid, lastNameValid, emailValid, phoneValid, passwordValid, password2Valid, (password2 === password));
+        // console.log(nameValid, lastNameValid, emailValid, phoneValid, passwordValid, password2Valid, (password2 === password));
 
-        if(nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password)){
-            console.log("Form submited");
+        if(nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
             setSubmitted(false); //Reseteamos el estado del form
             setHasError(false);
 
@@ -77,7 +76,7 @@ const Register = () => {
         <form className='form'>
             <div className='box-register'>
                 <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')}/>
-                <h2>Registrate</h2>
+                <h2>Regístrate</h2>
             </div>
                 <div className='top-form'>
                     <div className="input-box">
@@ -116,7 +115,7 @@ const Register = () => {
                         {(submitted && !password.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
                             <label>Confirmar contraseña*</label>
-                            <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                            <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword2(event.target.value)}/>
                             
                             <div className='eye-login' onClick={() => setShowPws2(!showPwd2)}>
                                 {showPwd2 ? <FaRegEyeSlash/> : <FaRegEye/>
