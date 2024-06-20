@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Filtros from './Filtros'
 import Ordenar from './Ordenar'
-import '../Styles/ResponsiveItemsFilters.css'
+import '../Styles/ResponsiveSidebar.css'
 
-const ResponsiveItemsFilters = ({setOrdenar}) => {
+const ResponsiveSidebar = ({setOrdenar}) => {
 
     const [openFiltros, setOpenFiltros] = useState(false);
 
@@ -30,4 +30,4 @@ const ResponsiveItemsFilters = ({setOrdenar}) => {
 )
 }
 
-export default ResponsiveItemsFilters
+export default ResponsiveSidebar

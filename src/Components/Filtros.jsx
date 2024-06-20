@@ -4,15 +4,15 @@ import DesplegableZona from './DesplegableZona'
 import DesplegableMateria from './DesplegableMateria'
 import DesplegableAño from './DesplegableAño'
 import '../Styles/Filtros.css'
-const Filtros = () => {
+const Filtros = ({handleFiltroChange}) => {
   
   return (
     <div className="filtros">
         <h2>Filtros</h2>
-        <DesplegableInstitucion/>
-        <DesplegableZona/>
-        <DesplegableMateria/>
-        <DesplegableAño/>
+        <DesplegableInstitucion handleFiltroChange={handleFiltroChange}/>
+        <DesplegableZona handleFiltroChange={handleFiltroChange}/>
+        <DesplegableMateria handleFiltroChange={handleFiltroChange}/>
+        <DesplegableAño handleFiltroChange={handleFiltroChange}/>
     </div>
   )
 }
