@@ -100,10 +100,10 @@ const Upload = () => {
                 <label>Institución: </label>
                 <select name="Institucion" defaultValue={institucion} id="" onChange={(event) => setInstitucion(event.target.value)}>
                   <option value="DEFAULT" disabled hidden>Seleccionar</option>
-                  <option>Colegio San Agustín</option>
-                  <option>Colegio Santa Teresa</option>
-                  <option>Colegio Bayard</option>
-                  <option>Colegio Lange Ley</option>
+                  <option>San Agustín</option>
+                  <option>Guadalupe</option>
+                  <option>Bayard</option>
+                  <option>Lange Ley</option>
                   <option>Otra</option>
                 </select>
               </div>
