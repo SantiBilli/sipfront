@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainCompras } from '../utils/api/obtainCompras'
 import Header2 from '../Components/Header2'
+import FiltroEstados from '../Components/FiltroEstados'
 
 const MisCompras = () => {
   
@@ -60,9 +61,13 @@ const MisCompras = () => {
   return (
     <>
     <Header2 busqueda={setBusqueda}/>
-    <h2 className='titulo-mis-ventas'>Mis Compras <IoMdCart/></h2>
+    {/* <h2 className='titulo-mis-ventas'>Mis Compras <IoMdCart/></h2> */}
     <div className='boxMisVentas'>
         <div className='box-cart-mis-ventas'>
+          <div className='box-mis-ventas-estado-titulo'>
+            <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+            <FiltroEstados/>
+          </div>
           {
             arrVentas.length > 0 && arrBusqueda.map((venta) => (
               <CardMisCompras key={venta.postId} infoCompra={venta}/>
