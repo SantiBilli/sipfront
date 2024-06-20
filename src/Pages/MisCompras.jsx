@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/MisCompras.css'
-import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import CardMisCompras from '../Components/CardMisCompras'
 import { IoMdCart } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainCompras } from '../utils/api/obtainCompras'
+import Header2 from '../Components/Header2'
 
 const MisCompras = () => {
   
@@ -14,6 +14,9 @@ const MisCompras = () => {
   const [arrVentas, setArrVentas] = useState([]);
   const [comprasTotales, setComprasTotales] = useState("");
   const [gastado, setGastado] = useState(0);
+
+  const [busqueda, setBusqueda] = useState("")
+  const [arrBusqueda, setArrBusqueda] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -45,14 +48,23 @@ const MisCompras = () => {
 
     }, [arrVentas])
 
+    useEffect(() => {
+      const filtered = arrVentas.filter(producto =>
+        producto.nombreProd.toLowerCase().includes(busqueda.toLowerCase())
+      );
+
+      setArrBusqueda(filtered);
+
+    }, [busqueda, arrVentas]);
+
   return (
     <>
-    <Header/>
+    <Header2 busqueda={setBusqueda}/>
     <h2 className='titulo-mis-ventas'>Mis Compras <IoMdCart/></h2>
     <div className='boxMisVentas'>
         <div className='box-cart-mis-ventas'>
           {
-            arrVentas.length > 0 && arrVentas.map((venta) => (
+            arrVentas.length > 0 && arrBusqueda.map((venta) => (
               <CardMisCompras key={venta.postId} infoCompra={venta}/>
             ))
           }

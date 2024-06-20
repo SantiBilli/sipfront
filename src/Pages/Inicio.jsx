@@ -109,7 +109,7 @@ const Inicio = () => {
         <Header2 busqueda={setBusqueda}/>
 
         <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
-        <ResponsiveSidebar setOrdenar={setOrdenar}/>
+        <ResponsiveSidebar setOrdenar={setOrdenar} handleFiltroChange={handleFiltroChange}/>
 
         <div className='conteiner'>
           <div className='grid-productos'>

@@ -22,6 +22,7 @@
     border-radius: 50px;
     font-family: 'Poppins';
     font-size: 17px;
+    border: 2px solid #F2B846;
 }
 
 .ordenar-element-responsive {
@@ -42,6 +43,7 @@
     border-radius: 50px;
     font-family: 'Poppins';
     font-size: 17px;
+    border: 2px solid #F2B846;
 }
 
 @media (max-width: 650px){
@@ -61,14 +63,14 @@
         align-items: center;
         justify-content: center;
         width: 80%;
-        border-radius: 50px;
+        border-radius: 10px;
         height: 50px;
-        border: 1px solid #F2B846;
+        border: 2px solid #F2B846;
         padding: 5px;
     }
 
     .filtros {
-        border: 1px solid #F2B846;
+        border: 2px solid #F2B846;
         border-radius: 10px;
         padding: 2px;
         height: 150px;

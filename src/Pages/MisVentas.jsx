@@ -7,7 +7,7 @@ import { IoMdCart } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainVentas } from '../utils/api/obtainVentas'
-import { setRef } from '@mui/material'
+import Header2 from '../Components/Header2'
 
 const MisVentas = () => {
   
@@ -18,6 +18,9 @@ const MisVentas = () => {
   const [reservados, setReservados] = useState("");
   const [ventas, setVentas] = useState("");
   const [recaudado, setRecaudado] = useState(0);
+
+  const [busqueda, setBusqueda] = useState("")
+  const [arrBusqueda, setArrBusqueda] = useState([]);
 
 
   useEffect(() => {
@@ -53,30 +56,38 @@ const MisVentas = () => {
 
     }, [arrVentas])
 
+    useEffect(() => {
+      const filtered = arrVentas.filter(producto =>
+        producto.nombreProd.toLowerCase().includes(busqueda.toLowerCase())
+      );
+
+      setArrBusqueda(filtered);
+
+    }, [busqueda, arrVentas]);
 
   return (
     <>
-    <Header/>
-    <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
-    <div className='boxMisVentas'>
-        <div className='box-cart-mis-ventas'>
-          { arrVentas.length > 0 &&
-          arrVentas.map((venta) => (
-            <CardMisVentas key={venta.postId} infoVenta={venta} setRefreshAux={setRefresh}/>
-          ))
-          }
-        </div>
-        <hr className='barra-mis-ventas-box'/>
-        <div className='mis-ventas-box-right'>
-          <p>Estadísticas:</p>
-          <hr className='barra-mis-ventas-box-right'/>
-          <p>Publicados: {publicados}</p>
-          <p>Reservados: {reservados}</p>
-          <p>Ventas Totales: {ventas}</p>
-          <p>Total Recaudado: ${recaudado}</p>
-        </div>
-    </div>
-    <Footer/>
+      <Header2 busqueda={setBusqueda}/>
+      <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+      <div className='boxMisVentas'>
+          <div className='box-cart-mis-ventas'>
+            { arrVentas.length > 0 &&
+            arrBusqueda.map((venta) => (
+              <CardMisVentas key={venta.postId} infoVenta={venta} setRefreshAux={setRefresh}/>
+            ))
+            }
+          </div>
+          <hr className='barra-mis-ventas-box'/>
+          <div className='mis-ventas-box-right'>
+            <p>Estadísticas:</p>
+            <hr className='barra-mis-ventas-box-right'/>
+            <p>Publicados: {publicados}</p>
+            <p>Reservados: {reservados}</p>
+            <p>Ventas Totales: {ventas}</p>
+            <p>Total Recaudado: ${recaudado}</p>
+          </div>
+      </div>
+      <Footer/>
     </>
   )
 }
