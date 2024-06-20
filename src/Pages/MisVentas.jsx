@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import '../Styles/MisVentas.css'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainVentas } from '../utils/api/obtainVentas'
 import Header2 from '../Components/Header2'
+import FiltroEstados from '../Components/FiltroEstados'
 
 const MisVentas = () => {
   
@@ -68,15 +69,25 @@ const MisVentas = () => {
   return (
     <>
       <Header2 busqueda={setBusqueda}/>
-      <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+      {/* <div className='box-mis-ventas-estado-titulo'>
+        <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+        <FiltroEstados/>
+
+      </div> */}
       <div className='boxMisVentas'>
-          <div className='box-cart-mis-ventas'>
+        <div className='box-cart-mis-ventas'>
+          <div className='box-mis-ventas-estado-titulo'>
+            <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+            <FiltroEstados/>
+          </div>
+
             { arrVentas.length > 0 &&
             arrBusqueda.map((venta) => (
               <CardMisVentas key={venta.postId} infoVenta={venta} setRefreshAux={setRefresh}/>
             ))
             }
-          </div>
+  
+        </div>
           <hr className='barra-mis-ventas-box'/>
           <div className='mis-ventas-box-right'>
             <p>Estadísticas:</p>
