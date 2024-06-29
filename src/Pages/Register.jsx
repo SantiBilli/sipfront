@@ -36,7 +36,7 @@ const Register = () => {
 
         // console.log(nameValid, lastNameValid, emailValid, phoneValid, passwordValid, password2Valid, (password2 === password));
 
-        if(nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
+        if (nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
             setSubmitted(false); //Reseteamos el estado del form
             setHasError(false);
 

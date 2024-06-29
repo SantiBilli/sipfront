@@ -39,7 +39,7 @@ const Perfil = () => {
             setTelefono(response.telefono)
             setImagen(response.pfp)
 
-            console.log(response.pfp);
+            // console.log(response.pfp);
 
             return
         }
