@@ -4,15 +4,13 @@ import { IoMdArrowDropright } from "react-icons/io";
 const DesplegableEstados = ({handleFiltroChange}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [filters, setFilters] = useState({
-    Publicado: false,
     Reservado: false,
-    Vendido: false,
+    Comprado: false,
   });
 
   const filterNames = {
-    Publicado: 'Publicado',
     Reservado: 'Reservado',
-    Vendido: 'Vendido'
+    Comprado: 'Comprado',
   };
 
   const dropdownRef = useRef(null);

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainCompras } from '../utils/api/obtainCompras'
 import Header2 from '../Components/Header2'
-import FiltroEstados from '../Components/FiltroEstados'
+import FiltroEstadosCompras from '../Components/FiltroEstadosCompras'
 
 const MisCompras = () => {
   
@@ -18,6 +18,10 @@ const MisCompras = () => {
 
   const [busqueda, setBusqueda] = useState("")
   const [arrBusqueda, setArrBusqueda] = useState([]);
+
+  const [filtros, setFiltros] = useState({
+    estado: []
+  });
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -35,6 +39,8 @@ const MisCompras = () => {
       
       const obtenerVentas = async () => {
         const ventas = await obtainCompras()
+
+        if (ventas == 204) return
 
         setArrVentas(ventas)
       } 
@@ -58,6 +64,27 @@ const MisCompras = () => {
 
     }, [busqueda, arrVentas]);
 
+    const handleFiltroChange = (valor) => {
+
+      valor = valor.toLowerCase();
+      if (valor == "comprado") valor = "vendido"
+
+      const filtroActual = filtros["estado"]
+
+      const nuevoFiltro = filtroActual.includes(valor)
+      ? filtroActual.filter(item => item !== valor)
+      : [...filtroActual, valor];
+
+      setFiltros(
+        {...filtros, ["estado"]: nuevoFiltro}
+      )
+    }
+
+    const publicacionesFiltradas = arrBusqueda.filter(publicacion => {
+      const filtroEstado = filtros.estado.length === 0 || filtros.estado.includes(publicacion.estado);
+      return filtroEstado
+    });
+
   return (
     <>
     <Header2 busqueda={setBusqueda}/>
@@ -65,11 +92,11 @@ const MisCompras = () => {
     <div className='boxMisVentas'>
         <div className='box-cart-mis-ventas'>
           <div className='box-mis-ventas-estado-titulo'>
-            <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
-            <FiltroEstados/>
+            <h2 className='titulo-mis-ventas'>Mis Compras <IoMdCart/></h2>
+            <FiltroEstadosCompras handleFiltroChange={handleFiltroChange}/>
           </div>
           {
-            arrVentas.length > 0 && arrBusqueda.map((venta) => (
+            publicacionesFiltradas.length > 0 && arrBusqueda.map((venta) => (
               <CardMisCompras key={venta.postId} infoCompra={venta}/>
             ))
           }
