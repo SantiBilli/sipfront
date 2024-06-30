@@ -15,6 +15,7 @@ const Upload = () => {
   const [desc, setDesc] = useState("")
   const [precio, setPrecio] = useState()
   const [error, setError] = useState(false)
+  const [errorContenido, setErrorContenido] = useState(false)
   const [mostrarBoton, setMostrarBoton] = useState(false)
 
   const [institucion, setInstitucion] = useState("DEFAULT")
@@ -65,9 +66,13 @@ const Upload = () => {
     const response = await fileUpload(formdata)
 
     if (response == 204) return setError(true)
+    if (response == 406) return setErrorContenido(true)
 
     navigate("/dashboard")
-    return setError(false)
+
+    setError(false)
+    setErrorContenido(false)
+    return
     }
 
   return (
@@ -144,6 +149,7 @@ const Upload = () => {
           <button className="button-publicar" disabled={!mostrarBoton} style = { mostrarBoton ? {display: 'block'} : {display: 'none'}} onClick={handleUpload}>Publicar</button>
 
           {error ? <h1>Ocurrio un error.</h1> : null}
+          {errorContenido ? <h1>Contenido de imagen no aceptado.</h1> : null}
       </div>
       <Footer/>
     </>
