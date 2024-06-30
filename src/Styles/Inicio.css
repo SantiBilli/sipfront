@@ -55,13 +55,21 @@
     padding: 20px;
 }
 
+.displayImages {
+justify-content: center;
+align-items: center;
+display: flex;
+}
+
 .grid-productos {
     margin-top: 20px;
     display: grid;
     height: fit-content;
-    gap: 20px;
+    gap: 35px;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
     /* grid-template-columns: 1fr 1fr 1fr; */
 }
 
@@ -93,4 +101,6 @@
         gap: 30px;
     }
   } 
+
+
 

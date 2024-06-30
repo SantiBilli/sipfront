@@ -10,15 +10,15 @@ const CardMisCompras = ({infoCompra}) => {
     <div className='CardVentas'>
         <div className='left-mis-vetas'>
           <img className = 'imagen-mis-ventas' src={`http://localhost:3500/api/images/${infoCompra.imagen}`} alt="" />
-          <hr className='barra-mis-ventas'/>
+          <hr className='barra-mis-ventas-left'/>
           <div className='medio-mis-ventas'>
-            <p>Nombre: {infoCompra.nombreProd}</p>
+            <p className='nombre-mis-ventas'>Nombre: {infoCompra.nombreProd}</p>
             <p>Descripción: {infoCompra.descripcionProd}</p>
             <p>Precio: ${infoCompra.precio}</p>
           </div>
         </div>
         <div className='right-mis-vetas'>
-          <hr className='barra-mis-ventas'/>
+          <hr className='barra-mis-ventas-right'/>
           <div>
             <p>Fecha: {fechaFormatted}</p>
             <p>Vendedor: {infoCompra.email}</p>
