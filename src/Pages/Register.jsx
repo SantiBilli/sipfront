@@ -29,12 +29,11 @@ const Register = () => {
 
         const nameValid = nombre.trim();
         const lastNameValid = apellido.trim();
-        const emailValid = mail.trim() && (mail.includes('@'));
+        const emailValid = mail.trim() && (mail.includes('@') && mail.includes('.'));
         const phoneValid = phone.trim() && phone.startsWith(11) && phone.length == 10;
         const passwordValid = password.trim();
         const password2Valid = password2.trim();
 
-        // console.log(nameValid, lastNameValid, emailValid, phoneValid, passwordValid, password2Valid, (password2 === password));
 
         if (nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
             setSubmitted(false); //Reseteamos el estado del form
@@ -84,7 +83,7 @@ const Register = () => {
                         <input type="text" required onChange={event => setMail(event.target.value)}/>
                     </div>
                         {(submitted && !mail.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
-                        {(submitted && mail.trim() && (!mail.includes('@')) ? <span className="invalidCredentials">Email inválido</span> : null)}
+                        {(submitted && mail.trim() && (!mail.includes('@') || !mail.includes('.')) ? <span className="invalidCredentials">Email inválido</span> : null)}
                         {(submitted && emailExists ? <span className="invalidCredentials">Email ya registrado</span> : null)}                    
                     <div className="input-box">
                         <label>Nombre*</label>
