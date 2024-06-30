@@ -63,7 +63,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
     <div className='CardVentas'>
         <div className='left-mis-vetas'>
           <img className = 'imagen-mis-ventas' src={`http://localhost:3500/api/images/${infoVenta.imagen}`} alt="" />
-          <hr className='barra-mis-ventas'/>
+          <hr className='barra-mis-ventas-left'/>
           <div className='medio-mis-ventas'>
             <p>Nombre: {infoVenta.nombreProd}</p>
             <p>Descripción: {infoVenta.descripcionProd}</p>
@@ -71,7 +71,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
           </div>
         </div>
         <div className='right-mis-vetas'>
-          <hr className='barra-mis-ventas'/>
+        <hr className='barra-mis-ventas-right'/>
           <div>
             <p>Fecha: {fechaFormatted}</p>
 

@@ -26,7 +26,7 @@ const Upload = () => {
 
     if (nombre == "") return setMostrarBoton(false)
     if (desc == "") return setMostrarBoton(false)
-    if (precio == "") return setMostrarBoton(false)
+    if (precio == null) return setMostrarBoton(false)
     if (archivo == null) return setMostrarBoton(false)
     if (institucion == "DEFAULT") return setMostrarBoton(false)
     if (zona == "DEFAULT") return setMostrarBoton(false)

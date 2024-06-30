@@ -6,6 +6,7 @@
     padding: 0% 3% 3% 3%;
     gap: 5%;
     margin-top: 3%;
+    /* align-items: center; */
 }
 
 .barra-mis-ventas-box {
@@ -43,7 +44,11 @@
 
 .barra-mis-ventas-box-right {
     border: 1px solid black;
-    width: 300px;
+    width: 100%;
+}
+
+.mis-ventas-box-right {
+    width: 200px;
 }
 
 .box-cart-mis-ventas {
@@ -68,6 +73,7 @@
     .boxMisVentas {
         flex-direction: column-reverse;
         gap: 40px;
+        align-items: center;
     }
 
     .barra-mis-ventas-box {
