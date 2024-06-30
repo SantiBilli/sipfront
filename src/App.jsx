@@ -10,6 +10,7 @@ import Soporte from './Pages/Soporte';
 import OlvidasteContra from './Pages/OlvidasteContra';
 import MisVentas from './Pages/MisVentas';
 import MisCompras from './Pages/MisCompras';
+import CambiarContrasena from './Pages/CambiarContrasena';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/perfil' element={<Perfil/>}></Route>
         <Route path='/misventas' element={<MisVentas/>}></Route>
         <Route path='/miscompras' element={<MisCompras/>}></Route>
+        <Route path='/cambiar-contrasena' element={<CambiarContrasena/>}></Route>
         <Route path='/soporte' element={<Soporte/>}></Route>
         <Route path='/olvidastecontra' element={<OlvidasteContra/>}></Route>
         <Route path='/dashboard/detalles/:id' element={<Detalles/>}></Route>
