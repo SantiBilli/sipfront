@@ -19,6 +19,13 @@
 
 }
 
+.input-imagenes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .publicar-datos {
     width: 500px;
     display: flex;
