@@ -11,6 +11,7 @@ const OlvidasteContra = () => {
     const [mail, setMail] = useState('');
     const [emailExists, setEmailExists] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [enviado, setEmailEnviado]=useState(false)
 
     const navigate = useNavigate();
 
@@ -20,8 +21,8 @@ const OlvidasteContra = () => {
         
         if(emailExists){
             setSubmitted(false)
+            setEmailEnviado(true)
 
-            console.log("Enviando mail")
             const response = await olvideConstraseñaForm({email : mail})
 
             if (response == 204) return console.log("Error al enviar mail")
@@ -58,7 +59,7 @@ const OlvidasteContra = () => {
                         <input type="text" required onChange={event => setMail(event.target.value)}/>
                     </div>   
                     {submitted && !emailExists && <p className='invalidCredentials'>El email no existe</p>}
-                    {submitted && emailExists && <p className='validCredentials'>Se envió el mail correctamente</p>}
+                    {enviado && emailExists && <p className='validCredentials'>Se envió el mail correctamente</p>}
                 </div>
                 <div className='bottom-form'>
                     <button type='button' onClick={handleClick}>Enviar Correo</button>
