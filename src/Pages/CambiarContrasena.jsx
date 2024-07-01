@@ -17,11 +17,13 @@ const CambiarContrasena = () => {
     
     useEffect(() => {
         const obtenermail = async () => {
-            const response = await cambiarConstraseñaForm({userId, token})
+            const response = await cambiarContraseñaForm({userId})
 
-            if (response == false) return navigate('/login')
+            if (response == 204) return navigate('/login')
+
             return setMail(response.email)
         }
+        
         obtenermail()
 
     }, [])
