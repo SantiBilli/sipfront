@@ -25,6 +25,10 @@
     height: 100%;
 }
 
+.redes-sociales {
+    cursor: pointer;
+}
+
 .icon-redes{
     font-size: 24px;
     display: flex;

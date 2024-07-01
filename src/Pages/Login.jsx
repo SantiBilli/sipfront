@@ -48,7 +48,7 @@ const Login = () => {
                             <label>Password</label>
                             <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
                             
-                            <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
+                            <div className='eye-login' onClick={() => setShowPws(!showPwd)} style={{cursor: 'pointer'}}>
                                 {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
                                 }
                             </div>                            
@@ -58,7 +58,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='bottom-form'>
-                        <button type='button' onClick={submitForm}>Iniciar sesión</button>
+                        <button type='button' onClick={submitForm} style={{cursor: 'pointer'}}>Iniciar sesión</button>
                         {passwordStatus ? <h1 className="invalidCredentials" >Email o contraseña incorrectos</h1> : null}
                         <a onClick={() => {navigate('/olvidastecontra')}}>¿Olvidaste tu contraseña?</a>
                         <a style={{color: 'black'}} onClick={() => {navigate('/register')}}>Crear cuenta</a>

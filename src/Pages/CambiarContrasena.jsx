@@ -70,7 +70,7 @@ const CambiarContrasena = () => {
                         <label>Contraseña*</label>
                         <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
                         
-                        <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
+                        <div className='eye-login' onClick={() => setShowPws(!showPwd)} style={{cursor: 'pointer'}}>
                             {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
                             }
                         </div>                            
@@ -80,7 +80,7 @@ const CambiarContrasena = () => {
                             <label>Confirmar contraseña*</label>
                             <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword2(event.target.value)} maxLength={50}/>
                             
-                            <div className='eye-login' onClick={() => setShowPws2(!showPwd2)}>
+                            <div className='eye-login' onClick={() => setShowPws2(!showPwd2)} style={{cursor: 'pointer'}}>
                                 {showPwd2 ? <FaRegEyeSlash/> : <FaRegEye/>
                                 }
                             </div>                            
@@ -89,7 +89,7 @@ const CambiarContrasena = () => {
                         {(submitted && password2.trim() && (password2 !== password) ? <span className="invalidCredentials">Las contraseñas no coinciden</span> : null)}
                     </div>
                     <div className='bottom-form'>
-                        <button onClick={handleClick} type='button'>Cambiar Contraseña</button>
+                        <button onClick={handleClick} type='button' style={{cursor: 'pointer'}}>Cambiar Contraseña</button>
                     </div>
                     {(error ? <span className="invalidCredentials">Este link ya ha expirado</span> : null)}
             </form>

@@ -144,7 +144,7 @@ const Perfil = () => {
 
         setSubmitted(true)
 
-        if (!phoneValid) return 
+        if (!phoneValid && nuevoTelefono != "") return 
 
         const response = await actualizarCredenciales({nombre: !nuevoNombre ? nombre : nuevoNombre, apellido: !nuevoApellido ? apellido : nuevoApellido, telefono: !nuevoTelefono ? telefono : nuevoTelefono})
 
@@ -181,10 +181,10 @@ const Perfil = () => {
 
                     <div className='botones-perfil'>
                         <div className='input-perfil'>
-                            <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile"><FaPencilAlt/></label>
+                            <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile" style={{cursor: 'pointer'}}><FaPencilAlt/></label>
                             <input disabled={cargando} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/png" onChange={(event) => handleClick(event.target.files[0])}/>
                         </div>
-                        <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar}><FaTrash/></label>
+                        <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar} style={{cursor: 'pointer'}}><FaTrash/></label>
                     </div>
                 </div>
                 <hr className='barra-perfil'/>
@@ -216,7 +216,7 @@ const Perfil = () => {
                         <div className="nuevo-mail-perfil-box">
                             <input className='nuevo-mail-perfil' type="tel" pattern='[0-9]{11}' maxLength={10} placeholder="Nuevo Telefono" value={nuevoTelefono} style={inputTelefono ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoTelefono(event.target.value)}/>
                         </div>
-                        {((submitted && (!nuevoTelefono.startsWith(11) || nuevoTelefono.length != 10))? <span className="invalidCredentials">Telefono inválido</span> : null)}
+                        {(((submitted && nuevoTelefono != "") &&(!nuevoTelefono.startsWith(11) || nuevoTelefono.length != 10))? <span className="invalidCredentials">Telefono inválido</span> : null)}
                     </div>
                     <div className='Seguridad'>
                         <h3>Seguridad:</h3>

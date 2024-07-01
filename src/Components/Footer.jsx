@@ -11,12 +11,12 @@ const Footer = () => {
       <hr className='linea-footer'/>
       <div className='redes'>
         <div className='icon-redes'>
-          <FaWhatsapp/>
-          <FaInstagram/>
-          <FaFacebookSquare/>
+          <FaWhatsapp className='redes-sociales' onClick={() => window.open(`https://wa.me/+5401137833124`)}/>
+          <FaInstagram className='redes-sociales'/>
+          <FaFacebookSquare className='redes-sociales'/>
         </div>
         <hr className = 'barra-redes'/>
-        <p>info@smartswap.com</p>
+        <p>smartswapsip@gmail.com</p>
       </div>
       <hr className='linea-footer'/>
     </footer>

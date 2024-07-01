@@ -50,7 +50,7 @@ const OlvidasteContra = () => {
   return (
     <form className='form-box'>
         <div className='form'>
-        <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')}/>
+        <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')} style={{cursor: 'pointer'}}/>
                 <h2>¿Olvidaste tu contraseña?</h2>
                 <p>Ingrese el correo electrónico asociado a su cuenta para cambiar su contraseña.</p>
                 <div className='top-form'>
@@ -62,7 +62,7 @@ const OlvidasteContra = () => {
                     {enviado && emailExists && <p className='validCredentials'>Se envió el mail correctamente</p>}
                 </div>
                 <div className='bottom-form'>
-                    <button type='button' onClick={handleClick}>Enviar Correo</button>
+                    <button type='button' onClick={handleClick} style={{cursor: 'pointer'}}>Enviar Correo</button>
                 </div>
         </div>
         <div className="deco">
