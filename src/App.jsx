@@ -27,7 +27,7 @@ function App() {
         <Route path='/misventas' element={<MisVentas/>}></Route>
         <Route path='/recomendaciones' element={<Recomendaciones/>}></Route>
         <Route path='/miscompras' element={<MisCompras/>}></Route>
-        <Route path='/cambiar-contrasena/:userId/:token' element={<CambiarContrasena/>}></Route>
+        <Route path='/cambiar-contrasena/:token' element={<CambiarContrasena/>}></Route>
         <Route path='/soporte' element={<Soporte/>}></Route>
         <Route path='/olvidastecontra' element={<OlvidasteContra/>}></Route>
         <Route path='/dashboard/detalles/:id' element={<Detalles/>}></Route>

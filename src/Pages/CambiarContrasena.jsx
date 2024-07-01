@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Logo7 from '../assets/Logo7.png'
-import { useNavigate, useParams } from 'react-router-dom';
-import { cambiarContraseñaForm } from '../utils/api/cambiarContraseña.js';
+import { json, useNavigate, useParams } from 'react-router-dom';
+import { cambiarContraseña, cambiarContraseñaForm } from '../utils/api/cambiarContraseña.js';
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa";
 
@@ -12,7 +12,9 @@ const CambiarContrasena = () => {
     const [submitted, setSubmitted] = useState(false);
     const [mail, setMail] = useState('');
     const [showPwd, setShowPws] = useState(false);
-    const[showPwd2, setShowPws2] = useState(false);
+    const [showPwd2, setShowPws2] = useState(false);
+
+    const [error, setError] = useState(false)
 
 
     const { userId } = useParams();
@@ -21,21 +23,31 @@ const CambiarContrasena = () => {
 
 
     const handleClick = async (event) => {
+
         event.preventDefault();
         setSubmitted(true);
+
         const passwordValid = password.trim();
         const password2Valid = password2.trim();
 
         if (passwordValid && password2Valid && (password2 === password)){  
+
+            const response = await cambiarContraseña({token: token, contra: password})
+
+            console.log(response);
+
+            if (response == 401) return setError(true)
+            if (response == 204) return console.log("Error.");
+
+            navigate("/login")
+
             setSubmitted(false);
         }
-    
-
     }
     
     useEffect(() => {
         const obtenermail = async () => {
-            const response = await cambiarContraseñaForm({userId})
+            const response = await cambiarContraseñaForm({token: token})
 
             if (response == 204) return navigate('/login')
 
@@ -79,6 +91,7 @@ const CambiarContrasena = () => {
                     <div className='bottom-form'>
                         <button onClick={handleClick} type='button'>Cambiar Contraseña</button>
                     </div>
+                    {(error ? <span className="invalidCredentials">Este link ya ha expirado</span> : null)}
             </form>
             <div className="deco">
                 <div className='c1'></div>
