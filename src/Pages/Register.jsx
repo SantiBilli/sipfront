@@ -80,31 +80,31 @@ const Register = () => {
                 <div className='top-form'>
                     <div className="input-box">
                         <label>Email*</label>
-                        <input type="text" required onChange={event => setMail(event.target.value)}/>
+                        <input type="text" required onChange={event => setMail(event.target.value)} maxLength={50}/>
                     </div>
                         {(submitted && !mail.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && mail.trim() && (!mail.includes('@') || !mail.includes('.')) ? <span className="invalidCredentials">Email inválido</span> : null)}
                         {(submitted && emailExists ? <span className="invalidCredentials">Email ya registrado</span> : null)}                    
                     <div className="input-box">
                         <label>Nombre*</label>
-                        <input type="text" required onChange={event => setNombre(event.target.value)}/>
+                        <input type="text" required onChange={event => setNombre(event.target.value)} maxLength={25}/>
                     </div>
                         {(submitted && !nombre.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
                         <label>Apellido*</label>
-                        <input type="text" required onChange={event => setApellido(event.target.value)}/>
+                        <input type="text" required onChange={event => setApellido(event.target.value)} maxLength={25}/>
                     </div> 
                         {(submitted && !apellido.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
                         <label>Telefono*</label>
-                        <input type="tel" required pattern='[0-9]{11}' onChange={event => setPhone(event.target.value)}/>
+                        <input type="tel" required pattern='[0-9]{11}' onChange={event => setPhone(event.target.value)} maxLength={10}/>
                     </div>
                         {(submitted && !phone.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && phone.trim() && (!phone.startsWith(11) || phone.length != 10)? <span className="invalidCredentials">Telefono inválido</span> : null)}
 
                     <div className="input-box">
                         <label>Contraseña*</label>
-                        <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                        <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
                         
                         <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
                             {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
@@ -114,7 +114,7 @@ const Register = () => {
                         {(submitted && !password.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
                             <label>Confirmar contraseña*</label>
-                            <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword2(event.target.value)}/>
+                            <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword2(event.target.value)} maxLength={50}/>
                             
                             <div className='eye-login' onClick={() => setShowPws2(!showPwd2)}>
                                 {showPwd2 ? <FaRegEyeSlash/> : <FaRegEye/>
