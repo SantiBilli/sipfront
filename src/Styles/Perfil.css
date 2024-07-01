@@ -17,6 +17,18 @@
 .perfil-pic {
     height: 300px;
     width: 300px;
+    border-radius: 100%;
+    border: 2px solid  #F2B846;
+}
+
+.loader-container-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    border: 2px solid #f2b94600;;
 }
 
 .left-perfil p {
@@ -100,17 +112,13 @@
 }
 
 .delete-perfilpic {
-    display: flex;
+    background-color: rgb(228, 228, 228);
     padding: 15px;
-    font-size: 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(228, 228, 228);
-
     border-radius: 100%;
-    border: none;
-    height: 50px;
-    width: 50px;
+    font-size: 17px;
 }
 
 .botones-perfil {
@@ -189,4 +197,3 @@
         width: 100%;
     }
   }
-

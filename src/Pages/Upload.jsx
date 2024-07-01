@@ -160,7 +160,7 @@ const Upload = () => {
             </div>
           </div>
           <button className="button-publicar" disabled={!mostrarBoton} style = { mostrarBoton ? {display: 'block'} : {display: 'none'}} onClick={handleUpload}>Publicar</button>
-          <div style = { !cargando ? {display: 'none'} : {display: 'block'}} class="loader"></div>
+          <div style = { !cargando ? {display: 'none'} : {display: 'block'}} className="loader"></div>
           {error ? <h3 className='error-publicar'>Ocurrio un error.</h3> : null}
           {errorContenido ? <h3 className='error-publicar'>Contenido de imagen no aceptado.</h3> : null}
       </div>
