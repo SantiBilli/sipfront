@@ -65,8 +65,8 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
           <img className = 'imagen-mis-ventas' src={`http://localhost:3500/api/images/${infoVenta.imagen}`} alt="" />
           <hr className='barra-mis-ventas-left'/>
           <div className='medio-mis-ventas'>
-            <p>Nombre: {infoVenta.nombreProd}</p>
-            <p>Descripción: {infoVenta.descripcionProd}</p>
+            <p style={{maxWidth: "400px"}}>Nombre: {infoVenta.nombreProd}</p>
+            <p style={{maxWidth: "1000px"}}>Descripción: {infoVenta.descripcionProd}</p>
             <p>Precio: ${infoVenta.precio}</p>
           </div>
         </div>

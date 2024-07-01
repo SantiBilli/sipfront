@@ -17,6 +17,7 @@ const Upload = () => {
   const [error, setError] = useState(false)
   const [errorContenido, setErrorContenido] = useState(false)
   const [mostrarBoton, setMostrarBoton] = useState(false)
+  const [cargando, setCargando] = useState(false)
 
   const [institucion, setInstitucion] = useState("DEFAULT")
   const [zona, setZona] = useState("DEFAULT")
@@ -25,9 +26,10 @@ const Upload = () => {
 
   useEffect(() => {
 
+
     if (nombre == "") return setMostrarBoton(false)
     if (desc == "") return setMostrarBoton(false)
-    if (precio == null) return setMostrarBoton(false)
+    if (precio == "") return setMostrarBoton(false)
     if (archivo == null) return setMostrarBoton(false)
     if (institucion == "DEFAULT") return setMostrarBoton(false)
     if (zona == "DEFAULT") return setMostrarBoton(false)
@@ -50,6 +52,10 @@ const Upload = () => {
     },[])
 
   const handleUpload = async () => {
+
+    setMostrarBoton(false)
+    setCargando(true)
+
     const userData = JSON.parse(localStorage.getItem("userData")).userId
     const formdata = new FormData();
 
@@ -64,6 +70,9 @@ const Upload = () => {
     formdata.append('ano', ano)
 
     const response = await fileUpload(formdata)
+
+    setCargando(false)
+    setMostrarBoton(true)
 
     if (response == 204) return setError(true)
     if (response == 406) return setErrorContenido(true)
@@ -84,11 +93,15 @@ const Upload = () => {
             <div className='publicar-datos'>
               <div className="input-box2">
                 <label>Nombre:</label>
-                <input type="text" required onChange={event => setNombre(event.target.value)}/>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <input type="text" maxLength={75} required onChange={event => setNombre(event.target.value)}/>
+                  <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', fontSize: '13px'}}>{nombre.length}/75</div>
+                </div>  
               </div> 
               <div className="input-box-description-publicar">
                 <label>Descripción:</label>
-                <textarea name="" id="" onChange={event => setDesc(event.target.value)}></textarea>
+                <textarea name="" id=""  maxLength={300} onChange={event => setDesc(event.target.value)}></textarea>
+                <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', fontSize: '13px'}}>{desc.length}/300</div>
               </div> 
               <div className="input-box2">
                 <label>Precio:</label>
@@ -147,9 +160,9 @@ const Upload = () => {
             </div>
           </div>
           <button className="button-publicar" disabled={!mostrarBoton} style = { mostrarBoton ? {display: 'block'} : {display: 'none'}} onClick={handleUpload}>Publicar</button>
-
-          {error ? <h1>Ocurrio un error.</h1> : null}
-          {errorContenido ? <h1>Contenido de imagen no aceptado.</h1> : null}
+          <div style = { !cargando ? {display: 'none'} : {display: 'block'}} class="loader"></div>
+          {error ? <h3 className='error-publicar'>Ocurrio un error.</h3> : null}
+          {errorContenido ? <h3 className='error-publicar'>Contenido de imagen no aceptado.</h3> : null}
       </div>
       <Footer/>
     </>

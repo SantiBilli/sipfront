@@ -1,5 +1,7 @@
 .imagen-mis-ventas {
-    height: 100px;
+    /* height: 100px; */
+    width: 100px;
+    max-height: 300px;
 }
 
 .CardVentas {
@@ -10,6 +12,7 @@
     justify-content: space-between;
     min-height: 100px;
     display: flex;
+    overflow: hidden;
     
 }
 
@@ -30,9 +33,9 @@
 }
 
 .medio-mis-ventas p{
-    max-width: 200px;
+    /* max-width: 600px; */
     overflow: hidden;
-    max-height: 200px;
+    /* max-height: 200px; */
 }
 
 
@@ -49,7 +52,13 @@
 }
 
 .input-comprador-mail {
-    width: 100px;
+    width: 140px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.input-comprador-mail:focus {
+    outline: none;
 }
 
 .barra-mis-ventas-right {
@@ -79,7 +88,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 660px) {
 
     
     .CardVentas {
@@ -94,7 +103,9 @@
 
     .barra-mis-ventas-left {
         /* display: none; */
-        height: 100px;
+        /* height: 100px; */
+        width: 80%;
+        
     }
 
 
@@ -109,8 +120,18 @@
     .left-mis-vetas {
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 0px;
+        flex-direction: column;
+    
 }
 
+    .medio-mis-ventas {
+        padding: 20px;
+    }
+
+    .imagen-mis-ventas {
+        padding: 20px;
+        width: 170px;
+    }
 
 }
