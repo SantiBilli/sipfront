@@ -5,7 +5,7 @@ import Footer from '../Components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtenerDatosPerfil } from '../utils/api/obtenerDatos'
-import { fotoPerfil } from '../utils/api/fotoPerfil'
+import { fotoPerfil, fotoPerfilReset } from '../utils/api/fotoPerfil'
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
@@ -21,6 +21,8 @@ const Perfil = () => {
     const [inputNombre, setInputNombre] = useState(false)
     const [inputApellido, setInputApellido] = useState(false)
     const [inputTelefono, setInputTelefono] = useState(false)
+
+    const [cargando, setCargando] = useState(false)
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -53,21 +55,44 @@ const Perfil = () => {
 
         const handleClick = async (value) => {
 
+            if (value == null) return console.log("No hay imagen");
+
+            setCargando(true)
+
             const formdata = new FormData();
             formdata.append('imagen', value)
+            formdata.append('imagenVieja', imagen)
     
             const response = await fotoPerfil(formdata)
     
             if (response == 204) {
                 setImagen(null)
+                setCargando(false)
                 return console.log("Error al Cargar PFP");
             }
             if (response == 406) {
-                setImagen(null)
+                setCargando(false)
                 return console.log("Contenido no aceptado.");
             }
     
             setImagen(response.imagen)
+
+            setCargando(false)
+        }
+
+        const handleClickBorrar = async () => {
+
+            if (imagen == null) return
+
+            setCargando(true)
+
+            const userId = JSON.parse(localStorage.getItem('userData')).userId
+
+            const response = await fotoPerfilReset({userId: userId, imagenVieja: imagen})
+
+            setImagen(null)
+
+            setCargando(false)
         }
 
     return (
@@ -75,13 +100,19 @@ const Perfil = () => {
             <Header/>
             <div className='box-perfil'>
                 <div className="left-perfil">
-                    <img className = 'perfil-pic' src={ (imagen != null) ? `http://localhost:3500/api/pfp/${imagen}` : `http://localhost:3500/api/pfp/default.png`} alt="" />
+                   
+                    <img className = 'perfil-pic' src={ (imagen != null) ? `http://localhost:3500/api/pfp/${imagen}` : `http://localhost:3500/api/pfp/default.png`} alt="" style = { cargando ? {display: 'none'} : {display: 'block'}}/>
+                    
+                    <div style = { !cargando ? {display: 'none'} : {display: 'flex'}} className="loader-container-perfil">
+                        <div className="loader"></div>
+                    </div>
+
                     <div className='botones-perfil'>
                         <div className='input-perfil'>
-                            <label className='label-perfilpic-upload' htmlFor="file-upload-profile"><FaPencilAlt/></label>
-                            <input style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/png" onChange={(event) => handleClick(event.target.files[0])}/>
+                            <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile"><FaPencilAlt/></label>
+                            <input disabled={cargando} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/png" onChange={(event) => handleClick(event.target.files[0])}/>
                         </div>
-                        <button className='delete-perfilpic'><FaTrash/></button>
+                        <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar}><FaTrash/></label>
                     </div>
                 </div>
                 <hr className='barra-perfil'/>
