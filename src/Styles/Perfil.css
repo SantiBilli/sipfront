@@ -155,7 +155,7 @@
     font-family: 'Poppins';
     border-radius: 20px;
     border: 1px solid black;
-
+    cursor: pointer;
 }
 
 .boton-edit-datos {
@@ -170,6 +170,13 @@
     padding: 10px;
     border-radius: 50%;
 
+}
+
+.invalidCredentials {
+    color: red;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 100;
 }
 
 

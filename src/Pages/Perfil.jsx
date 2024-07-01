@@ -8,6 +8,7 @@ import { obtenerDatosPerfil } from '../utils/api/obtenerDatos'
 import { fotoPerfil, fotoPerfilReset } from '../utils/api/fotoPerfil'
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { actualizarCredenciales } from '../utils/api/actualizarCredenciales'
 
 const Perfil = () => {
 
@@ -22,7 +23,15 @@ const Perfil = () => {
     const [inputApellido, setInputApellido] = useState(false)
     const [inputTelefono, setInputTelefono] = useState(false)
 
+    const [nuevoNombre, setNuevoNombre] = useState("");
+    const [nuevoApellido, setNuevoApellido] = useState("");
+    const [nuevoTelefono, setNuevoTelefono] = useState("");
+
+    const [cambiosGuardados, setCambiosGuardados] = useState(false)
+
     const [cargando, setCargando] = useState(false)
+
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -95,6 +104,69 @@ const Perfil = () => {
             setCargando(false)
         }
 
+        useEffect(() => {
+
+            if (nuevoNombre != "") return setCambiosGuardados(true)
+            if (nuevoApellido != "") return setCambiosGuardados(true)
+            if (nuevoTelefono != "") return setCambiosGuardados(true)
+
+            setCambiosGuardados(false)
+
+        }, [nuevoNombre, nuevoApellido, nuevoTelefono])
+
+        const handleClickLapizNombre = () => {
+            setInputNombre(!inputNombre)
+
+            if (inputNombre) {
+                setNuevoNombre("")
+            }
+        }
+
+        const handleClickLapizApellido = () => {
+            setInputApellido(!inputApellido)
+
+            if (inputApellido) {
+                setNuevoApellido("")
+            }
+        }
+
+        const handleClickLapizTelefono = () => {
+            setInputTelefono(!inputTelefono)
+
+            if (inputTelefono) {
+                setNuevoTelefono("")
+            }
+        }
+
+    const phoneValid = nuevoTelefono.trim() && nuevoTelefono.startsWith(11) && nuevoTelefono.length == 10;
+
+    const handleClickGuardar = async () => {
+
+        setSubmitted(true)
+
+        if (!phoneValid) return 
+
+        const response = await actualizarCredenciales({nombre: !nuevoNombre ? nombre : nuevoNombre, apellido: !nuevoApellido ? apellido : nuevoApellido, telefono: !nuevoTelefono ? telefono : nuevoTelefono})
+
+        if (response == true) {
+
+            setNombre(!nuevoNombre ? nombre : nuevoNombre)
+            setApellido(!nuevoApellido ? apellido : nuevoApellido)
+            setTelefono(!nuevoTelefono ? telefono : nuevoTelefono)
+
+            setNuevoNombre("")
+            setNuevoApellido("")
+            setNuevoTelefono("")
+
+            setInputNombre(false)
+            setInputApellido(false)
+            setInputTelefono(false)
+
+            setSubmitted(false)
+        }
+
+    }
+
     return (
         <div>
             <Header/>
@@ -124,34 +196,33 @@ const Perfil = () => {
                         </div>
                         <div  className="nueva-data-perfil-box" >
                             <p>Nombre: {nombre}</p>
-                            <button className='boton-edit-datos' onClick={() => setInputNombre(!inputNombre)}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizNombre}><FaPencilAlt/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
-                            <input className='nuevo-mail-perfil' type="text" placeholder="Nuevo Nombre" style={inputNombre ? {display:"flex"} : {display:"none"}}/>
-
+                            <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Nombre" value={nuevoNombre} style={inputNombre ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoNombre(event.target.value)}/>
                         </div>                        
                         <div className="nueva-data-perfil-box" >
                             <p>Apellido: {apellido}</p>
-                            <button className='boton-edit-datos' onClick={() => setInputApellido(!inputApellido)}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizApellido}><FaPencilAlt/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
-                            <input className='nuevo-mail-perfil' type="text" placeholder="Nuevo Apellido" style={inputApellido ? {display:"flex"} : {display:"none"}}/>
+                            <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Apellido" value={nuevoApellido} style={inputApellido ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoApellido(event.target.value)}/>
 
                         </div>                        
                         <div className="nueva-data-perfil-box" >
                             <p>Telefono: {telefono}</p>
-                            <button className='boton-edit-datos' onClick={() => setInputTelefono(!inputTelefono)}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizTelefono}><FaPencilAlt/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
-                            <input className='nuevo-mail-perfil' type="text" placeholder="Nuevo Telefono" style={inputTelefono ? {display:"flex"} : {display:"none"}}/>
-
+                            <input className='nuevo-mail-perfil' type="tel" pattern='[0-9]{11}' maxLength={10} placeholder="Nuevo Telefono" value={nuevoTelefono} style={inputTelefono ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoTelefono(event.target.value)}/>
                         </div>
+                        {((submitted && (!nuevoTelefono.startsWith(11) || nuevoTelefono.length != 10))? <span className="invalidCredentials">Telefono inválido</span> : null)}
                     </div>
                     <div className='Seguridad'>
                         <h3>Seguridad:</h3>
                         <a href="#" onClick={() => navigate('/olvidastecontra')}>Cambiar Contraseña</a>
                     </div>
-                    <button className='guardar-cambios-perfil'>Guardar Cambios</button>
+                    <button onClick={handleClickGuardar} style={cambiosGuardados ? {display:"block"} : {display:"none"}} className='guardar-cambios-perfil'>Guardar Cambios</button>
                 </div>
             </div>
             <Footer/>

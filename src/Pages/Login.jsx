@@ -42,11 +42,11 @@ const Login = () => {
                     <div className='top-form'>
                         <div className="input-box">
                             <label>Email</label>
-                            <input type="text" required onChange={event => setMail(event.target.value)}/>
+                            <input type="text" required onChange={event => setMail(event.target.value)} maxLength={50}/>
                         </div>   
                         <div className="input-box">
                             <label>Password</label>
-                            <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)}/>
+                            <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
                             
                             <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
                                 {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
