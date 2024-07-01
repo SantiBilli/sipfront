@@ -31,8 +31,10 @@ const Recomendaciones = () => {
       const response = await getPosts();
 
       if (!response) return
+
+      const publicacionesRecomendadas = response.filter(publicacion => publicacion.recomendado === "S");
   
-      setArr(response.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
+      setArr(publicacionesRecomendadas.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
     }
 
     sendTokenToServer()

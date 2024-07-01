@@ -10,6 +10,7 @@ export const fotoPerfil = async (formdata) => {
     })
 
     if (response.status == 204) return 204;
+    if (response.status == 406) return 406;
 
     return response.json()
 }
