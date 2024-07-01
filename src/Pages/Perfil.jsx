@@ -222,7 +222,7 @@ const Perfil = () => {
                         <h3>Seguridad:</h3>
                         <a href="#" onClick={() => navigate('/olvidastecontra')}>Cambiar Contraseña</a>
                     </div>
-                    <button onClick={handleClickGuardar} style={cambiosGuardados ? {display:"block"} : {display:"none"}} className='guardar-cambios-perfil'>Guardar Cambios</button>
+                    <button onClick={handleClickGuardar} style={cambiosGuardados ? {display:"block"} : {display:"none"}} className='button-guardar-cambios'>Guardar Cambios</button>
                 </div>
             </div>
             <Footer/>
