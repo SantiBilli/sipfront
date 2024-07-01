@@ -17,6 +17,18 @@
 .perfil-pic {
     height: 300px;
     width: 300px;
+    border-radius: 100%;
+    border: 2px solid  #F2B846;
+}
+
+.loader-container-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    border: 2px solid #f2b94600;;
 }
 
 .left-perfil p {
@@ -27,6 +39,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .right-perfil {
@@ -36,6 +49,7 @@
     width: 50%;
     gap: 20px;
 }
+
 
 .datos-usuario{
     display: flex;
@@ -67,8 +81,16 @@
 
 .datos-usuario p{
     font-family: 'Poppins';
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     width: 60%;
+}
+
+.nueva-data-perfil-box {
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+    width: 60%;
+    display: flex;
+    align-items: center;
 }
 
 .Seguridad a{
@@ -76,8 +98,78 @@
     color: black;
 }
 
-.input-perfil {
-    margin-top: 40px;
+
+
+.label-perfilpic-upload {
+    background-color: rgb(228, 228, 228);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: 20px;
+    
+}
+
+.delete-perfilpic {
+    background-color: rgb(228, 228, 228);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: 17px;
+}
+
+.botones-perfil {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin: 30px 0px;
+
+}
+
+.nuevo-mail-perfil-box {
+    width: 60%;
+}
+
+.nuevo-mail-perfil {
+    width: 100%;
+    height: 40px;
+    font-family: 'Poppins';
+    /* padding: 10px; */
+}
+
+.enviar-nuevo-mail-perfil {
+    width: 30%;
+    height: 40px;
+    font-family: 'Poppins';
+
+    
+}
+
+.guardar-cambios-perfil {
+    width: 30%;
+    height: 40px;
+    font-family: 'Poppins';
+    border-radius: 20px;
+    border: 1px solid black;
+
+}
+
+.boton-edit-datos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0px;
+
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+
 }
 
 
@@ -97,10 +189,11 @@
         width: 200px;
     }
 
-    .datos-usuario p{
-        font-family: 'Poppins';
-        border-bottom: 2px solid black;
+    .nuevo-mail-perfil-box {
+        width: 100%;
+    }
+
+    .nueva-data-perfil-box {
         width: 100%;
     }
   }
-
