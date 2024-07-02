@@ -37,9 +37,13 @@
     border: 1px solid black;
     border-radius: 15px;
     cursor: pointer;
-    
-
+    transition: ease 0.5s;
   }
+
+.dropbtn-filtro-estados:hover {
+    background-color: #FBEAC7;
+    scale: 1.07;
+}
 
 
 .barra-mis-ventas-box-right {

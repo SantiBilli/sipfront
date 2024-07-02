@@ -3,7 +3,7 @@ import '../Styles/CardMisVentas.css'
 import { actualizarEstado } from '../utils/api/actualizarEstado';
 import { actualizarComprador } from '../utils/api/actualizarComprador';
 import { sendCheckEmail } from '../utils/api/checkEmail';
-
+import { FaTrash } from "react-icons/fa";
 const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
   const fechaFormatted = new Date(infoVenta.fecha).toLocaleDateString()
@@ -94,6 +94,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
           </div>
         </div>
+        <p className='trash-mis-ventas'><FaTrash/></p>
     </div>
   )
 }

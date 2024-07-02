@@ -29,10 +29,12 @@
     border: solid 2px black;
     border-radius: 15px;
     height: 200px;
+    /* width: 93%; */
     background-color: transparent;
     padding: 20px;
     font-family: 'Poppins';
     font-size: 15px;
+    resize: none;
 }
 
 .input-box-description-soporte textarea:focus {
