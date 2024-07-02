@@ -3,7 +3,7 @@ import '../Styles/MisVentas.css'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import CardMisVentas from '../Components/CardMisVentas'
-import { IoMdCart } from "react-icons/io";
+import { FaBook } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainVentas } from '../utils/api/obtainVentas'
@@ -105,7 +105,7 @@ const MisVentas = () => {
       <div className='boxMisVentas'>
         <div className='box-cart-mis-ventas'>
           <div className='box-mis-ventas-estado-titulo'>
-            <h2 className='titulo-mis-ventas'>Mis Publicaciones <IoMdCart/></h2>
+            <h2 className='titulo-mis-ventas'>Mis Publicaciones <FaBook fontSize={26}/></h2>
             <FiltroEstados handleFiltroChange={handleFiltroChange}/>
           </div>
 

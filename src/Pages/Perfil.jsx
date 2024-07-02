@@ -182,7 +182,7 @@ const Perfil = () => {
                     <div className='botones-perfil'>
                         <div className='input-perfil'>
                             <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile" style={{cursor: 'pointer'}}><FaPencilAlt/></label>
-                            <input disabled={cargando} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/png" onChange={(event) => handleClick(event.target.files[0])}/>
+                            <input disabled={cargando} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/*" onChange={(event) => handleClick(event.target.files[0])}/>
                         </div>
                         <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar} style={{cursor: 'pointer'}}><FaTrash/></label>
                     </div>
