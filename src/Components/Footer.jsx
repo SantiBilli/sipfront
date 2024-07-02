@@ -12,7 +12,7 @@ const Footer = () => {
       <div className='redes'>
         <div className='icon-redes'>
           <FaWhatsapp className='redes-sociales' onClick={() => window.open(`https://wa.me/+5401137833124`)}/>
-          <FaInstagram className='redes-sociales'/>
+          <FaInstagram className='redes-sociales' onClick={() => window.open(`https://www.instagram.com/smartswap2024/`)}/>
           <FaFacebookSquare className='redes-sociales'/>
         </div>
         <hr className = 'barra-redes'/>
