@@ -3,7 +3,7 @@ import '../Styles/CardMisCompras.css'
 import ImagenLogin from '../assets/ImagenLogin.jpg'
 
 const CardMisCompras = ({infoCompra}) => {
-  
+
   const fechaFormatted = new Date(infoCompra.fecha).toLocaleDateString()
 
   return (
