@@ -109,8 +109,8 @@ const MisVentas = () => {
             <FiltroEstados handleFiltroChange={handleFiltroChange}/>
           </div>
 
-            { arrVentas.length > 0 &&
-            publicacionesFiltradas.map((venta) => (
+            { 
+            publicacionesFiltradas.length > 0 && publicacionesFiltradas.map((venta) => (
               <CardMisVentas key={venta.postId} infoVenta={venta} setRefreshAux={setRefresh}/>
             ))
             }

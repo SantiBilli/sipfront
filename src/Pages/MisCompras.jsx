@@ -69,6 +69,8 @@ const MisCompras = () => {
       valor = valor.toLowerCase();
       if (valor == "comprado") valor = "vendido"
 
+      console.log(valor);
+
       const filtroActual = filtros["estado"]
 
       const nuevoFiltro = filtroActual.includes(valor)
@@ -96,7 +98,7 @@ const MisCompras = () => {
             <FiltroEstadosCompras handleFiltroChange={handleFiltroChange}/>
           </div>
           {
-            publicacionesFiltradas.length > 0 && arrBusqueda.map((venta) => (
+            publicacionesFiltradas.length > 0 && publicacionesFiltradas.map((venta) => (
               <CardMisCompras key={venta.postId} infoCompra={venta}/>
             ))
           }
