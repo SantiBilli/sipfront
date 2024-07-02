@@ -210,7 +210,7 @@ const Perfil = () => {
 
                         </div>                        
                         <div className="nueva-data-perfil-box" >
-                            <p>Telefono: {telefono}</p>
+                            <p>Teléfono: {telefono}</p>
                             <button className='boton-edit-datos' onClick={handleClickLapizTelefono}><FaPencilAlt/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
