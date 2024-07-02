@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react'
 import '../Styles/MisVentas.css'
-import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import CardMisVentas from '../Components/CardMisVentas'
-import { FaBook } from "react-icons/fa";
+import { GiOpenBook } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from '../utils/api/checkToken'
 import { obtainVentas } from '../utils/api/obtainVentas'
 import Header2 from '../Components/Header2'
 import FiltroEstados from '../Components/FiltroEstados'
+
 
 const MisVentas = () => {
   
@@ -105,7 +105,7 @@ const MisVentas = () => {
       <div className='boxMisVentas'>
         <div className='box-cart-mis-ventas'>
           <div className='box-mis-ventas-estado-titulo'>
-            <h2 className='titulo-mis-ventas'>Mis Publicaciones <FaBook fontSize={26}/></h2>
+            <h2 className='titulo-mis-ventas'>Mis Publicaciones <GiOpenBook/></h2>
             <FiltroEstados handleFiltroChange={handleFiltroChange}/>
           </div>
 
