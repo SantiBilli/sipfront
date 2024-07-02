@@ -47,11 +47,12 @@ const Soporte = () => {
             <h2 className='soporte-headphones'>Soporte <TbHeadphonesFilled/></h2>
             <div className="input-box-description-soporte">
                 <label>Escribi tu consulta de la forma mas detallada posible:</label>
-                <textarea name="" id="" onChange={(event) => setDescripcion(event.target.value)}></textarea>
+                <textarea maxLength={500} name="" id="" onChange={(event) => setDescripcion(event.target.value)}></textarea>
+                <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', fontSize: '13px'}}>{descripcion.length}/500</div>
             </div> 
             <div className="input-box-soporte">
                 <label>Adjuntar Imagen: </label>
-                <input type="file" required accept="image/png" onChange={event => setImagen(event.target.files[0])}/>
+                <input type="file" required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
             </div>
             <button className="button-publicar" style = { (descripcion != "" && imagen != null) ? {display: 'block'} : {display: 'none'}} onClick={handleClick}>Enviar</button>
         </div>
