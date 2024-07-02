@@ -13,7 +13,16 @@
     min-height: 100px;
     display: flex;
     overflow: hidden;
+    position: relative;
     
+}
+
+.trash-mis-ventas {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    color: rgba(104, 0, 0, 0.747);
+    cursor: pointer;
 }
 
 .left-mis-vetas {
