@@ -74,7 +74,9 @@ const Inicio = () => {
 
     if (valor == "LenguayLiteratura") valor = "Lengua y Literatura"
     if (valor == "FisicaQuimica") valor = "Física / Química"
-
+    if (valor == "Matematica") valor = "Matemática"
+    if (valor=="Musica") valor = "Música"
+    
     if (valor == "PrimerAño") valor = "Primer Año"
     if (valor == "SegundoAño") valor = "Segundo Año"
     if (valor == "TercerAño") valor = "Tercer Año"

@@ -122,7 +122,7 @@ const Upload = () => {
               </div> 
               <div className="input-box2">
                 <label>Adjuntar Imagen:</label>
-                <input className='input-imagenes' type="file" required accept="image/png" onChange={event => setArchivo(event.target.files[0])}/>
+                <input className='input-imagenes' type="file" required accept="image/*" onChange={event => setArchivo(event.target.files[0])}/>
               </div> 
             </div>
             <hr className='barra'/>
