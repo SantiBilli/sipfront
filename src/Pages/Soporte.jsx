@@ -13,6 +13,7 @@ const Soporte = () => {
 
   const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
 
   useEffect(() => {
@@ -36,8 +37,8 @@ const Soporte = () => {
     const response = await handleSoporte(formdata)
 
     if (response == 204) return console.log("Error al mandar consulta");
+    setSubmitted(true);
 
-    navigate("/dashboard")
   }
 
   return (
@@ -46,7 +47,7 @@ const Soporte = () => {
         <div className='box-soporte'>
             <h2 className='soporte-headphones'>Soporte <TbHeadphonesFilled/></h2>
             <div className="input-box-description-soporte">
-                <label>Escribi tu consulta de la forma mas detallada posible:</label>
+                <label>Escribí tu consulta de la forma más detallada posible:</label>
                 <textarea maxLength={500} name="" id="" onChange={(event) => setDescripcion(event.target.value)}></textarea>
                 <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', fontSize: '13px'}}>{descripcion.length}/500</div>
             </div> 
@@ -55,6 +56,7 @@ const Soporte = () => {
                 <input type="file" required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
             </div>
             <button className="button-publicar" style = { (descripcion != "" && imagen != null) ? {display: 'block'} : {display: 'none'}} onClick={handleClick}>Enviar</button>
+            {submitted && <p className='validCredentials'>Tu consulta ha sido enviada con éxito</p>}
         </div>
         <Footer/>
     </div>
