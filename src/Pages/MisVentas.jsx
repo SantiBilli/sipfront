@@ -43,9 +43,12 @@ const MisVentas = () => {
     useEffect(() => {
 
       const obtenerVentas = async () => {
+
         const ventas = await obtainVentas()
 
-        if (ventas == 204) return
+        
+
+        if (ventas == 204) return setArrVentas([])
 
         setArrVentas(ventas)
 

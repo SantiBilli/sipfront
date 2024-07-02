@@ -62,7 +62,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
   const handleClickBorrar = async () => {
     
-    const response = await borrarPublicacion(({postId: infoVenta.postId}));
+    const response = await borrarPublicacion(({postId: infoVenta.postId, imagen: infoVenta.imagen}));
 
     if (response == 204) return console.log("Error al borrar la publicación");
 
