@@ -74,7 +74,7 @@ const Register = () => {
     <div className='form-box'>
         <form className='form'>
             <div className='box-register'>
-                <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')}/>
+                <IoArrowBackCircleOutline className='icon-arrow' onClick={() => navigate('/login')} style={{cursor: 'pointer'}}/>
                 <h2>Regístrate</h2>
             </div>
                 <div className='top-form'>
@@ -100,13 +100,13 @@ const Register = () => {
                         <input type="tel" required pattern='[0-9]{11}' onChange={event => setPhone(event.target.value)} maxLength={10}/>
                     </div>
                         {(submitted && !phone.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
-                        {(submitted && phone.trim() && (!phone.startsWith(11) || phone.length != 10)? <span className="invalidCredentials">Telefono inválido</span> : null)}
+                        {(submitted && phone.trim() && (!phone.startsWith(11) || phone.length != 10) ? <span className="invalidCredentials">Telefono inválido</span> : null)}
 
                     <div className="input-box">
                         <label>Contraseña*</label>
                         <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
                         
-                        <div className='eye-login' onClick={() => setShowPws(!showPwd)}>
+                        <div className='eye-login' onClick={() => setShowPws(!showPwd)} style={{cursor: 'pointer'}}>
                             {showPwd ? <FaRegEyeSlash/> : <FaRegEye/>
                             }
                         </div>                            
@@ -116,7 +116,7 @@ const Register = () => {
                             <label>Confirmar contraseña*</label>
                             <input type={showPwd2 ? "text" : "Password"} required onChange={event => setPassword2(event.target.value)} maxLength={50}/>
                             
-                            <div className='eye-login' onClick={() => setShowPws2(!showPwd2)}>
+                            <div className='eye-login' onClick={() => setShowPws2(!showPwd2)} style={{cursor: 'pointer'}}>
                                 {showPwd2 ? <FaRegEyeSlash/> : <FaRegEye/>
                                 }
                             </div>                            
@@ -125,7 +125,7 @@ const Register = () => {
                         {(submitted && password2.trim() && (password2 !== password) ? <span className="invalidCredentials">Las contraseñas no coinciden</span> : null)}
                 </div>
                 <div className='bottom-form'>
-                    <button type='button' onClick={handleClick}>Crear Cuenta</button>
+                    <button type='button' onClick={handleClick} style={{cursor: 'pointer'}}>Crear Cuenta</button>
                 </div>
                 {hasError ? <span className="invalidCredentials" style={{color: 'gray'}}>Uno o más campos tienen un error. Por favor revisa e intenta de nuevo</span> : null}
         </form>
