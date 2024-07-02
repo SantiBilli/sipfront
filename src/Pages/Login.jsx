@@ -53,9 +53,6 @@ const Login = () => {
                                 }
                             </div>                            
                         </div>
-                        <div className='recordame'>
-                            <label style={{fontFamily: 'Poppins'}}><input type="checkbox"/>Recordarme</label>
-                        </div>
                     </div>
                     <div className='bottom-form'>
                         <button type='button' onClick={submitForm} style={{cursor: 'pointer'}}>Iniciar sesión</button>

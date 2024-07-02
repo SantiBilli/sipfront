@@ -5,6 +5,8 @@ import Footer from '../Components/Footer'
 import { fileUpload } from "../utils/api/fileUpload"
 import { useNavigate } from 'react-router-dom'
 import { sendToken } from "../utils/api/checkToken"
+import { obtenerDatosPerfil } from '../utils/api/obtenerDatos'
+
 
 const Upload = () => {
   
@@ -18,6 +20,7 @@ const Upload = () => {
   const [errorContenido, setErrorContenido] = useState(false)
   const [mostrarBoton, setMostrarBoton] = useState(false)
   const [cargando, setCargando] = useState(false)
+  const [nombreUser, setNombreUser] = useState("")
 
   const [institucion, setInstitucion] = useState("DEFAULT")
   const [zona, setZona] = useState("DEFAULT")
@@ -48,8 +51,18 @@ const Upload = () => {
       if (response == false) return navigate('/login')
     }
 
+    const obtenerNombrePerfil = async () => {
+      const response = await obtenerDatosPerfil()
+      if (response == 204) return
+
+      setNombreUser(response.nombre)
+
+    }
+
     sendTokenToServer()
+    obtenerNombrePerfil()
     },[])
+
 
   const handleUpload = async () => {
 
@@ -88,7 +101,7 @@ const Upload = () => {
     <>
       <Header/>
       <div className='publicar'>
-          <h2>¿Qué vas a publicar?</h2>
+          <h2>Hola {nombreUser}, ¿Qué vas a publicar hoy?</h2>
           <div className='publicar-row'>
             <div className='publicar-datos'>
               <div className="input-box2">

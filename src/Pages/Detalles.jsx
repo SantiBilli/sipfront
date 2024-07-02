@@ -17,6 +17,7 @@ const Detalles = () => {
     const precio = infoProducto.precio
     const imagen = infoProducto.imagen
     const nombreVendedor = infoProducto.nombre
+    const apellidoVendedor = infoProducto.apellido
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -56,7 +57,7 @@ const Detalles = () => {
             <hr className='detalles-barra'/>
             <div className="detalles-right-box">
                 <img src={`http://localhost:3500/api/images/${imagen}`} alt={`Image ${nombre}`}/>
-                <p>Nombre del Vendedor: {nombreVendedor}</p>
+                <p>Vendedor: {nombreVendedor} {apellidoVendedor}</p>
             </div>
         </div>
         <Footer/>
