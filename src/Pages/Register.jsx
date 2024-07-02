@@ -96,7 +96,7 @@ const Register = () => {
                     </div> 
                         {(submitted && !apellido.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                     <div className="input-box">
-                        <label>Telefono*</label>
+                        <label>Teléfono*</label>
                         <input type="tel" required pattern='[0-9]{11}' onChange={event => setPhone(event.target.value)} maxLength={10}/>
                     </div>
                         {(submitted && !phone.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
