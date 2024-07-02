@@ -1,3 +1,10 @@
+.validCredentials {
+    color: grey;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 100;
+}
+
 .box-soporte {
     min-height: 100vh;
     height: 100%;
