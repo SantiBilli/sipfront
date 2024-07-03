@@ -16,7 +16,7 @@ const Recomendaciones = () => {
   const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("");
-  const [ordenar, setOrdenar] = useState("A-Z");
+  const [ordenar, setOrdenar] = useState("DATE");
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -34,7 +34,7 @@ const Recomendaciones = () => {
 
       const publicacionesRecomendadas = response.filter(publicacion => publicacion.recomendado === "S");
   
-      setArr(publicacionesRecomendadas.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
+      setArr(publicacionesRecomendadas.sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
     }
 
     sendTokenToServer()
@@ -73,10 +73,13 @@ const Recomendaciones = () => {
 
     if (valor == "SanAgustin") valor = "San Agustín"
     if (valor == "LangeLey") valor = "Lange Ley"
+    if (valor == "Otro") valor = "Otra"
 
     if (valor == "LenguayLiteratura") valor = "Lengua y Literatura"
     if (valor == "FisicaQuimica") valor = "Física / Química"
-
+    if (valor == "Matematica") valor = "Matemática"
+    if (valor=="Musica") valor = "Música"
+    
     if (valor == "PrimerAño") valor = "Primer Año"
     if (valor == "SegundoAño") valor = "Segundo Año"
     if (valor == "TercerAño") valor = "Tercer Año"
