@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import '../Styles/Soporte.css'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
@@ -10,6 +10,7 @@ import { handleSoporte } from '../utils/api/soporte'
 const Soporte = () => {
   
   const navigate = useNavigate()
+  const fileInputRef = useRef(null);
 
   const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
@@ -38,8 +39,18 @@ const Soporte = () => {
 
     if (response == 204) return console.log("Error al mandar consulta");
     setSubmitted(true);
+    setImagen(null);
+    setDescripcion("");
 
-  }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 2000);
+
+  };
 
   return (
     <div>
@@ -48,15 +59,15 @@ const Soporte = () => {
             <h2 className='soporte-headphones'>Soporte <TbHeadphonesFilled/></h2>
             <div className="input-box-description-soporte">
                 <label>Escribí tu consulta de la forma más detallada posible:</label>
-                <textarea maxLength={500} name="" id="" onChange={(event) => setDescripcion(event.target.value)}></textarea>
+                <textarea value = {descripcion} maxLength={500} name="" id="" onChange={(event) => setDescripcion(event.target.value)}></textarea>
                 <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', fontSize: '13px'}}>{descripcion.length}/500</div>
             </div> 
             <div className="input-box-soporte">
                 <label>Adjuntar Imagen: </label>
-                <input type="file" required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
+                <input ref={fileInputRef} type="file" required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
             </div>
             <button className="button-publicar" style = { (descripcion != "" && imagen != null) ? {display: 'block'} : {display: 'none'}} onClick={handleClick}>Enviar</button>
-            {submitted && <p className='validCredentials'>Tu consulta ha sido enviada con éxito</p>}
+            {submitted &&  <p className='validCredentials'>Tu consulta ha sido enviada con éxito</p>}
         </div>
         <Footer/>
     </div>

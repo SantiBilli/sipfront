@@ -4,6 +4,7 @@ import { actualizarEstado } from '../utils/api/actualizarEstado';
 import { actualizarComprador } from '../utils/api/actualizarComprador';
 import { sendCheckEmail } from '../utils/api/checkEmail';
 import { FaTrash } from "react-icons/fa";
+import { borrarPublicacion } from '../utils/api/borrarPublicacion';
 const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
   const fechaFormatted = new Date(infoVenta.fecha).toLocaleDateString()
@@ -59,6 +60,15 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
     
   }
 
+  const handleClickBorrar = async () => {
+    
+    const response = await borrarPublicacion(({postId: infoVenta.postId, imagen: infoVenta.imagen}));
+
+    if (response == 204) return console.log("Error al borrar la publicación");
+
+    setRefreshAux((prev) => !prev);
+  }
+
   return (
     <div className='CardVentas'>
         <div className='left-mis-vetas'>
@@ -94,7 +104,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
           </div>
         </div>
-        <p className='trash-mis-ventas'><FaTrash/></p>
+        <p className='trash-mis-ventas' onClick={handleClickBorrar}><FaTrash/></p>
     </div>
   )
 }
