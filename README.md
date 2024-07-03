@@ -1,4 +1,4 @@
-Manual de como levantar la API de Smart Swap
+Manual de como levantar el Front de Smart Swap
 
 1. Descargar e Instalar NodeJS https://nodejs.org/en
 2. Abrir terminal de preferencia e ingresar "npm install" para descargar todas las dependencias
