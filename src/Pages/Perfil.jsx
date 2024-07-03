@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../Styles/Perfil.css'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
@@ -62,7 +62,15 @@ const Perfil = () => {
         obtenerDatos()
         },[])
 
+        const fileInputRef = useRef(null);
+
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+          }
+
         const handleClick = async (value) => {
+
+            console.log("1.",imagen);
 
             if (value == null) return console.log("No hay imagen");
 
@@ -84,12 +92,16 @@ const Perfil = () => {
                 return console.log("Contenido no aceptado.");
             }
     
+            console.log("2.", response.imagen);
+
             setImagen(response.imagen)
 
             setCargando(false)
         }
 
         const handleClickBorrar = async () => {
+
+            console.log("3.", imagen);
 
             if (imagen == null) return
 
@@ -98,6 +110,8 @@ const Perfil = () => {
             const userId = JSON.parse(localStorage.getItem('userData')).userId
 
             const response = await fotoPerfilReset({userId: userId, imagenVieja: imagen})
+
+            console.log("4.", response);
 
             setImagen(null)
 
@@ -182,7 +196,7 @@ const Perfil = () => {
                     <div className='botones-perfil'>
                         <div className='input-perfil'>
                             <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile" style={{cursor: 'pointer'}}><FaPencilAlt/></label>
-                            <input disabled={cargando} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/*" onChange={(event) => handleClick(event.target.files[0])}/>
+                            <input disabled={cargando} ref={fileInputRef} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/*" onChange={(event) => handleClick(event.target.files[0])}/>
                         </div>
                         <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar} style={{cursor: 'pointer'}}><FaTrash/></label>
                     </div>
