@@ -20,6 +20,9 @@ const Register = () => {
     const [hasError, setHasError] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [emailExists, setEmailExists] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [mostrarBoton, setMostrarBoton] = useState(true)
+
 
     const navigate = useNavigate();
 
@@ -38,9 +41,12 @@ const Register = () => {
         if (nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
             setSubmitted(false); //Reseteamos el estado del form
             setHasError(false);
+            setLoading(true);
 
-            const response =  sendRegisterForm({nombre: nombre, apellido: apellido, email: mail, telefono: phone, contra: password})
+            const response =  await sendRegisterForm({nombre: nombre, apellido: apellido, email: mail, telefono: phone, contra: password})
+            setLoading(false);
             
+
             if (response == 204) return console.log("Error al registrar el usuario")
             
             return navigate("/login")
@@ -95,9 +101,10 @@ const Register = () => {
                         <input type="text" required onChange={event => setApellido(event.target.value)} maxLength={25}/>
                     </div> 
                         {(submitted && !apellido.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
-                    <div className="input-box">
+                    <div className="input-box" style={{position: 'relative', marginBottom: '20px'}}>
                         <label>Teléfono*</label>
                         <input type="tel" required pattern='[0-9]{11}' onChange={event => setPhone(event.target.value)} maxLength={10}/>
+                        <label style={{fontSize: '12px', position: 'absolute', bottom: '-25px'}}>Si es menor ponga el numero de su padre/tutor</label>
                     </div>
                         {(submitted && !phone.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && phone.trim() && (!phone.startsWith(11) || phone.length != 10) ? <span className="invalidCredentials">Telefono inválido</span> : null)}
@@ -124,8 +131,9 @@ const Register = () => {
                         {(submitted && !password2.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && password2.trim() && (password2 !== password) ? <span className="invalidCredentials">Las contraseñas no coinciden</span> : null)}
                 </div>
-                <div className='bottom-form'>
-                    <button type='button' onClick={handleClick} style={{cursor: 'pointer'}}>Crear Cuenta</button>
+                <div className='bottom-form'> 
+                    <button type='button' onClick={handleClick}  style = { !loading ? {display: 'block', cursor: 'pointer'} : {display: 'none'}}>Crear Cuenta</button>
+                    <div style = { !loading ? {display: 'none'} : {display: 'block'}} className="loader"></div>
                 </div>
                 {hasError ? <span className="invalidCredentials" style={{color: 'gray'}}>Uno o más campos tienen un error. Por favor revisa e intenta de nuevo</span> : null}
         </form>
