@@ -16,7 +16,7 @@ const Inicio = () => {
   const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("");
-  const [ordenar, setOrdenar] = useState("A-Z");
+  const [ordenar, setOrdenar] = useState("DATE");
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -32,7 +32,7 @@ const Inicio = () => {
 
       if (!response) return
   
-      setArr(response.sort((a, b) => a.nombreProd.localeCompare(b.nombreProd)))
+      setArr(response.sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
     }
 
     sendTokenToServer()
