@@ -230,7 +230,7 @@
 
 /* HTML: <div class="loader"></div> */
 .loader {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     width: 60px;
     aspect-ratio: 2;
     --_g: no-repeat radial-gradient(circle closest-side,#FEAA06 90%,#0000);

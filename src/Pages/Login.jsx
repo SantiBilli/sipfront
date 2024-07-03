@@ -12,6 +12,8 @@ const Login = () => {
     const [mail, setMail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordStatus, setPasswordStatus] = useState(false)
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,7 +22,10 @@ const Login = () => {
     },[])
 
     const submitForm = async () => {
+
+        setLoading(true);
         const response = await sendLoginForm({mail, password})
+        setLoading(false);
 
         if (response == 401) {
             setPasswordStatus(true)
@@ -55,7 +60,8 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='bottom-form'>
-                        <button type='button' onClick={submitForm} style={{cursor: 'pointer'}}>Iniciar sesión</button>
+                        <button type='button' onClick={submitForm} style = { !loading ? {display: 'block', cursor: 'pointer'}  : {display: 'none'}}>Iniciar sesión</button>
+                        <div style = { !loading ? {display: 'none'} : {display: 'block', margin: '10px'}} className="loader"></div>
                         {passwordStatus ? <h1 className="invalidCredentials" >Email o contraseña incorrectos</h1> : null}
                         <a onClick={() => {navigate('/olvidastecontra')}}>¿Olvidaste tu contraseña?</a>
                         <a style={{color: 'black'}} onClick={() => {navigate('/register')}}>Crear cuenta</a>
