@@ -71,6 +71,7 @@ const Inicio = () => {
 
     if (valor == "SanAgustin") valor = "San Agustín"
     if (valor == "LangeLey") valor = "Lange Ley"
+    if (valor == "Otro") valor = "Otra"
 
     if (valor == "LenguayLiteratura") valor = "Lengua y Literatura"
     if (valor == "FisicaQuimica") valor = "Física / Química"
