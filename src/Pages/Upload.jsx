@@ -101,7 +101,7 @@ const Upload = () => {
     <>
       <Header/>
       <div className='publicar'>
-          <h2>Hola {nombreUser}, ¿Qué vas a publicar hoy?</h2>
+          <h2 className='hola-nombre'>Hola {nombreUser}, ¿Qué vas a publicar hoy?</h2>
           <div className='publicar-row'>
             <div className='publicar-datos'>
               <div className="input-box2">

@@ -149,10 +149,19 @@
     .menu{
         display: flex;
     }
+
     .upload {
         display: none;
     }
+
     .profile {
         display: none;
     }
+
+    .img-logo-header {
+        width: 125px;
+        /* border-radius: 50%; */
+        cursor: pointer;
+    }
+    
 }
