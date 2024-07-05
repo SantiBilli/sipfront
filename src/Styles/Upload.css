@@ -271,4 +271,8 @@
     .publicar-datos{
         width: 85%;
     }
+
+    .hola-nombre {
+        font-size: 19px;
+    }
   }

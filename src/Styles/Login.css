@@ -184,16 +184,17 @@ textarea:focus {
     .deco {
         display: none;
     }
-
     .input-box {
         width: 90%;
     }
-
     .recordame {
         width: 90%;
     }
     .bottom-form button{
         width: 90%;
+    }
+    .icon-arrow {
+        display: none;
     }
 
   }

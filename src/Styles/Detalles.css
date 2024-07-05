@@ -83,7 +83,7 @@
         
         display: flex;
         justify-content: space-evenly;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         width: 100%;
         gap: 40px;
@@ -102,4 +102,9 @@
         width: 25%;
         min-width: 200px;
     }
+
+    .detalles-right-box img {
+        width: 100%;
+    }
+
   }
