@@ -9,6 +9,7 @@ import { fotoPerfil, fotoPerfilReset } from '../utils/api/fotoPerfil'
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { actualizarCredenciales } from '../utils/api/actualizarCredenciales'
+import { actualizarAnoLectivo } from '../utils/api/actualizarAnoLectivo'
 
 const Perfil = () => {
 
@@ -18,6 +19,7 @@ const Perfil = () => {
     const [apellido, setApellido] = useState();
     const [telefono, setTelefono] = useState();
     const [imagen, setImagen] = useState(null)
+    const [anoLectivo, setAnoLectivo] = useState("DEFAULT");
 
     const [inputNombre, setInputNombre] = useState(false)
     const [inputApellido, setInputApellido] = useState(false)
@@ -52,6 +54,7 @@ const Perfil = () => {
             setApellido(response.apellido)
             setTelefono(response.telefono)
             setImagen(response.pfp)
+            setAnoLectivo(response.anoLectivo)
 
             // console.log(response.pfp);
 
@@ -69,8 +72,6 @@ const Perfil = () => {
           }
 
         const handleClick = async (value) => {
-
-            console.log("1.",imagen);
 
             if (value == null) return console.log("No hay imagen");
 
@@ -91,8 +92,6 @@ const Perfil = () => {
                 setCargando(false)
                 return console.log("Contenido no aceptado.");
             }
-    
-            console.log("2.", response.imagen);
 
             setImagen(response.imagen)
 
@@ -101,8 +100,6 @@ const Perfil = () => {
 
         const handleClickBorrar = async () => {
 
-            console.log("3.", imagen);
-
             if (imagen == null) return
 
             setCargando(true)
@@ -110,8 +107,6 @@ const Perfil = () => {
             const userId = JSON.parse(localStorage.getItem('userData')).userId
 
             const response = await fotoPerfilReset({userId: userId, imagenVieja: imagen})
-
-            console.log("4.", response);
 
             setImagen(null)
 
@@ -154,6 +149,14 @@ const Perfil = () => {
 
     const phoneValid = nuevoTelefono.trim() && nuevoTelefono.startsWith(11) && nuevoTelefono.length == 10;
 
+        const handleClickAnoLectivo = async (valor) => {
+
+            const response = await actualizarAnoLectivo({anoLectivo: valor})
+
+            if (response == true) return setAnoLectivo(valor)
+
+        }
+
     const handleClickGuardar = async () => {
 
         setSubmitted(true)
@@ -178,7 +181,6 @@ const Perfil = () => {
 
             setSubmitted(false)
         }
-
     }
 
     return (
@@ -221,14 +223,14 @@ const Perfil = () => {
                         </div>          
                         <div className="nueva-data-perfil-box" >
                             <p style={{width: 'fit-content', height: '25px', whiteSpace: 'nowrap'}}>Año Lectivo: </p>
-                            <select className='select-año-electivo-register' style={{width: '100%'}}>
+                            <select value={anoLectivo} className='select-año-electivo-register' style={{width: '100%'}} onChange={(event) => handleClickAnoLectivo(event.target.value)}>
                                 <option value="DEFAULT" hidden>Seleccionar</option>
-                                <option>Primaria</option>
-                                <option>Primer Año</option>
-                                <option>Segundo Año</option>
-                                <option>Tercer Año</option>
-                                <option>Cuarto Año</option>
-                                <option>Quinto Año</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Primer Año">Primer Año</option>
+                                <option value="Segundo Año">Segundo Año</option>
+                                <option value="Tercer Año">Tercer Año</option>
+                                <option value="Cuarto Año">Cuarto Año</option>
+                                <option value="Quinto Año">Quinto Año</option>
                             </select>
                         </div>                        
 
