@@ -22,6 +22,7 @@ const Register = () => {
     const [emailExists, setEmailExists] = useState(false);
     const [loading, setLoading] = useState(false);
     const [mostrarBoton, setMostrarBoton] = useState(true)
+    const [anoLectivo, setAnoLectivo] = useState('DEFAULT')
 
 
     const navigate = useNavigate();
@@ -36,9 +37,10 @@ const Register = () => {
         const phoneValid = phone.trim() && phone.startsWith(11) && phone.length == 10;
         const passwordValid = password.trim();
         const password2Valid = password2.trim();
+        const anoLectivoValid = anoLectivo != "DEFAULT"
 
 
-        if (nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists){
+        if (nameValid && lastNameValid && emailValid && phoneValid && passwordValid && password2Valid && (password2 === password) && !emailExists && anoLectivoValid) {
             setSubmitted(false); //Reseteamos el estado del form
             setHasError(false);
             setLoading(true);
@@ -111,16 +113,18 @@ const Register = () => {
 
                     <div className='input-box'>
                         <label>Año Lectivo</label>
-                        <select className='select-año-electivo-register'>
+                        <select className='select-año-electivo-register' onChange={event => setAnoLectivo(event.target.value)}>
                             <option value="DEFAULT" hidden>Seleccionar</option>
-                            <option>Primaria</option>
-                            <option>Primer Año</option>
-                            <option>Segundo Año</option>
-                            <option>Tercer Año</option>
-                            <option>Cuarto Año</option>
-                            <option>Quinto Año</option>
+                            <option value="Primaria">Primaria</option>
+                            <option value="Primer Año">Primer Año</option>
+                            <option value="Segundo Año">Segundo Año</option>
+                            <option value="Tercer Año">Tercer Año</option>
+                            <option value="Cuarto Año">Cuarto Año</option>
+                            <option value="Quinto Año">Quinto Año</option>
                         </select>
                     </div>
+                    {(submitted && anoLectivo == "DEFAULT" ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
+                    
 
                     <div className="input-box">
                         <label>Contraseña*</label>
