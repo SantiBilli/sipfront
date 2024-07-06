@@ -45,7 +45,7 @@ const Register = () => {
             setHasError(false);
             setLoading(true);
 
-            const response =  await sendRegisterForm({nombre: nombre, apellido: apellido, email: mail, telefono: phone, contra: password})
+            const response =  await sendRegisterForm({nombre: nombre, apellido: apellido, email: mail, telefono: phone, contra: password, anoLectivo: anoLectivo})
             setLoading(false);
             
 
