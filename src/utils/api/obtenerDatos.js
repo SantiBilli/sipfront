@@ -1,11 +1,9 @@
-//http://localhost:3500/api/obtener-datos
-//https://sipback-production.up.railway.app/api/obtener-datos
-
+import { BACK_ENDPOINT } from "../../../config.js"
 export const obtenerDatosPerfil = async () => {
 
     const token = localStorage.getItem("userToken")
 
-    const response = await fetch("http://localhost:3500/api/obtener-datos", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/obtener-datos`, {
         method: "GET",
         mode: "cors",
         headers: {"Authorization":`Bearer ${token}`},

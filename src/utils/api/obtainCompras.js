@@ -1,11 +1,9 @@
-//http://localhost:3500/api/obtain-compras
-//https://sipback-production.up.railway.app/api/obtain-compras
-
+import { BACK_ENDPOINT } from "../../../config.js"
 export const obtainCompras = async () => {
 
     const token = localStorage.getItem("userToken")
 
-    const response = await fetch("http://localhost:3500/api/obtain-compras", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/obtain-compras`, {
         method: "GET",
         mode: "cors",
         headers: {"Content-Type": "application/json", "Authorization":`Bearer ${token}`},

@@ -1,9 +1,7 @@
-//http://localhost:3500/api/register
-//https://sipback-production.up.railway.app/api/register
-
+import { BACK_ENDPOINT } from "../../../config.js"
 export const sendRegisterForm = async (credentials) => {
     // console.log(credentials)
-    const response = await fetch("http://localhost:3500/api/register", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/register`, {
         method: "POST",
         mode: "cors",
         headers: {"Content-Type": "application/json"},
