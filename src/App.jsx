@@ -1,5 +1,6 @@
 import './App.css';
 import Login from './Pages/Login';
+import Cargando from './Pages/Cargando';
 import { Routes, Route } from 'react-router-dom';
 import Inicio from './Pages/Inicio';
 import Register from './Pages/Register';
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='*' element={<Login/>}></Route>
+        <Route path='*' element={<Cargando/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/dashboard' element={<Inicio/>}></Route>
