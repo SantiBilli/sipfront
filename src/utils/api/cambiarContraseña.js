@@ -1,6 +1,7 @@
+import { BACK_ENDPOINT } from "../../../config.js"
 export const cambiarContraseñaForm = async (credentials) => {
     // console.log(credentials.userId)
-    const response = await fetch(`http://localhost:3500/api/olvide-contrasena-user`, {
+    const response = await fetch(`${BACK_ENDPOINT}/api/olvide-contrasena-user`, {
         method: "GET",
         mode: "cors",
         headers: {"Authorization": `Bearer ${JSON.stringify(credentials.token)}`}
@@ -13,7 +14,7 @@ export const cambiarContraseñaForm = async (credentials) => {
 
 export const cambiarContraseña = async (credentials) => {
 
-    const response = await fetch(`http://localhost:3500/api/cambiar-contrasena`, {
+    const response = await fetch(`${BACK_ENDPOINT}/api/cambiar-contrasena`, {
         method: "POST",
         mode: "cors",
         headers: {"Content-Type": "application/json", "Authorization": `Bearer ${JSON.stringify(credentials.token)}`},
