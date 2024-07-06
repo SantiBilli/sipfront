@@ -9,6 +9,19 @@
     transition: 0.4s;
 }
 
+.select-año-electivo-register {
+    height: 25px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Poppins';
+    padding-left: 10px;
+}
+
+.select-año-electivo-register:focus {
+    outline: none;
+}
+
+
 .invalidCredentials {
     color: red;
     font-family: 'Poppins';

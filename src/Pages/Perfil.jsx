@@ -218,7 +218,20 @@ const Perfil = () => {
                         <div className="nueva-data-perfil-box" >
                             <p>Apellido: {apellido}</p>
                             <button className='boton-edit-datos' onClick={handleClickLapizApellido}><FaPencilAlt/></button>
-                        </div>
+                        </div>          
+                        <div className="nueva-data-perfil-box" >
+                            <p style={{width: 'fit-content', height: '25px', whiteSpace: 'nowrap'}}>Año Lectivo: </p>
+                            <select className='select-año-electivo-register' style={{width: '100%'}}>
+                                <option value="DEFAULT" hidden>Seleccionar</option>
+                                <option>Primaria</option>
+                                <option>Primer Año</option>
+                                <option>Segundo Año</option>
+                                <option>Tercer Año</option>
+                                <option>Cuarto Año</option>
+                                <option>Quinto Año</option>
+                            </select>
+                        </div>                        
+
                         <div className="nuevo-mail-perfil-box">
                             <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Apellido" value={nuevoApellido} style={inputApellido ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoApellido(event.target.value)}/>
 
