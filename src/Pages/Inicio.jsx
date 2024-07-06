@@ -16,7 +16,7 @@ const Inicio = () => {
   const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("");
-  const [ordenar, setOrdenar] = useState("DATE");
+  const [ordenar, setOrdenar] = useState("RELEVANTE");
 
   useEffect(() => {
     const token = localStorage.getItem('userToken')
@@ -31,8 +31,15 @@ const Inicio = () => {
       const response = await getPosts();
 
       if (!response) return
+
+      console.log(response);
   
-      setArr(response.sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
+      setArr(response.sort((a, b) => {
+        if (a.recomendado === b.recomendado) {
+            return new Date(a.fecha) - new Date(b.fecha);
+        }
+        return a.recomendado === 'S' ? -1 : 1;
+    }))
     }
 
     sendTokenToServer()
@@ -47,6 +54,12 @@ const Inicio = () => {
     if (ordenar === "ASC") return setArr([...arr].sort((a, b) => a.precio - b.precio))
     if (ordenar === "DSC") return setArr([...arr].sort((a, b) => b.precio - a.precio))
     if (ordenar === "DATE") return setArr([...arr].sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
+    if (ordenar === "RELEVANTE") return setArr([...arr].sort((a, b) => {
+      if (a.recomendado === b.recomendado) {
+          return new Date(a.fecha) - new Date(b.fecha);
+      }
+      return a.recomendado === 'S' ? -1 : 1;
+  }))
       
   },[ordenar])
 
