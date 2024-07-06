@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
 import '../Styles/Ordenar.css'
+import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 
 const Ordenar = ({ordenarPor}) => {
   return (
     <div className="ordenar">
     <h2>Ordenar por</h2>
+    <div className='input-box3'>
+        <input defaultChecked type="radio" name='orden' value="RELEVANTE" onChange={(event) => {ordenarPor(event.target.value)}}/>
+        <label>Mas Relevante</label>
+    </div>
+    <div className='input-box3'>
+        <input type="radio" name='orden' value="ASC" onChange={(event) => {ordenarPor(event.target.value)}}/>
+        <label>Precio <FaLongArrowAltUp/></label>
+    </div>          
+    <div className='input-box3'>
+        <input type="radio" name='orden' value="DSC" onChange={(event) => {ordenarPor(event.target.value)}}/>
+        <label>Precio <FaLongArrowAltDown/></label>
+    </div>
     <div className='input-box3'>
         <input type="radio" name='orden' value="A-Z" onChange={(event) => {ordenarPor(event.target.value)}}/>
         <label>A-Z</label>
@@ -14,15 +27,7 @@ const Ordenar = ({ordenarPor}) => {
         <label>Z-A</label>
     </div>
     <div className='input-box3'>
-        <input type="radio" name='orden' value="ASC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Precio ascendente</label>
-    </div>          
-    <div className='input-box3'>
-        <input type="radio" name='orden' value="DSC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Precio descendente</label>
-    </div>
-    <div className='input-box3'>
-        <input defaultChecked type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>
+        <input type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>
         <label>Fecha de publicación</label>
     </div>
     </div>
