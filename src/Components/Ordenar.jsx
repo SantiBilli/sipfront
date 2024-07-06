@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../Styles/Ordenar.css'
-import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
+import { IoIosArrowRoundDown, IoIosArrowRoundUp  } from "react-icons/io";
 
 const Ordenar = ({ordenarPor}) => {
   return (
@@ -12,11 +12,11 @@ const Ordenar = ({ordenarPor}) => {
     </div>
     <div className='input-box3'>
         <input type="radio" name='orden' value="ASC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Precio <FaLongArrowAltUp/></label>
+        <label>Precio <IoIosArrowRoundUp style={{fontSize: '20px'}}/></label>
     </div>          
     <div className='input-box3'>
         <input type="radio" name='orden' value="DSC" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Precio <FaLongArrowAltDown/></label>
+        <label>Precio <IoIosArrowRoundDown style={{fontSize: '20px'}}/></label>
     </div>
     <div className='input-box3'>
         <input type="radio" name='orden' value="A-Z" onChange={(event) => {ordenarPor(event.target.value)}}/>
