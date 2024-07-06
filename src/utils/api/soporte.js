@@ -1,8 +1,9 @@
+import { BACK_ENDPOINT } from "../../../config.js"
 export const handleSoporte = async (formdata) => {
     const token = localStorage.getItem("userToken")
     if (!token) return
 
-    const response = await fetch("http://localhost:3500/api/soporte", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/soporte`, {
         method: "POST",
         mode: "cors",
         headers: {"Authorization":`Bearer ${token}`},

@@ -1,8 +1,9 @@
+import { BACK_ENDPOINT } from "../../../config.js"
 export const fotoPerfil = async (formdata) => {
     const token = localStorage.getItem("userToken")
     if (!token) return
 
-    const response = await fetch("http://localhost:3500/api/foto-perfil", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/foto-perfil`, {
         method: "POST",
         mode: "cors",
         headers: {"Authorization":`Bearer ${token}`},
@@ -19,7 +20,7 @@ export const fotoPerfilReset = async (credentials) => {
 
     const token = localStorage.getItem("userToken")
 
-    const response = await fetch("http://localhost:3500/api/foto-perfil-reset", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/foto-perfil-reset`, {
         method: "POST",
         mode: "cors",
         headers: {"Content-Type": "application/json", "Authorization":`Bearer ${token}`},

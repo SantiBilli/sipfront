@@ -1,6 +1,7 @@
+import { BACK_ENDPOINT } from "../../../config.js"
 export const olvideConstraseñaForm = async (credentials) => {
     // console.log(credentials)
-    const response = await fetch("http://localhost:3500/api/olvide-contrasena", {
+    const response = await fetch(`${BACK_ENDPOINT}/api/olvide-contrasena`, {
         method: "POST",
         mode: "cors",
         headers: {"Content-Type": "application/json"},
