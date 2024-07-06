@@ -109,6 +109,19 @@ const Register = () => {
                         {(submitted && !phone.trim() ? <span className="invalidCredentials">Campo obligatorio</span> : null)}
                         {(submitted && phone.trim() && (!phone.startsWith(11) || phone.length != 10) ? <span className="invalidCredentials">Telefono inválido</span> : null)}
 
+                    <div className='input-box'>
+                        <label>Año Lectivo</label>
+                        <select className='select-año-electivo-register'>
+                            <option value="DEFAULT" hidden>Seleccionar</option>
+                            <option>Primaria</option>
+                            <option>Primer Año</option>
+                            <option>Segundo Año</option>
+                            <option>Tercer Año</option>
+                            <option>Cuarto Año</option>
+                            <option>Quinto Año</option>
+                        </select>
+                    </div>
+
                     <div className="input-box">
                         <label>Contraseña*</label>
                         <input type={showPwd ? "text" : "Password"} required onChange={event => setPassword(event.target.value)} maxLength={50}/>
@@ -132,7 +145,7 @@ const Register = () => {
                         {(submitted && password2.trim() && (password2 !== password) ? <span className="invalidCredentials">Las contraseñas no coinciden</span> : null)}
                 </div>
                 <div className='bottom-form'> 
-                    <button type='button' onClick={handleClick}  style = { !loading ? {display: 'block', cursor: 'pointer'} : {display: 'none'}}>Crear Cuenta</button>
+                    <button type='button' onClick={handleClick}  style = { !loading ? {display: 'block', cursor: 'pointer', margin: '10px'} : {display: 'none'}}>Crear Cuenta</button>
                     <div style = { !loading ? {display: 'none'} : {display: 'block'}} className="loader"></div>
                 </div>
                 {hasError ? <span className="invalidCredentials" style={{color: 'gray'}}>Uno o más campos tienen un error. Por favor revisa e intenta de nuevo</span> : null}
