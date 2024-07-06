@@ -32,7 +32,7 @@ const Inicio = () => {
 
       if (!response) return
 
-      console.log(response);
+      // console.log(response);
   
       setArr(response.sort((a, b) => {
         if (a.recomendado === b.recomendado) {
