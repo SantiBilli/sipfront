@@ -175,6 +175,10 @@
     cursor: pointer;
 }
 
+.lapizEdit {
+    color: black;
+}
+
 .invalidCredentials {
     color: red;
     font-family: 'Poppins';

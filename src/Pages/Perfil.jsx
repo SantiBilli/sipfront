@@ -198,7 +198,7 @@ const Perfil = () => {
 
                     <div className='botones-perfil'>
                         <div className='input-perfil'>
-                            <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile" style={{cursor: 'pointer'}}><FaPencilAlt/></label>
+                            <label disabled={cargando} className='label-perfilpic-upload' htmlFor="file-upload-profile" style={{cursor: 'pointer'}}><FaPencilAlt className='lapizEdit'/></label>
                             <input disabled={cargando} ref={fileInputRef} style={{display: 'none'}} id= 'file-upload-profile' type="file" required accept="image/*" onChange={(event) => handleClick(event.target.files[0])}/>
                         </div>
                         <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar} style={{cursor: 'pointer'}}><FaTrash/></label>
@@ -213,14 +213,14 @@ const Perfil = () => {
                         </div>
                         <div  className="nueva-data-perfil-box" >
                             <p>Nombre: {nombre}</p>
-                            <button className='boton-edit-datos' onClick={handleClickLapizNombre}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizNombre}><FaPencilAlt className='lapizEdit'/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
                             <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Nombre" value={nuevoNombre} style={inputNombre ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoNombre(event.target.value)}/>
                         </div>                        
                         <div className="nueva-data-perfil-box" >
                             <p>Apellido: {apellido}</p>
-                            <button className='boton-edit-datos' onClick={handleClickLapizApellido}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizApellido}><FaPencilAlt className='lapizEdit'/></button>
                         </div>   
                         <div className="nuevo-mail-perfil-box">
                             <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Apellido" value={nuevoApellido} style={inputApellido ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoApellido(event.target.value)}/>
@@ -239,7 +239,7 @@ const Perfil = () => {
                         </div>                                               
                         <div className="nueva-data-perfil-box" >
                             <p>Teléfono: {telefono}</p>
-                            <button className='boton-edit-datos' onClick={handleClickLapizTelefono}><FaPencilAlt/></button>
+                            <button className='boton-edit-datos' onClick={handleClickLapizTelefono}><FaPencilAlt className='lapizEdit'/></button>
                         </div>
                         <div className="nuevo-mail-perfil-box">
                             <input className='nuevo-mail-perfil' type="tel" pattern='[0-9]{11}' maxLength={10} placeholder="Nuevo Telefono" value={nuevoTelefono} style={inputTelefono ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoTelefono(event.target.value)}/>

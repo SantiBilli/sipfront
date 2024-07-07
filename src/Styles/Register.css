@@ -15,10 +15,12 @@
     font-size: 14px;
     font-family: 'Poppins';
     padding-left: 10px;
+    color: black;
 }
 
 .select-año-electivo-register:focus {
     outline: none;
+    color: black;
 }
 
 
