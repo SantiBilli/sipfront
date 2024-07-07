@@ -64,7 +64,7 @@ const Soporte = () => {
             </div> 
             <div className="input-box-soporte">
                 <label>Adjuntar Imagen: </label>
-                <input ref={fileInputRef} type="file" required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
+                <input ref={fileInputRef} type="file" className='imagen-soporte' required accept="image/*" onChange={event => setImagen(event.target.files[0])}/>
             </div>
             <button className="button-publicar-soporte" style = { (descripcion != "" && imagen != null) ? {display: 'block'} : {display: 'none'}} onClick={handleClick}>Enviar</button>
             {submitted &&  <p className='validCredentials'>Tu consulta ha sido enviada con éxito</p>}

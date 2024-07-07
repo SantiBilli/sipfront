@@ -89,7 +89,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
             <div className='estado-comprador-box'>
               <p>Estado:</p>
-              <select name="Institucion" defaultValue={estado} id="" onChange={(event) => handleClickEstado(event.target.value)}>
+              <select name="Institucion" className='estado-publicacion' defaultValue={estado} id="" onChange={(event) => handleClickEstado(event.target.value)}>
                   <option value={"publicado"}>Publicado</option>
                   <option value={"reservado"}>Reservado</option>
                   <option value={"vendido"}>Vendido</option>

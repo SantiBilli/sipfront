@@ -80,6 +80,10 @@
     border: 1px solid black;
 }
 
+.estado-publicacion {
+    color: #000000;
+}
+
 
 @media (max-width: 940px) {
 
