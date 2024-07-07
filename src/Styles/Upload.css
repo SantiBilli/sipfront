@@ -261,11 +261,14 @@
     .barra{
         height: 0px;
         width: 85%;
+        margin: 30px 0px;
 
     }
 
     .publicar-caracteristicas{
         width: 85%;
+        margin-bottom: 30px;
+
     }
 
     .publicar-datos{
