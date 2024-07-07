@@ -56,7 +56,7 @@ const Detalles = () => {
             </div>
             <hr className='detalles-barra'/>
             <div className="detalles-right-box">
-                <img src={`http://localhost:3500/api/images/${imagen}`} alt={`Image ${nombre}`}/>
+                <img src={`${BACK_ENDPOINT}/api/images/${imagen}`} alt={`Image ${nombre}`}/>
                 <p>Vendedor: {nombreVendedor} {apellidoVendedor}</p>
             </div>
         </div>

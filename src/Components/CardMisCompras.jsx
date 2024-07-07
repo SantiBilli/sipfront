@@ -10,7 +10,7 @@ const CardMisCompras = ({infoCompra}) => {
   return (
     <div className='CardVentas'>
         <div className='left-mis-vetas'>
-          <img className = 'imagen-mis-ventas' src={`http://localhost:3500/api/images/${infoCompra.imagen}`} alt="" />
+          <img className = 'imagen-mis-ventas' src={`${BACK_ENDPOINT}/api/images/${infoCompra.imagen}`} alt="" />
           <hr className='barra-mis-ventas-left'/>
           <div className='medio-mis-ventas'>
             <p className='nombre-mis-ventas'>Nombre: {infoCompra.nombreProd}</p>

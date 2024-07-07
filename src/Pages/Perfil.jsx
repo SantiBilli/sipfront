@@ -189,7 +189,7 @@ const Perfil = () => {
             <div className='box-perfil'>
                 <div className="left-perfil">
                    
-                    <img className = 'perfil-pic' src={ (imagen != null) ? `http://localhost:3500/api/pfp/${imagen}` : `http://localhost:3500/api/pfp/default.png`} alt="" style = { cargando ? {display: 'none'} : {display: 'block'}}/>
+                    <img className = 'perfil-pic' src={ (imagen != null) ? `${BACK_ENDPOINT}/api/pfp/${imagen}` : `${BACK_ENDPOINT}/api/pfp/default.png`} alt="" style = { cargando ? {display: 'none'} : {display: 'block'}}/>
                     
                     <div style = { !cargando ? {display: 'none'} : {display: 'flex'}} className="loader-container-perfil">
                         <div className="loader"></div>
