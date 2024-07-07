@@ -113,7 +113,7 @@ const Recomendaciones = () => {
 
         <Header2 busqueda={setBusqueda}/>
 
-        <div style={{display: 'flex', flexDirection: 'column'}} className='conteiner'>
+        <div style={{display: 'flex', flexDirection: 'column'}} className='conteiner-recomendaciones'>
             <h2 style={{fontFamily: 'Poppins', padding: '10px', marginBottom: 0}}>Recomendaciones</h2>
             <div>        
                 <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>

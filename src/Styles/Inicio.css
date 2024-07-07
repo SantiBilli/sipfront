@@ -31,8 +31,16 @@
     /* margin-left: 260px; */
 }
 
+
+.conteiner-recomendaciones {
+    min-height: 100vh;
+    margin-inline: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    padding-Left: 260px ;
+}
+
 .conteiner {
-    /* padding-left: 250px; */
     min-height: 100vh;
     margin-inline: 20px;
     margin-bottom: 20px;
@@ -128,6 +136,10 @@ display: flex;
         justify-content: center;
         margin-top: 20px;
         gap: 30px;
+    }
+
+    .conteiner-recomendaciones {
+        padding-left: 0px;
     }
 
   } 

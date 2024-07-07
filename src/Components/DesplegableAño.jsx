@@ -55,7 +55,7 @@ const DesplegableAño = ({handleFiltroChange}) => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropbtn">
-        <IoMdArrowDropright />Año Académico
+        <IoMdArrowDropright />Año Lectivo
       </button>
       <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
         {Object.keys(filters).map((filter) => (
