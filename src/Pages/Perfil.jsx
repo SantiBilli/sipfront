@@ -221,7 +221,10 @@ const Perfil = () => {
                         <div className="nueva-data-perfil-box" >
                             <p>Apellido: {apellido}</p>
                             <button className='boton-edit-datos' onClick={handleClickLapizApellido}><FaPencilAlt/></button>
-                        </div>          
+                        </div>   
+                        <div className="nuevo-mail-perfil-box">
+                            <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Apellido" value={nuevoApellido} style={inputApellido ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoApellido(event.target.value)}/>
+                        </div>        
                         <div className="nueva-data-perfil-box" >
                             <p style={{width: 'fit-content', height: '25px', whiteSpace: 'nowrap'}}>Año Lectivo: </p>
                             <select value={anoLectivo} className='select-año-electivo-register' style={{width: '100%', fontSize: '15px'}} onChange={(event) => handleClickAnoLectivo(event.target.value)}>
@@ -233,12 +236,7 @@ const Perfil = () => {
                                 <option value="Cuarto Año">Cuarto Año</option>
                                 <option value="Quinto Año">Quinto Año</option>
                             </select>
-                        </div>                        
-
-                        <div className="nuevo-mail-perfil-box">
-                            <input className='nuevo-mail-perfil' type="text" maxLength={20} placeholder="Nuevo Apellido" value={nuevoApellido} style={inputApellido ? {display:"flex"} : {display:"none"}} onChange={(event) => setNuevoApellido(event.target.value)}/>
-
-                        </div>                        
+                        </div>                                               
                         <div className="nueva-data-perfil-box" >
                             <p>Teléfono: {telefono}</p>
                             <button className='boton-edit-datos' onClick={handleClickLapizTelefono}><FaPencilAlt/></button>
