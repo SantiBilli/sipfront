@@ -5,6 +5,8 @@ import { actualizarComprador } from '../utils/api/actualizarComprador';
 import { sendCheckEmail } from '../utils/api/checkEmail';
 import { FaTrash } from "react-icons/fa";
 import { borrarPublicacion } from '../utils/api/borrarPublicacion';
+import { BACK_ENDPOINT } from "../../../config.js"
+
 const CardMisVentas = ({infoVenta, setRefreshAux}) => {
 
   const fechaFormatted = new Date(infoVenta.fecha).toLocaleDateString()
