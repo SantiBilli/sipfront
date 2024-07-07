@@ -2,7 +2,7 @@ import React from 'react'
 import '../Styles/CardMisCompras.css'
 import ImagenLogin from '../assets/ImagenLogin.jpg'
 import { FaTrash } from "react-icons/fa";
-import { BACK_ENDPOINT } from "../../../config.js"
+import { BACK_ENDPOINT } from "../../config.js"
 
 const CardMisCompras = ({infoCompra}) => {
 
