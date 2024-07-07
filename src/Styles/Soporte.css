@@ -63,6 +63,10 @@
     font-family: 'Poppins';
 }
 
+.imagen-soporte {
+    color: #000000;
+}
+
 @media (max-width: 900px) {
     .input-box-soporte{
         width: 80%;

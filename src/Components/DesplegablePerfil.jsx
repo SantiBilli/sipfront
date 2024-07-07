@@ -12,7 +12,6 @@ const DesplegablePerfil = () => {
             <li onClick={() => {navigate('/perfil')}}>Mi Perfil</li>
             <li onClick={() => {navigate('/misventas')}}>Mis Publicaciones</li>
             <li onClick={() => {navigate('/miscompras')}}>Mis Compras</li>
-            <li onClick={() => {navigate('/recomendaciones')}}>Recomendaciones</li>
             <li onClick={() => {navigate('/soporte')}}>Soporte</li>
             <li onClick={() => {navigate('/login')}}>Cerrar Sesión</li>
             <li className='publicar-desplegable' onClick={() => {navigate('/publicar')}}>Publicar</li>
