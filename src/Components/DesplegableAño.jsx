@@ -5,6 +5,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 const DesplegableAño = ({handleFiltroChange}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [filters, setFilters] = useState({
+    Primaria: false,
     PrimerAño: false,
     SegundoAño: false,
     TercerAño: false,
@@ -13,6 +14,7 @@ const DesplegableAño = ({handleFiltroChange}) => {
   });
 
   const filterNames = {
+    Primaria: 'Primaria',
     PrimerAño: 'Primer Año',
     SegundoAño: 'Segundo Año',
     TercerAño: 'Tercer Año',
