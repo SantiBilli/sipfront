@@ -23,7 +23,10 @@
     font-family: 'Poppins';
     font-size: 17px;
     border: 2px solid #F2B846;
-    color: black;
+}
+
+.box-responsive-filters button {
+    color: #000000;
 }
 
 .ordenar-element-responsive {
