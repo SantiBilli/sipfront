@@ -24,6 +24,7 @@
 
 .react-multiple-carousel__arrow.react-multiple-carousel__arrow--right, .react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
     background-color: rgba(185, 185, 185, 0.300);
+    z-index: 50;
 }
 
 .react-multiple-carousel__arrow.react-multiple-carousel__arrow--right:hover, .react-multiple-carousel__arrow.react-multiple-carousel__arrow--left:hover {
