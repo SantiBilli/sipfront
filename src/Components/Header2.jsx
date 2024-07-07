@@ -31,11 +31,11 @@ const Header2 = ({busqueda}) => {
 
             <div className="right">
                 <button className = "upload">
-                    <GrUploadOption className='upload-icon' onClick={() => {navigate('/publicar')}}/>
+                    <GrUploadOption style={{color: "rgb(251, 234, 199)"}} className='upload-icon' onClick={() => {navigate('/publicar')}}/>
                 </button>
                 <div className='relativa-dropdown'>
                     <button className = "profile" onClick={() => setOpenProfile((prev) => !prev)}>
-                        <CgProfile className='profile-icon'/>
+                        <CgProfile style={{color: "rgb(251, 234, 199)"}} className='profile-icon'/>
                     </button>
                     {
                      openProfile && <DesplegablePerfil/>
@@ -43,7 +43,7 @@ const Header2 = ({busqueda}) => {
                 </div>                
                 <div className='relativa-dropdown'>
                     <button className = "menu" onClick={() => setOpenProfile((prev) => !prev)}>
-                        <IoMenuOutline/>
+                        <IoMenuOutline style={{color: "rgb(251, 234, 199)"}}/>
                     </button>
                 </div>                
             </div>
