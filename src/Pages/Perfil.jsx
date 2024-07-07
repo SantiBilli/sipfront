@@ -223,7 +223,7 @@ const Perfil = () => {
                         </div>          
                         <div className="nueva-data-perfil-box" >
                             <p style={{width: 'fit-content', height: '25px', whiteSpace: 'nowrap'}}>Año Lectivo: </p>
-                            <select value={anoLectivo} className='select-año-electivo-register' style={{width: '100%'}} onChange={(event) => handleClickAnoLectivo(event.target.value)}>
+                            <select value={anoLectivo} className='select-año-electivo-register' style={{width: '100%', fontSize: '15px'}} onChange={(event) => handleClickAnoLectivo(event.target.value)}>
                                 <option value="DEFAULT" hidden>Seleccionar</option>
                                 <option value="Primaria">Primaria</option>
                                 <option value="Primer Año">Primer Año</option>

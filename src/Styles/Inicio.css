@@ -1,5 +1,13 @@
+.containerInicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 260px;
+}
+
 .inicio-box {
     height: fit-content;
+    min-height: 100vh;
 }
 
 .filtros, .ordenar{
@@ -15,14 +23,28 @@
     font-family: 'Poppins';
 }
 
+.barra-inicio-recomendado-grid {
+    width: 90%;
+
+    border: 1px solid #a5a3a1;
+    /* padding-left: 250px; */
+    /* margin-left: 260px; */
+}
+
 .conteiner {
-    padding-left: 250px;
+    /* padding-left: 250px; */
     min-height: 100vh;
     margin-inline: 20px;
     margin-bottom: 20px;
     display: flex;
 
     /* background-color: red; */
+}
+
+.boxArribaRecomendados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -89,6 +111,12 @@ display: flex;
   }
 */
   @media (max-width: 650px){
+    .containerInicio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0px;
+    }
     .conteiner {
         padding-left: 0;
         align-items: center;
@@ -101,7 +129,6 @@ display: flex;
         margin-top: 20px;
         gap: 30px;
     }
-
 
   } 
 

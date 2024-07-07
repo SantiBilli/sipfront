@@ -8,11 +8,16 @@ import { useNavigate } from 'react-router-dom'
 import { sendToken } from "../utils/api/checkToken"
 import { getPosts } from "../utils/api/fileUpload"
 import ResponsiveSidebar from '../Components/ResponsiveSidebar'
+import Carrousel from '../Components/Carrousel'
+import "../Styles/Carrousel.css";
+import { obtenerDatosPerfil } from '../utils/api/obtenerDatos'
 
 const Inicio = () => {
   
   const [arrOrdenada, setArrOrdenada] = useState([]);
   const [arr, setArr] = useState([])
+  const [arrRecomendados, setArrRecomendados] = useState([])
+  const [anoLectivo, setAnoLectivo] = useState([])
   const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("");
@@ -32,7 +37,7 @@ const Inicio = () => {
 
       if (!response) return
 
-      // console.log(response);
+      setArrRecomendados(response)
   
       setArr(response.sort((a, b) => {
         if (a.recomendado === b.recomendado) {
@@ -40,10 +45,21 @@ const Inicio = () => {
         }
         return a.recomendado === 'S' ? -1 : 1;
     }))
+    
     }
 
+    const handlePostsRecomendados = async () => {
+      
+      const response = await obtenerDatosPerfil();
+
+      if (response == 204) return console.log("Error al obtener los datos");
+
+      setAnoLectivo(response.anoLectivo)
+    }
+    
     sendTokenToServer()
     handlePosts()
+    handlePostsRecomendados()
 
   },[])
 
@@ -119,6 +135,9 @@ const Inicio = () => {
     return filtroInstitucion && filtroZona && filtroMateria && filtroAño;
   });
 
+  const publicacionesAnoLectivo = arrRecomendados.filter(publicacion => publicacion.ano == anoLectivo);
+
+
   return (
       <div className='inicio-box'>
 
@@ -127,15 +146,33 @@ const Inicio = () => {
         <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
         <ResponsiveSidebar setOrdenar={setOrdenar} handleFiltroChange={handleFiltroChange}/>
 
-        <div className='conteiner'>
-          <div className='grid-productos'>
+        <div className="containerInicio">
 
-            {publicacionesFiltradas.map((url) => (
-              <div className="displayImages" key={url.postId}>
-                  <Card url={url}/>
-              </div>
-            ))}
+          <div className="recomendados" style={publicacionesAnoLectivo.length > 0 ? {display: 'flex', flexDirection: 'column'} : {display: 'none'}}>
+            <div className='boxArribaRecomendados'>
+              <h2 style={{fontFamily: 'Poppins', fontSize: '25px', marginTop: '33px'}}>Recomendados</h2>
+              <hr className='barra-inicio-recomendado-grid'/>
+            </div>
 
+
+            <div className="carrousel">
+              <Carrousel publicaciones={publicacionesAnoLectivo}/>
+            </div>
+            
+            <hr className='barra-inicio-recomendado-grid'/>
+          </div>
+        
+
+          <div className='conteiner'>
+            <div className='grid-productos'>
+
+              {publicacionesFiltradas.map((url) => (
+                <div className="displayImages" key={url.postId}>
+                    <Card url={url}/>
+                </div>
+              ))}
+
+            </div>
           </div>
         </div>
 
