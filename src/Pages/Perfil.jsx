@@ -10,7 +10,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { actualizarCredenciales } from '../utils/api/actualizarCredenciales'
 import { actualizarAnoLectivo } from '../utils/api/actualizarAnoLectivo'
-import { BACK_ENDPOINT } from "../../../config.js"
+import { BACK_ENDPOINT } from "../../config.js"
 
 const Perfil = () => {
 

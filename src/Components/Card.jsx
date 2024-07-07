@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/Card.css'
 import { useNavigate } from 'react-router-dom';
-import { BACK_ENDPOINT } from "../../../config.js"
+import { BACK_ENDPOINT } from "../../config.js"
 
 const Card = ({url}) => {
 

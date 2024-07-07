@@ -4,7 +4,7 @@ import Footer from '../Components/Footer';
 import '../Styles/Detalles.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendToken } from "../utils/api/checkToken";
-import { BACK_ENDPOINT } from "../../../config.js"
+import { BACK_ENDPOINT } from "../../config.js"
 
 const Detalles = () => {
 
