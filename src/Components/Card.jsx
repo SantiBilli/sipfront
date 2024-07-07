@@ -17,7 +17,7 @@ const Card = ({url}) => {
   //https://sipback-production.up.railway.app/api/images/${url.imagen}
   return (
         <div className='card' onClick={handleClick}>
-            <img className = 'imagen-card' key={url.postId} src={`http://localhost:3500/api/images/${url.imagen}`} alt={`Image ${url.postId}`}/>
+            <img className = 'imagen-card' key={url.postId} src={`${BACK_ENDPOINT}/api/images/${url.imagen}`} alt={`Image ${url.postId}`}/>
             <p className='nombre-card'>{url.nombreProd}</p>
             <p className='precio-card'>${url.precio}</p>
         </div>
