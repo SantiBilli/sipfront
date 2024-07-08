@@ -12,6 +12,7 @@
 
 
 .desplegable-box-perfil ul li{
+    -webkit-tap-highlight-color: transparent;
     font-family: 'Poppins';
     cursor: pointer;
     width: fit-content;
