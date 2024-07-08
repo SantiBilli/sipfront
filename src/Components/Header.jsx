@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/Header.css'
-import { FaPlus } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
 import { IoMenuOutline } from "react-icons/io5";
 import { GrUploadOption } from "react-icons/gr";
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 import Logo7 from '../assets/Logo7.png';
 import DesplegablePerfil from './DesplegablePerfil';
@@ -44,11 +48,11 @@ const Header = ({busqueda}) => {
 
             <div className="right1">
                 <button className = "upload">
-                    <GrUploadOption className='upload-icon' onClick={() => {navigate('/publicar')}}/>
+                    <ArrowCircleUpIcon style={{width:"50px", height:"50px"}} className='upload-icon' onClick={() => {navigate('/publicar')}}/>
                 </button>
                 <div className='relativa-dropdown'>
                     <button className = "profile" onClick={() => setOpenProfile((prev) => !prev)}>
-                        <CgProfile className='profile-icon'/>
+                        <AccountCircleIcon fontSize="large" style={{width:"50px", height:"50px"}}/>
                     </button>
                     {
                      openProfile && <DesplegablePerfil/>
@@ -56,7 +60,7 @@ const Header = ({busqueda}) => {
                 </div>                
                 <div className='relativa-dropdown'>
                     <button className = "menu" onClick={() => setOpenProfile((prev) => !prev)}>
-                        <IoMenuOutline/>
+                        <MenuIcon fontSize="large"/>
                     </button>
                 </div>                
             </div>

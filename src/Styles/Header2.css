@@ -80,7 +80,6 @@
 
 
 .search {
-    cursor: pointer;
     border-radius: 0px 50px 50px 0px;
     height: 55px;
     width: 60px;
@@ -135,6 +134,7 @@
 }
 
 .menu {
+    -webkit-tap-highlight-color: transparent;
     height: 57px;
     width: 60px;
     border-radius: 5px;
@@ -152,9 +152,6 @@
 @media (max-width: 650px){
     .menu{
         display: flex;
-    }
-    .menu:active {
-        background-color: transparent;
     }
     .upload {
         display: none;

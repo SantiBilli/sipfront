@@ -44,7 +44,6 @@ const Header2 = ({busqueda}) => {
                 </div>                
                 <div className='relativa-dropdown'>
                     <button className = "menu" onClick={() => setOpenProfile((prev) => !prev)}>
-                        {/* <IoMenuOutline style={{color: "rgb(251, 234, 199)"}}/> */}
                         <MenuIcon fontSize="large"/>
                     </button>
                 </div>                
