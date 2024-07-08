@@ -2,23 +2,26 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import '../Styles/Detalles.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { sendToken } from "../utils/api/checkToken";
 import { BACK_ENDPOINT } from "../../config.js"
+import { obtainProductDetail } from '../utils/api/obtainProducto.js';
 
 const Detalles = () => {
 
     const navigate = useNavigate();
     
-    const location = useLocation();
+    const { id } = useParams();
 
-    const infoProducto = location.state.url
-    const nombre = infoProducto.nombreProd
-    const descripcion = infoProducto.descripcionProd
-    const precio = infoProducto.precio
-    const imagen = infoProducto.imagen
-    const nombreVendedor = infoProducto.nombre
-    const apellidoVendedor = infoProducto.apellido
+    const [nombre, setNombre] = useState("")
+    const [descripcion, setDescripcion] = useState("")
+    const [precio, setPrecio] = useState("")
+    const [imagen, setImagen] = useState("")
+    const [nombreVendedor, setNombreVendedor] = useState("")
+    const [apellidoVendedor, setApellidoVendedor] = useState("")
+
+    const [telefono, setTelefono] = useState("")
+    const [email, setEmail] = useState("")
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -29,7 +32,23 @@ const Detalles = () => {
           if (response == false) return navigate('/login')
         }
 
+        const obtenerDetalles = async () => {
+            const response = await obtainProductDetail({postId: id})
+            
+            if (response == 204) return console.log("Error al obtener los datos")
+
+            setNombre(response.producto.nombreProd)
+            setDescripcion(response.producto.descripcionProd)
+            setPrecio(response.producto.precio)
+            setImagen(response.producto.imagen)
+            setNombreVendedor(response.vendedor.nombre)
+            setApellidoVendedor(response.vendedor.apellido)
+            setTelefono(response.vendedor.telefono)
+            setEmail(response.vendedor.email)
+        }
+
         sendTokenToServer()
+        obtenerDetalles()
         },[])
 
 
@@ -51,8 +70,8 @@ const Detalles = () => {
                     <p>{precio}</p>
                 </div> 
                 <div className="detalle-botones">
-                    <button className='wpp-detalles' onClick={() => window.open(`https://wa.me/+54${infoProducto.telefono}`)}>WhatsApp</button>
-                    <button className='mail-detalles' onClick={() =>  window.location.href = `mailto:${infoProducto.email}`}>Mail</button>
+                    <button className='wpp-detalles' onClick={() => window.open(`https://wa.me/+54${telefono}`)}>WhatsApp</button>
+                    <button className='mail-detalles' onClick={() =>  window.location.href = `mailto:${email}`}>Mail</button>
                 </div>
             </div>
             <hr className='detalles-barra'/>

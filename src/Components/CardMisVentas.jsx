@@ -99,7 +99,7 @@ const CardMisVentas = ({infoVenta, setRefreshAux}) => {
             { (estado == "vendido" || estado == "reservado") &&
             <div className='estado-comprador-box2'>
               <p>Comprador:</p> 
-              <input className='input-comprador-mail' type="text" defaultValue={comprador} onChange={(event) => handleClickComprador(event.target.value)}/>
+              <input className='input-comprador-mail' placeholder='Email' type="text" defaultValue={comprador} onChange={(event) => handleClickComprador(event.target.value)}/>
             </div>}
 
             { (emailExists == false && estado != "publicado") && <p style={{color:"red"}}>Email Invalido</p> }
