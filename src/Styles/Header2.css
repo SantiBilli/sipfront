@@ -48,7 +48,7 @@
 
 .search-bar{
     border-radius: 50px 0px 0px 50px;
-    height: 55px;
+    height: 100%;
     font-size: 16px;
     width: 100%;
     border: none;
@@ -68,6 +68,7 @@
 
 .middle {
     width: 100%;
+    height: 55px;
     max-width: 700px;
     display: flex;
     align-items: center;
@@ -80,7 +81,7 @@
 .search {
     cursor: pointer;
     border-radius: 0px 50px 50px 0px;
-    height: 57px;
+    height: 100%;
     width: 60px;
     border: none;
     /* border-left: 1px solid gainsboro; */
@@ -153,11 +154,17 @@
     .menu:active {
         background-color: transparent;
     }
-
     .upload {
         display: none;
     }
     .profile {
         display: none;
+    }
+    .middle {
+        margin: 0px;
+    }
+    .right {
+        gap: 0px;
+        margin: 0px 10px;
     }
 }
