@@ -1,13 +1,13 @@
 import { BACK_ENDPOINT } from "../../../config.js"
-export const obtainProductDetail = async (credentials) => {
+export const obtainProductDetail = async (postId) => {
 
-    const id = credentials.id
+    const token = localStorage.getItem("userToken")
 
     const response = await fetch(`${BACK_ENDPOINT}/api/obtain-product`, {
         method: "POST",
         mode: "cors",
-        headers: {"Content-Type": "application/json", "Authorization":`Bearer ${credentials.token}`},
-        body: JSON.stringify({id})
+        headers: {"Content-Type": "application/json", "Authorization":`Bearer ${token}`},
+        body: JSON.stringify(postId)
     })
 
     if (response.status == 204) return 204

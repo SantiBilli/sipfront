@@ -69,7 +69,7 @@ const Inicio = () => {
     if (ordenar === "Z-A") return setArr([...arr].sort((a, b) => b.nombreProd.localeCompare(a.nombreProd)))
     if (ordenar === "ASC") return setArr([...arr].sort((a, b) => a.precio - b.precio))
     if (ordenar === "DSC") return setArr([...arr].sort((a, b) => b.precio - a.precio))
-    if (ordenar === "DATE") return setArr([...arr].sort((a, b) => new Date(a.fecha) - new Date(b.fecha)))
+    if (ordenar === "DATE") return setArr([...arr].sort((a, b) => new Date(b.fecha) - new Date(a.fecha)))
     if (ordenar === "RELEVANTE") return setArr([...arr].sort((a, b) => {
       if (a.recomendado === b.recomendado) {
           return new Date(a.fecha) - new Date(b.fecha);
