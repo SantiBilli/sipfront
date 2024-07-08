@@ -46,6 +46,7 @@ const Header2 = ({busqueda}) => {
                     <button className = "menu" onClick={() => setOpenProfile((prev) => !prev)}>
                         {/* <IoMenuOutline style={{color: "rgb(251, 234, 199)"}}/> */}
                         <FaPencilAlt className='lapizEdit'/>
+                        hola
                     </button>
                 </div>                
             </div>
