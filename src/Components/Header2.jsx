@@ -3,11 +3,10 @@ import '../Styles/Header2.css'
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
 import { IoMenuOutline } from "react-icons/io5";
-import { FaPencilAlt } from "react-icons/fa";
 import { GrUploadOption } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
 
-import '../Styles/Perfil.css'
+import MenuIcon from '@mui/icons-material/Menu';
 
 import Logo7 from '../assets/Logo7.png';
 import DesplegablePerfil from './DesplegablePerfil';
@@ -47,8 +46,7 @@ const Header2 = ({busqueda}) => {
                 <div className='relativa-dropdown'>
                     <button className = "menu" onClick={() => setOpenProfile((prev) => !prev)}>
                         {/* <IoMenuOutline style={{color: "rgb(251, 234, 199)"}}/> */}
-                        <FaPencilAlt className='lapizEdit'/>
-                        hola
+                        <MenuIcon fontSize="large"/>
                     </button>
                 </div>                
             </div>
