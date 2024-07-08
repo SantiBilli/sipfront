@@ -1,16 +1,13 @@
 .sidebar {
-    background-color:   white;
+    background-color:  none;
     border-right: 1px solid transparent;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     width: 250px;
-    top: 100px;
-    left: 0;
-    bottom: 0;
-    position: fixed;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 100;
+    z-index: 1;
 }
 
 .filtros, .ordenar{

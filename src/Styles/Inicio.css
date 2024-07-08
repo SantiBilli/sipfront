@@ -2,7 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 260px;
+    width: calc(100% - 251px);
+}
+
+.box-todo-filtros-publicaciones{
+    display: flex;
+    max-width: 100vw;
 }
 
 .inicio-box {
@@ -25,8 +30,7 @@
 
 .barra-inicio-recomendado-grid {
     width: 90%;
-
-    border: 1px solid #a5a3a1;
+    border: 1px solid #FBEAC7;
     /* padding-left: 250px; */
     /* margin-left: 260px; */
 }
@@ -124,6 +128,7 @@ display: flex;
         flex-direction: column;
         justify-content: center;
         margin-left: 0px;
+        width: 100%;
     }
     .conteiner {
         padding-left: 0;
@@ -140,6 +145,10 @@ display: flex;
 
     .conteiner-recomendaciones {
         padding-left: 0px;
+    }
+
+    .box-todo-filtros-publicaciones {
+        flex-direction: column;
     }
 
   } 

@@ -11,6 +11,10 @@ const Ordenar = ({ordenarPor}) => {
         <label>Más relevante</label>
     </div>
     <div className='input-box3'>
+        <input type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>
+        <label>Más reciente</label>
+    </div>
+    <div className='input-box3'>
         <input type="radio" name='orden' value="ASC" onChange={(event) => {ordenarPor(event.target.value)}}/>
         <label>Precio <IoIosArrowRoundUp style={{fontSize: '20px'}}/></label>
     </div>          
@@ -25,10 +29,6 @@ const Ordenar = ({ordenarPor}) => {
     <div className='input-box3'>
         <input type="radio" name='orden' value="Z-A" onChange={(event) => {ordenarPor(event.target.value)}}/>
         <label>Z-A</label>
-    </div>
-    <div className='input-box3'>
-        <input type="radio" name='orden' value="DATE" onChange={(event) => {ordenarPor(event.target.value)}}/>
-        <label>Más reciente</label>
     </div>
     </div>
   )

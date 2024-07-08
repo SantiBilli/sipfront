@@ -143,38 +143,45 @@ const Inicio = () => {
 
         <Header2 busqueda={setBusqueda}/>
 
-        <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
-        <ResponsiveSidebar setOrdenar={setOrdenar} handleFiltroChange={handleFiltroChange}/>
-
-        <div className="containerInicio">
-
-          <div className="recomendados" style={publicacionesAnoLectivo.length > 0 ? {display: 'flex', flexDirection: 'column'} : {display: 'none'}}>
-            <div className='boxArribaRecomendados'>
-              <h2 style={{fontFamily: 'Poppins', fontSize: '25px', marginTop: '33px'}}>Recomendados</h2>
-              <hr className='barra-inicio-recomendado-grid'/>
-            </div>
+        <div className='box-todo-filtros-publicaciones'>
 
 
-            <div className="carrousel">
-              <Carrousel publicaciones={publicacionesAnoLectivo}/>
-            </div>
-            
-            <hr className='barra-inicio-recomendado-grid'/>
-          </div>
+
+            <Sidebar ordenarPor={setOrdenar} handleFiltroChange={handleFiltroChange}/>
+            <ResponsiveSidebar setOrdenar={setOrdenar} handleFiltroChange={handleFiltroChange}/>
+
+            <div className="containerInicio">
+                <div className="recomendados" style={publicacionesAnoLectivo.length > 0 ? {display: 'flex', flexDirection: 'column'} : {display: 'none'}}>
+                  <div className='boxArribaRecomendados'>
+                    <h2 style={{fontFamily: 'Poppins', fontSize: '25px', marginTop: '33px'}}>Recomendados</h2>
+                    <hr className='barra-inicio-recomendado-grid'/>
+                  </div>
+
+
+                  <div className="carrousel">
+                    <Carrousel publicaciones={publicacionesAnoLectivo}/>
+                  </div>
+                
+                  <hr className='barra-inicio-recomendado-grid'/>
+                </div>
         
 
-          <div className='conteiner'>
-            <div className='grid-productos'>
+                <div className='conteiner'>
+                  <div className='grid-productos'>
 
-              {publicacionesFiltradas.map((url) => (
-                <div className="displayImages" key={url.postId}>
-                    <Card url={url}/>
+                    {publicacionesFiltradas.map((url) => (
+                      <div className="displayImages" key={url.postId}>
+                          <Card url={url}/>
+                      </div>
+                    ))}
+
+                  </div>
                 </div>
-              ))}
-
             </div>
-          </div>
         </div>
+
+
+        
 
         <Footer/>
       </div>
