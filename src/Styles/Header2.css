@@ -80,6 +80,7 @@
 
 
 .search {
+    -webkit-tap-highlight-color: transparent;
     border-radius: 0px 50px 50px 0px;
     height: 55px;
     width: 60px;
@@ -91,11 +92,12 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    padding: 0px;
+    padding: 0px 8px;
 }
 
 
 .upload {
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     height: 57px;
     width: 60px;
@@ -115,6 +117,7 @@
 }
 
 .profile {
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     height: 57px;
     width: 60px;
