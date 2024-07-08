@@ -7,6 +7,8 @@ import { FaPencilAlt } from "react-icons/fa";
 import { GrUploadOption } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
 
+import '../Styles/Perfil.css'
+
 import Logo7 from '../assets/Logo7.png';
 import DesplegablePerfil from './DesplegablePerfil';
 
