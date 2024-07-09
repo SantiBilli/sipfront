@@ -36,6 +36,10 @@ const Perfil = () => {
 
     const [submitted, setSubmitted] = useState(false)
 
+    const [error, setError] = useState(false)
+    const [descError, setDescError] = useState("")
+
+
     useEffect(() => {
         const token = localStorage.getItem('userToken')
         if (!token) return navigate("/login")
@@ -76,6 +80,13 @@ const Perfil = () => {
 
             if (value == null) return console.log("No hay imagen");
 
+            if (value.size > 10000000) {
+                setCargando(false)
+                setError(true)
+                setDescError("Imagen muy pesada.")
+                return console.log("Imagen muy pesada.");
+            }
+
             setCargando(true)
 
             const formdata = new FormData();
@@ -87,10 +98,14 @@ const Perfil = () => {
             if (response == 204) {
                 setImagen(null)
                 setCargando(false)
+                setError(true)
+                setDescError("Error al Cargar PFP")
                 return console.log("Error al Cargar PFP");
             }
             if (response == 406) {
                 setCargando(false)
+                setError(true)
+                setDescError("Contenido no aceptado.")
                 return console.log("Contenido no aceptado.");
             }
 
@@ -184,6 +199,10 @@ const Perfil = () => {
         }
     }
 
+    setTimeout(() => {
+        setError(false);
+      }, 2000);
+
     return (
         <div>
             <Header/>
@@ -203,6 +222,7 @@ const Perfil = () => {
                         </div>
                         <label disabled={cargando} className='delete-perfilpic' onClick={handleClickBorrar} style={{cursor: 'pointer'}}><FaTrash/></label>
                     </div>
+                    {error ? <p style={{color: 'red'}}>{descError}</p> : null}
                 </div>
                 <hr className='barra-perfil'/>
                 <div className="right-perfil">
