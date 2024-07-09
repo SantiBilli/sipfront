@@ -110,6 +110,9 @@ const Upload = () => {
       setErrorArchivo(false);
     }, 2000);
 
+    setTimeout(() => {
+      setErrorContenido(false);
+    }, 2000);
 
   return (
     <>
