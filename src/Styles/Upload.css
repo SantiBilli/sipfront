@@ -260,9 +260,7 @@
         gap: 40px;
     }
     .barra{
-        height: 0px;
-        width: 85%;
-        margin: 30px 0px;
+        display: none;
 
     }
 
