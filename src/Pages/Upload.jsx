@@ -18,6 +18,7 @@ const Upload = () => {
   const [precio, setPrecio] = useState()
   const [error, setError] = useState(false)
   const [errorContenido, setErrorContenido] = useState(false)
+  const [errorArchivo, setErrorArchivo] = useState(false)
   const [mostrarBoton, setMostrarBoton] = useState(false)
   const [cargando, setCargando] = useState(false)
   const [nombreUser, setNombreUser] = useState("")
@@ -69,6 +70,14 @@ const Upload = () => {
     setMostrarBoton(false)
     setCargando(true)
 
+    // console.log(archivo.size);
+
+    if (archivo.size > 10000000) {
+      setCargando(false)
+      setErrorArchivo(true)
+      return console.log("Imagen muy pesada.");
+  }
+
     const userData = JSON.parse(localStorage.getItem("userData")).userId
     const formdata = new FormData();
 
@@ -96,6 +105,11 @@ const Upload = () => {
     setErrorContenido(false)
     return
     }
+
+    setTimeout(() => {
+      setErrorArchivo(false);
+    }, 2000);
+
 
   return (
     <>
@@ -173,9 +187,10 @@ const Upload = () => {
             </div>
           </div>
           <button className="button-publicar" disabled={!mostrarBoton} style = { mostrarBoton ? {display: 'block'} : {display: 'none'}} onClick={handleUpload}>Publicar</button>
-          <div style = { !cargando ? {display: 'none'} : {display: 'block', marginTop: '30px'}} className="loader"></div>
+          <div style = { !cargando ? {display: 'none'} : {display: 'block', marginTop: '30px', marginBottom: '30px'}} className="loader"></div>
           {error ? <h3 className='error-publicar'>Ocurrio un error.</h3> : null}
           {errorContenido ? <h3 className='error-publicar'>Contenido de imagen no aceptado.</h3> : null}
+          {errorArchivo ? <h3 className='error-publicar'>Imagen muy pesada.</h3> : null}
       </div>
       <Footer/>
     </>
