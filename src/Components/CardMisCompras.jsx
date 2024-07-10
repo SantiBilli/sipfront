@@ -27,7 +27,6 @@ const CardMisCompras = ({infoCompra}) => {
             <p>Estado: {infoCompra.estado == "vendido" ? "comprado" : infoCompra.estado}</p>
           </div>
         </div>
-        <p className='trash-mis-ventas'><FaTrash/></p>
     </div>
   )
 }
